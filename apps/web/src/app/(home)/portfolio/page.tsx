@@ -1,15 +1,20 @@
-import Image from "next/image";
-import PageHeader from "@/components/page-header";
-import FilterSelectBox from "@/components/filter/filter-select-box";
 import FilterList from "@/components/filter/filter-list";
+import FilterSelectBox from "@/components/filter/filter-select-box";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
+
 import Pagination from "@/components/pagination";
 import { ProgressBarLink } from "@/components/progress-bar";
-import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
+
 import config from "@/config";
+
+import Image from "next/image";
+import PageHeader from "@/components/page-header";
+
 import { LuEye } from "react-icons/lu";
 
 const { title } = config;
+import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
+
 const POSTS_PER_PAGE = 9;
 
 export const metadata = {
@@ -30,7 +35,7 @@ export default async function Portfolio({
   const blogTags = [
     "All",
     ...Array.from(
-      new Set(allPortfolioPosts.map((post) => post.metadata.category ?? "")),
+      new Set(allPortfolioPosts.map((post) => post.metadata.category ?? ""))
     ),
   ];
   const selectedTag = tag;
@@ -41,7 +46,7 @@ export default async function Portfolio({
     selectedTag === "All"
       ? allPortfolioPosts
       : allPortfolioPosts.filter(
-          (post) => post.metadata.category === selectedTag,
+          (post) => post.metadata.category === selectedTag
         );
 
   // Calculate total pages
@@ -50,7 +55,7 @@ export default async function Portfolio({
   // Get blogs for current page
   const paginatedPortfolioPosts = filteredPortfolioPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
   );
 
   return (

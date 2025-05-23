@@ -1,3 +1,6 @@
+#!/bin/sh
+. "$HOME/.nvm/nvm.sh"        # ✅ Load nvm
+nvm use                      # ✅ Use version from .nvmrc
+
 pnpm test
 pnpm run lint-staged
-
