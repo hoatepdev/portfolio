@@ -1,0 +1,3 @@
+pnpm test
+pnpm run lint-staged
+
