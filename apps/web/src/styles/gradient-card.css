@@ -1,0 +1,31 @@
+.gradient-card {
+    padding: 20px;
+    z-index: 1;
+}
+
+.gradient-card::before {
+    inset: 1px;
+    background: var(--bg-gradient-jet);
+    z-index: -1;
+}
+
+@media (min-width: 580px) {
+    .gradient-card {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 30px;
+    }
+}
+
+@media (min-width: 580px) and (max-width: 639px) {
+    .gradient-card {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .gradient-card>div:last-child {
+        text-align: left;
+    }
+}

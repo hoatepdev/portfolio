@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "test": "turbo run test",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "delete": "rm -rf apps/docs/ && rm -rf apps/web/src/contents/ && rm -rf apps/web/src/config/index.ts",
+    "gen-config": "node scripts/gen-config.js"
+  },
+  "devDependencies": {
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "prettier": "^3.5.3",
+    "turbo": "2.5.3",
+    "typescript": "5.8.3"
+  },
+  "packageManager": "pnpm@10.11.0+sha256.a69e9cb077da419d47d18f1dd52e207245b29cac6e076acedbeb8be3b1a67bd7",
+  "engines": {
+    "node": ">=20"
+  }
+}
