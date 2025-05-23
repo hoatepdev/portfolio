@@ -2,10 +2,10 @@ import { NextWebVitalsMetric } from "next/app";
 
 export const sendToGA4 = (
   metric: NextWebVitalsMetric,
-  gaId: string | undefined,
+  gaId: string | undefined
 ) => {
   const metricValue = Math.round(
-    metric.name === "CLS" ? metric.value * 1000 : metric.value,
+    metric.name === "CLS" ? metric.value * 1000 : metric.value
   );
 
   if (gaId && typeof window !== "undefined" && window.gtag) {
@@ -15,11 +15,11 @@ export const sendToGA4 = (
       non_interaction: true,
     });
     console.log(
-      `[GA4] Sent metric: ${metric.name}, value: ${metricValue}, id: ${metric.id}`,
+      `[GA4] Sent metric: ${metric.name}, value: ${metricValue}, id: ${metric.id}`
     );
   } else {
     console.warn(
-      "[GA4] gtag is not available or Google Analytics ID is missing",
+      "[GA4] gtag is not available or Google Analytics ID is missing"
     );
   }
 };

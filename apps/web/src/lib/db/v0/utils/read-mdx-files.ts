@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+
 import { parseFrontmatter } from "./parse-frontmatter";
 
 export function readMDXFile(filePath: string) {
@@ -10,6 +11,6 @@ export function readMDXFile(filePath: string) {
   ) {
     throw new Error("Invalid file path or file does not exist");
   }
-  let rawContent = fs.readFileSync(filePath, "utf-8");
+  const rawContent = fs.readFileSync(filePath, "utf-8");
   return parseFrontmatter(rawContent);
 }

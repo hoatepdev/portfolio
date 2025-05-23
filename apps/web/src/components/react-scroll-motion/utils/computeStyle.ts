@@ -5,7 +5,7 @@ const computeStyle = (style: Style = {}, ...params: any[]): Style => {
   for (const key in computedStyle)
     if (typeof (computedStyle as any)[key] === "function")
       (computedStyle as any)[key] = ((computedStyle as any)[key] as Function)(
-        ...params,
+        ...params
       );
   return computedStyle;
 };

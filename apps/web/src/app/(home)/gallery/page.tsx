@@ -1,10 +1,11 @@
+import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BlurFadeDemo } from "@/components/magicui/blur-fade-demo";
+
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
+import { BlurFadeDemo } from "@/components/magicui/blur-fade-demo";
 import PageHeader from "@/components/page-header";
 import config from "@/config";
-import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const { title } = config;
@@ -28,7 +29,7 @@ function Gallery() {
             📑 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
             <span
               className={cn(
-                `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
+                `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
               )}
             >
               Thanks for Magic UI!

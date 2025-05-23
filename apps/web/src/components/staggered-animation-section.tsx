@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 
 function StaggeredAnimationSection({ children }) {
   const ref = useRef(null);

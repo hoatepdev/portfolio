@@ -1,17 +1,15 @@
 "use client";
 
+import { BriefcaseIcon, CalendarIcon, MapPin, School } from "lucide-react";
 import Image from "next/image";
 
-import { CalendarIcon, BriefcaseIcon, MapPin, School } from "lucide-react";
-
+import "@/styles/skills-bar.css";
 import type { TimeLine } from "@/types/resume";
 
 interface ResumeCardProps {
   timeLine: TimeLine;
   resumeCategory: string;
 }
-
-import "@/styles/skills-bar.css";
 
 export default function ResumeCard({
   timeLine,

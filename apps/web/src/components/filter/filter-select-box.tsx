@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { MdExpandMore } from "react-icons/md";
+
 import { ProgressBarLink } from "@/components/progress-bar";
 
 interface FilterSelectBoxProps {

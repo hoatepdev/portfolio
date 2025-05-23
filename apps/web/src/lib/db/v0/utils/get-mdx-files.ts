@@ -5,6 +5,6 @@ export function getMDXFiles(dir: string) {
   return fs
     .readdirSync(dir)
     .filter(
-      (file) => path.extname(file) === ".mdx" || path.extname(file) === ".md",
+      (file) => path.extname(file) === ".mdx" || path.extname(file) === ".md"
     );
 }

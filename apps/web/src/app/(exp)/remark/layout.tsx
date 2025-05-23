@@ -1,16 +1,15 @@
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 import { roboto } from "@/app/fonts";
+import "@/app/globals.css";
+import Hello from "@/components/hello";
 import HomeHeader from "@/components/layout/home-header";
 import SideBar from "@/components/layout/side-bar";
-import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
 import { WebVitals } from "@/components/web-vitals";
 import config from "@/config";
-
-import "@/app/globals.css";
 
 const {
   title,

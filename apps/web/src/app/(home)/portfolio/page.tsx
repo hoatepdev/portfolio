@@ -1,19 +1,16 @@
+import Image from "next/image";
+import { LuEye } from "react-icons/lu";
+
 import FilterList from "@/components/filter/filter-list";
 import FilterSelectBox from "@/components/filter/filter-select-box";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-
+import PageHeader from "@/components/page-header";
 import Pagination from "@/components/pagination";
 import { ProgressBarLink } from "@/components/progress-bar";
-
 import config from "@/config";
-
-import Image from "next/image";
-import PageHeader from "@/components/page-header";
-
-import { LuEye } from "react-icons/lu";
+import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
 
 const { title } = config;
-import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
 
 const POSTS_PER_PAGE = 9;
 

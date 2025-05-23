@@ -1,4 +1,4 @@
-import { LifeStyle, TechStack, About } from "@/types/about";
+import { About, LifeStyle, TechStack } from "@/types/about";
 import { SocialMedia } from "@/types/socail-media";
 
 export const isLifeStyle = (obj: unknown): obj is LifeStyle => {
@@ -47,7 +47,7 @@ export const isAbout = (obj: unknown): obj is About => {
 };
 
 export const isObject = (
-  object: unknown,
+  object: unknown
 ): object is Record<string, unknown> => {
   return (
     typeof object === "object" && object !== null && !Array.isArray(object)

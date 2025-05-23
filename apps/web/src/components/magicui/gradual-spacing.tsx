@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, Variants } from "motion/react";
+import { AnimatePresence, Variants, motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 

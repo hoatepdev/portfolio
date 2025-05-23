@@ -5,10 +5,10 @@
     "source.fixAll.eslint": "explicit"
   },
   "eslint.validate": [
-    "javascript",
-    "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "javascript",
+    "typescriptreact",
+    "javascriptreact"
   ],
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
@@ -56,13 +56,5 @@
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "terminal.integrated.shellIntegration.enabled": true,
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.profiles.osx": {
-    "zsh": {
-      "path": "/bin/zsh",
-      "args": ["-l"]
-    }
   }
 }

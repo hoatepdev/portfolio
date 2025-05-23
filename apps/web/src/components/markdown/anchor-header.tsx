@@ -1,6 +1,7 @@
 import React, { JSX } from "react";
-import slugify from "@/lib/slugify";
 import { IoLink } from "react-icons/io5";
+
+import slugify from "@/lib/slugify";
 
 interface HeaderProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -8,10 +9,10 @@ interface HeaderProps {
 }
 
 function AnchorHeader({ level, children, ...props }: HeaderProps) {
-  let Tag = `h${level}` as keyof JSX.IntrinsicElements;
-  let id = slugify(children?.toString() ?? "", { lower: true });
+  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+  const id = slugify(children?.toString() ?? "", { lower: true });
 
-  let getMargins = (level: number) => {
+  const getMargins = (level: number) => {
     switch (level) {
       case 1:
         return "text-3xl text-white-2 font-bold mt-14 mb-10";
@@ -32,7 +33,7 @@ function AnchorHeader({ level, children, ...props }: HeaderProps) {
     }
   };
 
-  let margins = getMargins(level);
+  const margins = getMargins(level);
 
   return (
     <Tag

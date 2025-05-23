@@ -8,18 +8,18 @@ const isSafari =
     : false;
 
 type ProxyHandler<T> = {
-  get: (target: Object, key: Symbol | number | string) => any;
+  get: (target: object, key: symbol | number | string) => any;
 };
 
 interface ProxyConstructor {
   new <T extends object>(target: T, handler: ProxyHandler<T>): T;
 }
-declare var Proxy: ProxyConstructor;
+declare let Proxy: ProxyConstructor;
 
 const environment = new Proxy(
   { width: 0, height: 0 },
   {
-    get: (target: Object, key: Symbol | number | string) => {
+    get: (target: object, key: symbol | number | string) => {
       if (typeof window === "undefined") return undefined;
       if (key === "height") {
         if (isIphone && isSafari) return window.screen.height - 80;
@@ -31,7 +31,7 @@ const environment = new Proxy(
       }
       return undefined;
     },
-  },
+  }
 );
 
 export default environment;

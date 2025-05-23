@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import { range } from "@/lib/range";
+import { cn } from "@/lib/utils";
 
 type MarqueeProps = {
   children: React.ReactNode;
@@ -32,7 +32,7 @@ export const Marquee = (props: MarqueeProps) => {
       className={cn(
         "group flex overflow-hidden",
         direction === "left" ? "flex-row" : "flex-col",
-        className,
+        className
       )}
       style={{
         maskImage: mask,
@@ -54,7 +54,7 @@ export const Marquee = (props: MarqueeProps) => {
               ? "animate-marquee-left flex-row"
               : "animate-marquee-up flex-col",
             pauseOnHover && "group-hover:[animation-play-state:paused]",
-            reverse && "direction-reverse",
+            reverse && "direction-reverse"
           )}
         >
           {children}

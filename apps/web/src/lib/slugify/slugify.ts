@@ -1,5 +1,5 @@
-import { SlugifyOptions, CharMap } from "./types";
 import { charMap, locales } from "./data";
+import { CharMap, SlugifyOptions } from "./types";
 
 function slugify(string: string, options?: SlugifyOptions | string): string {
   if (typeof string !== "string") {

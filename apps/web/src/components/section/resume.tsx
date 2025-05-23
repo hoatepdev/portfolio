@@ -1,10 +1,8 @@
 import IconBox from "@/components/icon-box";
 import ResumeCard from "@/components/resume/resume-card";
-
+import "@/styles/resume/timeline-item.css";
 import type { VCardIconType } from "@/types/config";
 import type { TimeLine } from "@/types/resume";
-
-import "@/styles/resume/timeline-item.css";
 
 interface ResumeSectionProps {
   icon: VCardIconType;

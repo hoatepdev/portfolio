@@ -1,9 +1,8 @@
-import PageHeader from "@/components/page-header";
-import AnimatedSection from "@/components/animated-section";
-import markdownToHtml from "@/lib/markdownToHtml";
-
 import { cn } from "@workspace/ui/lib/utils";
 
+import AnimatedSection from "@/components/animated-section";
+import PageHeader from "@/components/page-header";
+import markdownToHtml from "@/lib/markdownToHtml";
 import "@/styles/markdown-styles.css";
 
 const terms = `

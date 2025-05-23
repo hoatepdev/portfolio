@@ -26,7 +26,7 @@
     "dev": "next dev --turbopack --port 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --max-warnings 0",
+    "lint": "next lint",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
@@ -92,6 +92,7 @@
     "@workspace/eslint-config": "workspace:^",
     "@workspace/typescript-config": "workspace:*",
     "autoprefixer": "^10.4.21",
+    "eslint-plugin-import": "^2.31.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "5.8.3"

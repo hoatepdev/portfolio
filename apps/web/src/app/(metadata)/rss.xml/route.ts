@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import RSS from "rss";
-import { getBlogPosts } from "@/lib/db/v1/post";
-import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
+
 import config from "@/config";
+import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
+import { getBlogPosts } from "@/lib/db/v1/post";
 
 const { title, description, author, siteURL, openGraph } = config;
 const { images } = openGraph;
@@ -19,10 +20,10 @@ export async function GET() {
     image_url: imageUrl,
   });
 
-  let posts = await getBlogPosts();
+  const posts = await getBlogPosts();
 
   for (const post of posts) {
-    let { title, publishedAt, summary } = post.metadata;
+    const { title, publishedAt, summary } = post.metadata;
 
     feed.item({
       title,
@@ -33,10 +34,10 @@ export async function GET() {
     });
   }
 
-  let projects = await getPortfolioPosts();
+  const projects = await getPortfolioPosts();
 
   for (const project of projects) {
-    let { title, publishedAt, summary } = project.metadata;
+    const { title, publishedAt, summary } = project.metadata;
 
     feed.item({
       title,

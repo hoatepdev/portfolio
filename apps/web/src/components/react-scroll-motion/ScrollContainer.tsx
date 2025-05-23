@@ -9,6 +9,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+
 import { initialScrollData } from "./constants";
 import { ScrollDataContext, ScrollPageContext } from "./stores";
 import { ScrollData } from "./types";
@@ -75,7 +76,7 @@ const ScrollContainer: FC<ScrollContainerProps> = (props) => {
           realPage,
           currentPage,
           currentProgress,
-        }) as ScrollData,
+        }) as ScrollData
     );
 
     if (snap !== "none") {

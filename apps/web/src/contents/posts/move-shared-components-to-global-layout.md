@@ -109,6 +109,7 @@ I designed a new `PageContent` component to structure the elements of each page.
 
 ```tsx
 import React, { useEffect } from "react";
+
 import Header from "@/components/header";
 
 const PageContent: React.FC<{

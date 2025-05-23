@@ -1,17 +1,16 @@
-import "@/styles/markdown-alert.css";
-
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
 import { rehypeGithubAlerts } from "rehype-github-alerts";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 
 import Anchor from "@/components/markdown/anchor";
+import AnchorHeader from "@/components/markdown/anchor-header";
 import BlockQuote from "@/components/markdown/block-quote";
 import CodeBlock from "@/components/markdown/code-block";
 import MarkdownImage from "@/components/markdown/markdown-image";
 import Paragraph from "@/components/markdown/paragraph";
-import AnchorHeader from "@/components/markdown/anchor-header";
+import "@/styles/markdown-alert.css";
 
 interface MarkdownRendererProps {
   className?: string;

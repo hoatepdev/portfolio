@@ -1,16 +1,17 @@
-import { Suspense } from "react";
 import Image from "next/image";
+import { Suspense } from "react";
 import Balancer from "react-wrap-balancer";
-import Loading from "@/components/loading";
-import PageHeader from "@/components/page-header";
-import FilterSelectBox from "@/components/filter/filter-select-box";
+
 import FilterList from "@/components/filter/filter-list";
+import FilterSelectBox from "@/components/filter/filter-select-box";
+import Loading from "@/components/loading";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
+import PageHeader from "@/components/page-header";
 import Pagination from "@/components/pagination";
 import { ProgressBarLink } from "@/components/progress-bar";
+import config from "@/config";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import { getBlogPosts } from "@/lib/db/v1/post";
-import config from "@/config";
 
 const { title } = config;
 
@@ -23,11 +24,11 @@ type BlogQueryParams = Promise<{ tag?: string; page?: string }>;
 
 async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
   const { tag = "All", page = "1" } = await searchParams;
-  let allBlogs = await getBlogPosts();
+  const allBlogs = await getBlogPosts();
   const blogTags = [
     "All",
     ...Array.from(
-      new Set(allBlogs.map((post) => post.metadata.category ?? "")),
+      new Set(allBlogs.map((post) => post.metadata.category ?? ""))
     ),
   ];
   const selectedTag = tag;
@@ -45,7 +46,7 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
   // Get blogs for current page
   const paginatedBlogs = filteredBlogs.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
   );
 
   return (
@@ -90,7 +91,7 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
                         month: "long",
                         day: "numeric",
                         year: "numeric",
-                      },
+                      }
                     )}
                   </time>
                 </div>

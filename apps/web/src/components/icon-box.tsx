@@ -1,6 +1,5 @@
-import type { VCardIconType } from "@/types/config";
-
 import "@/styles/icon-box.css";
+import type { VCardIconType } from "@/types/config";
 
 interface IconBoxProps {
   icon: VCardIconType;

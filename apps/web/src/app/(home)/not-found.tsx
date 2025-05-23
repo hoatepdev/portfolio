@@ -1,11 +1,10 @@
-import React from "react";
+import { ArrowLeft, Home } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
+import React from "react";
 
 import PageHeader from "@/components/page-header";
 import config from "@/config";
-import { Home, ArrowLeft } from "lucide-react";
-
-import type { Metadata } from "next";
 
 const { title } = config;
 

@@ -1,13 +1,10 @@
-import React from "react";
-
 import type { Metadata } from "next";
+import React from "react";
 
 import PageHeader from "@/components/page-header";
 import ResumeSection from "@/components/section/resume";
-
-import type { ResumeSection as ResumeSectionType } from "@/types/resume";
-
 import config from "@/config";
+import type { ResumeSection as ResumeSectionType } from "@/types/resume";
 
 const { title, resumes } = config;
 
@@ -28,7 +25,7 @@ export default function Resume() {
             timeLines={resumeSection.timeLines}
             resumeCategory={key}
           />
-        ),
+        )
       )}
     </article>
   );

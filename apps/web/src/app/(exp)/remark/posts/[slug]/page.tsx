@@ -1,13 +1,14 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug } from "@/lib/api";
-import { CMS_NAME } from "@/lib/constants";
-import markdownToHtml from "@/lib/markdownToHtml";
+
 import Container from "@/app/(exp)/remark/_components/container";
 import Header from "@/app/(exp)/remark/_components/header";
 import { PostBody } from "@/app/(exp)/remark/_components/post-body";
 import { PostHeader } from "@/app/(exp)/remark/_components/post-header";
 import PageHeader from "@/components/page-header";
+import { getAllPosts, getPostBySlug } from "@/lib/api";
+import { CMS_NAME } from "@/lib/constants";
+import markdownToHtml from "@/lib/markdownToHtml";
 
 export default async function Post(props: Params) {
   const params = await props.params;

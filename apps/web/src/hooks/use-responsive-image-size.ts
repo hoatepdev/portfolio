@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export type ImageSize = {
   width: number;
@@ -11,7 +11,7 @@ export type Breakpoint = {
 };
 
 export const useResponsiveImageSize = (
-  breakpoints: Breakpoint[],
+  breakpoints: Breakpoint[]
 ): ImageSize => {
   const defaultBreakpoint = breakpoints.length - 1;
   const [imageSize, setImageSize] = useState<ImageSize>(() => {

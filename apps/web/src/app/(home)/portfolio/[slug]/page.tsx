@@ -1,11 +1,11 @@
-import React, { Suspense } from "react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
+import { notFound } from "next/navigation";
+import React, { Suspense } from "react";
+
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import PageHeader from "@/components/page-header";
 import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
-
 import "@/styles/blog/blog-text.css";
 
 type tParams = Promise<{ slug: string }>;
@@ -16,19 +16,19 @@ export async function generateMetadata({
   params: tParams;
 }): Promise<Metadata | undefined> {
   const { slug } = await params;
-  let posts = await getPortfolioPosts();
-  let post = posts.find((post) => post.slug === slug);
+  const posts = await getPortfolioPosts();
+  const post = posts.find((post) => post.slug === slug);
   if (!post) {
     return;
   }
 
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
     banner,
   } = post.metadata;
-  let ogImage = banner
+  const ogImage = banner
     ? `https://www.1chooo.com${banner}`
     : `https://www.1chooo.com/og?title=${title}`;
 
@@ -60,15 +60,15 @@ export async function generateMetadata({
 
 function formatDate(date: string) {
   noStore();
-  let currentDate = new Date().getTime();
+  const currentDate = new Date().getTime();
   if (!date.includes("T")) {
     date = `${date}T00:00:00`;
   }
-  let targetDate = new Date(date).getTime();
-  let timeDifference = Math.abs(currentDate - targetDate);
-  let daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  const targetDate = new Date(date).getTime();
+  const timeDifference = Math.abs(currentDate - targetDate);
+  const daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
-  let fullDate = new Date(date).toLocaleString("en-us", {
+  const fullDate = new Date(date).toLocaleString("en-us", {
     month: "long",
     day: "numeric",
     year: "numeric",
@@ -105,8 +105,8 @@ function formatDate(date: string) {
 
 export default async function Portfolio(props: { params: tParams }) {
   const { slug } = await props.params;
-  let posts = await getPortfolioPosts();
-  let post = posts.find((post) => post.slug === slug);
+  const posts = await getPortfolioPosts();
+  const post = posts.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

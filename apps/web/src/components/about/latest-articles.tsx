@@ -1,22 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-import AboutSection from "@/components/section/about";
-
-import Image from "next/image";
-import { Post } from "@/interfaces/post";
-
-import { ProgressBarLink } from "@/components/progress-bar";
-import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
-import StaggeredAnimationSection from "@/components/staggered-animation-section";
-import { BlurFade } from "@/components/magicui/blur-fade";
-
-import { LuEye } from "react-icons/lu";
 import { ArrowRightIcon } from "@primer/octicons-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { LuEye } from "react-icons/lu";
 
+import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
+import { BlurFade } from "@/components/magicui/blur-fade";
+import { ProgressBarLink } from "@/components/progress-bar";
+import AboutSection from "@/components/section/about";
+import StaggeredAnimationSection from "@/components/staggered-animation-section";
+import { Post } from "@/interfaces/post";
 import { cn } from "@/lib/utils";
-
 import "@/styles/about/latest-posts.css";
 
 type Props = {
@@ -87,7 +82,7 @@ export function LatestArticles({ posts }: Props) {
         <div className="z-10 flex items-center justify-center">
           <div
             className={cn(
-              "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
+              "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
             )}
           >
             <ProgressBarLink href="/post">

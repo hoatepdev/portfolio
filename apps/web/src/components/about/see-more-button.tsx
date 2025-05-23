@@ -1,5 +1,6 @@
-import React from "react";
 import { sendGTMEvent } from "@next/third-parties/google";
+import React from "react";
+
 import { ProgressBarLink } from "@/components/progress-bar";
 import type { VCardIconType } from "@/types/config";
 

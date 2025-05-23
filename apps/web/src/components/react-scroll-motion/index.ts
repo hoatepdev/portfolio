@@ -1,5 +1,7 @@
+import Animator from "./Animator";
+import ScrollContainer from "./ScrollContainer";
+import ScrollPage from "./ScrollPage";
 import {
-  batch,
   Fade,
   FadeIn,
   FadeOut,
@@ -12,10 +14,8 @@ import {
   Zoom,
   ZoomIn,
   ZoomOut,
+  batch,
 } from "./animations";
-import Animator from "./Animator";
-import ScrollContainer from "./ScrollContainer";
-import ScrollPage from "./ScrollPage";
 import type { Animation, Style } from "./types";
 
 export {

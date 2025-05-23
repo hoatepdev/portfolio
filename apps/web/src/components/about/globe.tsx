@@ -1,20 +1,20 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
 import createGlobe from "cobe";
+import React, { useEffect, useRef } from "react";
 import { useSpring } from "react-spring";
 
 /**
  * @see https://github.com/shuding/cobe/tree/main/website/pages/docs/showcases
  */
 function Globe() {
-  let canvasRef = useRef<HTMLCanvasElement>(null);
-  let pointerInteracting = useRef<number | null>(null);
-  let pointerInteractionMovement = useRef(0);
-  let fadeMask =
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pointerInteracting = useRef<number | null>(null);
+  const pointerInteractionMovement = useRef(0);
+  const fadeMask =
     "radial-gradie</div>nt(circle at 50% 50%, rgb(0, 0, 0) 60%, rgb(0, 0, 0, 0) 70%)";
 
-  let [{ r }, api] = useSpring(() => ({
+  const [{ r }, api] = useSpring(() => ({
     r: 0,
     config: {
       mass: 1,
@@ -27,7 +27,7 @@ function Globe() {
   useEffect(() => {
     let width = 0;
 
-    let onResize = () => {
+    const onResize = () => {
       if (canvasRef.current && (width = canvasRef.current.offsetWidth)) {
         window.addEventListener("resize", onResize);
       }
@@ -35,7 +35,7 @@ function Globe() {
     onResize();
 
     if (!canvasRef?.current) return;
-    let globe = createGlobe(canvasRef.current, {
+    const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
       width: width * 2,
       height: width * 2,
@@ -100,7 +100,7 @@ function Globe() {
           }}
           onMouseMove={(e) => {
             if (pointerInteracting.current !== null) {
-              let delta = e.clientX - pointerInteracting.current;
+              const delta = e.clientX - pointerInteracting.current;
               pointerInteractionMovement.current = delta;
               api.start({
                 r: delta / 200,
@@ -109,7 +109,7 @@ function Globe() {
           }}
           onTouchMove={(e) => {
             if (pointerInteracting.current !== null && e.touches[0]) {
-              let delta = e.touches[0].clientX - pointerInteracting.current;
+              const delta = e.touches[0].clientX - pointerInteracting.current;
               pointerInteractionMovement.current = delta;
               api.start({
                 r: delta / 100,

@@ -1,8 +1,8 @@
 import path from "path";
 
+import { extractTweetIds } from "./extract-tweet-ids";
 import { getMDXFiles } from "./get-mdx-files";
 import { readMDXFile } from "./read-mdx-files";
-import { extractTweetIds } from "./extract-tweet-ids";
 
 export function getMDXData(dir: string) {
   const mdxFiles = getMDXFiles(dir);

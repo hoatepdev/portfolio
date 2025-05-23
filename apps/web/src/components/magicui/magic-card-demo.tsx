@@ -1,5 +1,4 @@
 // import { useTheme } from "next-themes";
-
 import { MagicCard } from "@/components/magicui/magic-card";
 
 export function MagicCardDemo() {

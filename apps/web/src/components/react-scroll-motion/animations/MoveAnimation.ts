@@ -5,7 +5,7 @@ export const Move = (
   dx: number = 0,
   dy: number = 100,
   outDx: number | null = null,
-  outDy: number | null = -100,
+  outDy: number | null = -100
 ): Animation => ({
   in: {
     style: {
@@ -13,7 +13,7 @@ export const Move = (
         `translate(${SimpleInterpolation(
           dx,
           0,
-          value,
+          value
         )}px, ${SimpleInterpolation(dy, 0, value)}px)`,
     },
   },
@@ -23,7 +23,7 @@ export const Move = (
         `translate(${SimpleInterpolation(
           0,
           outDx || dx,
-          value,
+          value
         )}px, ${SimpleInterpolation(0, outDy || dy, value)}px)`,
     },
   },
@@ -36,7 +36,7 @@ export const MoveIn = (dx: number = 0, dy: number = 100): Animation => ({
         `translate(${SimpleInterpolation(
           dx,
           0,
-          value,
+          value
         )}px, ${SimpleInterpolation(dy, 0, value)}px)`,
     },
   },
@@ -49,7 +49,7 @@ export const MoveOut = (dx: number = 0, dy: number = -100): Animation => ({
         `translate(${SimpleInterpolation(
           0,
           dx,
-          value,
+          value
         )}px, ${SimpleInterpolation(0, dy, value)}px)`,
     },
   },

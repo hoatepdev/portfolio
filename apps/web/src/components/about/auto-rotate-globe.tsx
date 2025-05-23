@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
 import createGlobe from "cobe";
-import { useSpring } from "react-spring";
+import React, { useEffect, useRef } from "react";
 import { LuMapPin } from "react-icons/lu";
+import { useSpring } from "react-spring";
 
 function AutoRotatingGlobe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

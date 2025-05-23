@@ -1,19 +1,14 @@
-import AboutSection from "@/components/section/about";
-
 import React from "react";
-
-import GitHubCalendar from "react-github-calendar";
 import { ThemeInput } from "react-activity-calendar";
-
-import { BlurFade } from "@/components/magicui/blur-fade";
-import Globe from "@/components/about/globe";
-import { Marquee } from "@/components/about/marquee";
-
+import GitHubCalendar from "react-github-calendar";
 import { LuMapPin, LuZap } from "react-icons/lu";
 
-import type { VCardIconType } from "@/types/config";
-
+import Globe from "@/components/about/globe";
+import { Marquee } from "@/components/about/marquee";
+import { BlurFade } from "@/components/magicui/blur-fade";
+import AboutSection from "@/components/section/about";
 import "@/styles/about/coding-stats.css";
+import type { VCardIconType } from "@/types/config";
 
 interface TechStack {
   name: string;

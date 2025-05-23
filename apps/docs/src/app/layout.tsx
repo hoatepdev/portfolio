@@ -1,8 +1,8 @@
+import Link from "next/link";
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
+import "nextra-theme-docs/style.css";
 import { Banner, Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
-import Link from "next/link";
-import "nextra-theme-docs/style.css";
 
 export const metadata = {
   // Define your metadata here

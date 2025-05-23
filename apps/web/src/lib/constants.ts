@@ -1,5 +1,6 @@
-import type { Breakpoint } from "@/hooks/use-responsive-image-size";
 import moment from "moment";
+
+import type { Breakpoint } from "@/hooks/use-responsive-image-size";
 
 export const GITHUB_USERNAME = "1chooo";
 export const MEDIUM_USERNAME = "1chooo";

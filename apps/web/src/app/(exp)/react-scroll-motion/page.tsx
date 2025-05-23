@@ -3,7 +3,6 @@
 import {
   Animation,
   Animator,
-  batch,
   Fade,
   FadeIn,
   Move,
@@ -14,6 +13,7 @@ import {
   Sticky,
   StickyIn,
   ZoomIn,
+  batch,
 } from "@/components/react-scroll-motion";
 
 export default function Home() {

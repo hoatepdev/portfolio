@@ -1,5 +1,5 @@
-import { environment } from "../utils";
 import { Animation } from "../types";
+import { environment } from "../utils";
 
 export const Sticky = (left: number = 50, top: number = 50): Animation => ({
   in: {

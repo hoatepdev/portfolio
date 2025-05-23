@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
+
 import { ScrollDataContext, ScrollPageContext } from "./stores";
 import { Animation } from "./types";
 import { computeStyle } from "./utils";
@@ -26,7 +27,7 @@ const Animator: FC<AnimatorProps> = (props) => {
 
   useEffect(
     () => (typeof window !== "undefined" ? setIsSSR(false) : undefined),
-    [],
+    []
   );
 
   const calculatedStyle: CSSProperties | undefined = useMemo(
@@ -52,7 +53,7 @@ const Animator: FC<AnimatorProps> = (props) => {
       animation?.in?.style,
       currentProgress,
       style,
-    ],
+    ]
   );
 
   return (

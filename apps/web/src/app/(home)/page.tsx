@@ -1,14 +1,13 @@
-import PageHeader from "@/components/page-header";
-import LifeStyles from "@/components/about/life-styles";
-import CodingStats from "@/components/about/coding-stats";
-import AnimatedSection from "@/components/animated-section";
-import markdownToHtml from "@/lib/markdownToHtml";
 import { cn } from "@workspace/ui/lib/utils";
-import { getAllPosts } from "@/lib/api";
+
+import CodingStats from "@/components/about/coding-stats";
 import { LatestArticles } from "@/components/about/latest-articles";
-
+import LifeStyles from "@/components/about/life-styles";
+import AnimatedSection from "@/components/animated-section";
+import PageHeader from "@/components/page-header";
 import config from "@/config";
-
+import { getAllPosts } from "@/lib/api";
+import markdownToHtml from "@/lib/markdownToHtml";
 import "@/styles/markdown-styles.css";
 
 const { about } = config;
@@ -25,7 +24,7 @@ const {
 async function About() {
   const allPosts = getAllPosts();
 
-  let header = preferredName
+  const header = preferredName
     ? `About ${preferredName} 👨🏻‍💻`
     : `About ${firstName} ${lastName} 👨🏻‍💻`;
 

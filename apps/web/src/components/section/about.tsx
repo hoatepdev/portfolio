@@ -1,6 +1,6 @@
 import React from "react";
-import { BlurFade } from "@/components/magicui/blur-fade";
 
+import { BlurFade } from "@/components/magicui/blur-fade";
 import "@/styles/about-section.css";
 
 interface AboutSectionProps {

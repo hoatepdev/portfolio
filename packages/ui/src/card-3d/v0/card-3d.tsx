@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface Card3DProps {
   imageUrl: string;
@@ -27,7 +27,7 @@ export default function Card3D({ imageUrl, altText }: Card3DProps) {
       const distanceX = e.clientX - cardCenterX;
       const distanceY = e.clientY - cardCenterY;
       const maxDistance = Math.sqrt(
-        window.innerWidth ** 2 / 4 + window.innerHeight ** 2 / 4,
+        window.innerWidth ** 2 / 4 + window.innerHeight ** 2 / 4
       );
 
       const angleX = (distanceY / maxDistance) * maxRotation;

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Copy, Check } from "lucide-react";
+import { Check, Copy } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface TerminalProps {
   terminalSteps: string[];
@@ -23,7 +23,7 @@ export function Terminal({ terminalSteps }: TerminalProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setTerminalStep((prev) =>
-        prev < terminalSteps.length - 1 ? prev + 1 : prev,
+        prev < terminalSteps.length - 1 ? prev + 1 : prev
       );
     }, 500);
 

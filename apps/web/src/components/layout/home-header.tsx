@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
 import { usePathname } from "next/navigation";
-import { ProgressBarLink } from "@/components/progress-bar";
-import { BlurFade } from "@/components/magicui/blur-fade";
-import type { NavigationLink } from "@/types/nav-bar";
+import React from "react";
 
+import { BlurFade } from "@/components/magicui/blur-fade";
+import { ProgressBarLink } from "@/components/progress-bar";
 import "@/styles/nav-bar.css";
+import type { NavigationLink } from "@/types/nav-bar";
 
 interface HomeHeaderProps {
   navigationLinks: NavigationLink[];

@@ -7,6 +7,7 @@
     "dev": "turbo dev",
     "test": "turbo run test",
     "lint": "turbo lint",
+    "lint:fix": "eslint --fix apps/web apps/docs packages/ui",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "delete": "rm -rf apps/docs/ && rm -rf apps/web/src/contents/ && rm -rf apps/web/src/config/index.ts",
     "gen-config": "node scripts/gen-config.js",
@@ -17,6 +18,9 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@commitlint/prompt-cli": "^19.8.1",
+    "@eslint/js": "^9.27.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@typescript-eslint/parser": "^8.32.1",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
     "husky": "^9.1.7",
@@ -30,8 +34,8 @@
     "node": ">=20"
   },
   "lint-staged": {
-    "*.ts": [
-      "pnpm run lint",
+    "*.{ts,tsx}": [
+      "pnpm run lint:fix",
       "pnpm run format",
       "git add ."
     ]

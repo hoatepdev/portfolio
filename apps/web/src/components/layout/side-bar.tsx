@@ -1,23 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-
-import { useState, useRef } from "react";
+import Link from "next/link";
+import { useRef, useState } from "react";
 import { MdExpandMore } from "react-icons/md";
 
-import Footer from "@/components/layout/footer";
 import IconBox from "@/components/icon-box";
-
-import type { Contact, SocialLink } from "@/types/config";
-
-import { useResponsiveImageSize } from "@/hooks/use-responsive-image-size";
-
-import { breakpoints } from "@/lib/constants";
-
+import Footer from "@/components/layout/footer";
 import config from "@/config";
-
+import { useResponsiveImageSize } from "@/hooks/use-responsive-image-size";
+import { breakpoints } from "@/lib/constants";
 import "@/styles/side-bar.css";
+import type { Contact, SocialLink } from "@/types/config";
 
 const { socialLinks, contacts } = config;
 

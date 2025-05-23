@@ -1,38 +1,38 @@
-import { Config } from "@/types/config";
-import { Icons } from "@/components/icons";
-
-import { PiMediumLogoBold } from "react-icons/pi";
-import { Monitor, GraduationCap } from "lucide-react";
 import { GoalIcon } from "@primer/octicons-react";
+import { GraduationCap, Monitor } from "lucide-react";
+import { AiOutlinePython } from "react-icons/ai";
+import { BiLogoFlask } from "react-icons/bi";
+import { DiRedis } from "react-icons/di";
+import { FaAws, FaReact } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import {
   LuGithub,
-  LuPencil,
   LuLinkedin,
-  LuRss,
   LuMail,
   LuMapPin,
+  LuPencil,
+  LuRss,
 } from "react-icons/lu";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaReact, FaAws } from "react-icons/fa";
-import { AiOutlinePython } from "react-icons/ai";
+import { PiMediumLogoBold } from "react-icons/pi";
 import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
-import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
-import { BiLogoFlask } from "react-icons/bi";
-import { VscTerminalLinux, VscAzure } from "react-icons/vsc";
-import { DiRedis } from "react-icons/di";
+import { SiFastapi, SiKubernetes, SiLatex, SiPostman } from "react-icons/si";
 import {
+  TbBrandAstro,
   TbBrandCpp,
-  TbBrandTypescript,
-  TbBrandGolang,
-  TbBrandNextjs,
   TbBrandDjango,
   TbBrandDocker,
+  TbBrandGolang,
   TbBrandMysql,
-  TbMarkdown,
-  TbBrandAstro,
+  TbBrandNextjs,
   TbBrandTerraform,
+  TbBrandTypescript,
+  TbMarkdown,
   TbPhotoSquareRounded,
 } from "react-icons/tb";
+import { VscAzure, VscTerminalLinux } from "react-icons/vsc";
+
+import { Icons } from "@/components/icons";
+import { Config } from "@/types/config";
 
 const config: Config = {
   avatar: "/images/profile.webp",
