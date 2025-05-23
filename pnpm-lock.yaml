@@ -32,6 +32,9 @@ importers:
       '@workspace/typescript-config':
         specifier: workspace:*
         version: link:packages/typescript-config
+      commitlint-config-gitmoji:
+        specifier: ^2.3.1
+        version: 2.3.1
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -1152,6 +1155,10 @@ packages:
     resolution: {integrity: sha512-Ph8IN1IOHPSDhURCSXBz44+CIu+60duFwRsg6HqaISFHQHbmBtxVw4ZrFNIYUzEP7WwrNPxa2/5qJ//NK1FGcw==}
     engines: {node: '>=v18'}
 
+  '@commitlint/types@17.8.1':
+    resolution: {integrity: sha512-PXDQXkAmiMEG162Bqdh9ChML/GJZo6vU+7F03ALKDK8zYc6SuAr47LjG7hGYRqUOz+WK0dU7bQ0xzuqFMdxzeQ==}
+    engines: {node: '>=v14'}
+
   '@commitlint/types@19.8.1':
     resolution: {integrity: sha512-/yCrWGCoA1SVKOks25EGadP9Pnj0oAIHGpl2wH2M2Y46dPM2ueb8wyCVOD7O3WCTkaJ0IkKvzhl1JY7+uCT2Dw==}
     engines: {node: '>=v18'}
@@ -1230,6 +1237,15 @@ packages:
     peerDependencies:
       react: ^16 || ^17 || ^18 || ^19
       react-dom: ^16 || ^17 || ^18 || ^19
+
+  '@gitmoji/commit-types@1.1.5':
+    resolution: {integrity: sha512-8D3FZMRY+gtYpTcHG1SOGmm9CFqxNh6rI9xDoCydxHxnWgqInbdF3nk9gibW5gXA58Hf2cVcJaLEcGOKLRAtmw==}
+
+  '@gitmoji/gitmoji-regex@1.0.0':
+    resolution: {integrity: sha512-+BFXxcWCxn0UIYuG1v5n9SfaCCS8tw95j1x3QsTJRdGGiihRyVLTHiu1wrHlzH3z4nYXKjCKiZFTdWwMjRI+gQ==}
+
+  '@gitmoji/parser-opts@1.4.0':
+    resolution: {integrity: sha512-zzmx/vtpdB/ijjUm7u9OzHNCXWKpSbzVEgVzOzhilMgoTBlUDyInZFUtiCTV+Wf4oCP9nxGa/kQGQFfN+XLH1g==}
 
   '@headlessui/react@2.2.0':
     resolution: {integrity: sha512-RzCEg+LXsuI7mHiSomsu/gBJSjpupm6A1qIZ5sWjd7JhARNlMiSA4kKfJpCKwU9tE+zMRterhhrP74PvfJrpXQ==}
@@ -3209,6 +3225,12 @@ packages:
     resolution: {integrity: sha512-e2i4wANQiSXgnrBlIatyHtP1odfUp0BbV5Y5nEGbxtIrStkEOAAzCUirvLBNXHLr7kwLvJl6V+4V3XV9x7Wd9w==}
     engines: {node: ^12.20.0 || >=14}
 
+  commitlint-config-gitmoji@2.3.1:
+    resolution: {integrity: sha512-T15ssbsyNc6szHlnGWo0/xvIA1mObqM70E9TwKNVTpksxhm+OdFht8hvDdKJAVi4nlZX5tcfTeILOi7SHBGH3w==}
+
+  commitlint-plugin-gitmoji@2.2.6:
+    resolution: {integrity: sha512-oKHPHeNXby0Ix0ZbHVSK5ZyPx1V4fyBjLOy93cYwXhOEPXe36nkDc/HDPFfQpzx1vz39277TaP9LScbqTbscfQ==}
+
   commondir@1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
 
@@ -4097,6 +4119,9 @@ packages:
 
   github-slugger@2.0.0:
     resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
+
+  gitmojis@3.15.0:
+    resolution: {integrity: sha512-28sothO0+6UuXx0fnJXi4kqy2/dKeFN3xL2Ss5k5K5ECBJMi5T2kZLY92xys3/+YD+AgKHgeiw7YQpYKnkCLMg==}
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -8345,6 +8370,10 @@ snapshots:
     dependencies:
       find-up: 7.0.0
 
+  '@commitlint/types@17.8.1':
+    dependencies:
+      chalk: 4.1.2
+
   '@commitlint/types@19.8.1':
     dependencies:
       '@types/conventional-commits-parser': 5.0.1
@@ -8437,6 +8466,17 @@ snapshots:
       giscus: 1.6.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+
+  '@gitmoji/commit-types@1.1.5': {}
+
+  '@gitmoji/gitmoji-regex@1.0.0':
+    dependencies:
+      emoji-regex: 10.4.0
+      gitmojis: 3.15.0
+
+  '@gitmoji/parser-opts@1.4.0':
+    dependencies:
+      '@gitmoji/gitmoji-regex': 1.0.0
 
   '@headlessui/react@2.2.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
@@ -10582,6 +10622,19 @@ snapshots:
 
   commander@9.2.0: {}
 
+  commitlint-config-gitmoji@2.3.1:
+    dependencies:
+      '@commitlint/types': 17.8.1
+      '@gitmoji/commit-types': 1.1.5
+      '@gitmoji/parser-opts': 1.4.0
+      commitlint-plugin-gitmoji: 2.2.6
+
+  commitlint-plugin-gitmoji@2.2.6:
+    dependencies:
+      '@commitlint/types': 17.8.1
+      '@gitmoji/gitmoji-regex': 1.0.0
+      gitmojis: 3.15.0
+
   commondir@1.0.1: {}
 
   compare-func@2.0.0:
@@ -11627,6 +11680,8 @@ snapshots:
       split2: 4.2.0
 
   github-slugger@2.0.0: {}
+
+  gitmojis@3.15.0: {}
 
   glob-parent@5.1.2:
     dependencies:
