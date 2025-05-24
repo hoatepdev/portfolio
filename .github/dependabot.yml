@@ -4,13 +4,58 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
       interval: "weekly"
-      day: wednesday
-      time: "06:00"
-      timezone: "Asia/Taipei"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Ho_Chi_Minh"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "hoatepdev"
     assignees:
       - "hoatepdev"
-    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "automated"
+    ignore:
+      # Ignore major version updates for specific packages if needed
+      # - dependency-name: "package-name"
+      #   versions: [">=2.0.0"]
+    groups:
+      dev-dependencies:
+        dependency-type: "development"
+      prod-dependencies:
+        dependency-type: "production"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Ho_Chi_Minh"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "github-actions"
+      - "dependencies"
+
+  # Enable version updates for Docker
+  # - package-ecosystem: "docker"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   commit-message:
+  #     prefix: "docker"
+  #   labels:
+  #     - "docker"
+  #     - "dependencies"
