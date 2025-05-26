@@ -1,9 +1,9 @@
 import { GoalIcon } from "@primer/octicons-react";
 import { GraduationCap, Monitor } from "lucide-react";
 import { AiOutlinePython } from "react-icons/ai";
-import { BiLogoFlask } from "react-icons/bi";
+import { BiLogoFlask, BiLogoPostgresql } from "react-icons/bi";
 import { DiRedis } from "react-icons/di";
-import { FaAws, FaDev, FaReact } from "react-icons/fa";
+import { FaAws, FaDev, FaGitAlt, FaNpm, FaReact } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import {
   LuGithub,
@@ -15,7 +15,15 @@ import {
 } from "react-icons/lu";
 import { PiMediumLogoBold } from "react-icons/pi";
 import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
-import { SiFastapi, SiKubernetes, SiLatex, SiPostman } from "react-icons/si";
+import {
+  SiExpress,
+  SiFastapi,
+  SiKubernetes,
+  SiLatex,
+  SiMongodb,
+  SiNestjs,
+  SiPostman,
+} from "react-icons/si";
 import {
   TbBrandAstro,
   TbBrandCpp,
@@ -24,6 +32,7 @@ import {
   TbBrandGolang,
   TbBrandMysql,
   TbBrandNextjs,
+  TbBrandNodejs,
   TbBrandTerraform,
   TbBrandTypescript,
   TbMarkdown,
@@ -188,61 +197,58 @@ const config: Config = {
     pronouns: "He/Him",
     githubUsername: "hoatepdev",
     introduction: `
-I'm an incoming student at [University of Southern California](https://usc.edu) ✌️. Previously, I obtained my Bachelor's degree from [National Central University](https://www.ncu.edu.tw/) 🐿️.
+Hi, I'm a Full Stack Developer with 4 years of professional experience and a strong focus on frontend development 🎯. I specialize in building fast, user-friendly, and visually polished interfaces—while also managing backend logic to deliver complete, scalable web applications.
 
-Software is built by humans. Unfortunately, humans make errors, ***LOTS of ERRORS 💣.*** Throughout human history, humans have learned to craft machines and tools to help us construct complex architecture. Inspired by this, I explore practical methodologies and tools to improve large-scale software systems' quality, reliability, and efficiency.
+I hold a degree in Information Technology from the Posts and Telecommunications Institute of Technology (PTIT) 🎓, where I built a solid foundation in software engineering and full-stack development principles.
 
-In my spare time, I focus on contributing to open-source projects, alongside working out 💪🏻, capturing street photography 📸, and writing tech content ✍🏻.
+Over the years, I’ve worked on a wide range of projects—from small business websites to complex web platforms—using modern tools and frameworks across the stack 🛠️. I enjoy turning ideas into real-world solutions and writing clean, maintainable code that delivers long-term value 🚀.
+
+In my spare time, I love developing personal projects, exploring new tech stacks, and writing tech content ✍🏻 to share what I learn. I also make time to work out 💪🏻—because a healthy body helps fuel a productive mind.
     `,
     lifestyles: [
       {
         icon: LuGithub,
-        title: "Open Source",
-        text: "Actively contributing to open source projects on GitHub.",
+        title: "Build Personal Projects",
+        text: "I love building personal projects to explore new tech stacks and share what I learn.",
       },
       {
         icon: LuPencil,
-        title: "Storytelling",
+        title: "Write Tech Content",
         text: "Love to share my knowledge and experience with others.",
       },
       {
         icon: GoalIcon,
         title: "Workouts",
-        text: "Basketball and weight training defines my active workout lifestyle.",
+        text: "Home gym is my favorite place to work out, I do weight training and resistance training.",
       },
       {
         icon: TbPhotoSquareRounded,
-        title: "Photography",
-        text: "Sky brings freedom; streets, a reminder of others' contributions.",
+        title: "Hangout",
+        text: "Hangout with friends and family is my favorite thing to do.",
       },
     ],
     techStacks: {
       programmingLanguages: [
-        { name: "Python", icon: AiOutlinePython },
+        { name: "Node.js", icon: TbBrandNodejs },
         { name: "TypeScript", icon: TbBrandTypescript },
-        { name: "Golang", icon: TbBrandGolang },
-        { name: "C++", icon: TbBrandCpp },
-        { name: "Java", icon: RiJavaLine },
         { name: "JavaScript", icon: RiJavascriptLine },
-        { name: "LaTeX", icon: SiLatex },
         { name: "Markdown", icon: TbMarkdown },
-        { name: "Astro", icon: TbBrandAstro },
-        { name: "Terraform", icon: TbBrandTerraform },
+        { name: "Java", icon: RiJavaLine },
+        { name: "Golang", icon: TbBrandGolang },
       ],
       frameworks: [
         { name: "React", icon: FaReact },
-        { name: "FastAPI", icon: SiFastapi },
-        { name: "Flask", icon: BiLogoFlask },
-        { name: "Redis", icon: DiRedis },
-        { name: "Linux Terminal", icon: VscTerminalLinux },
-        { name: "AWS", icon: FaAws },
         { name: "Next.js", icon: TbBrandNextjs },
+        { name: "Nest.js", icon: SiNestjs },
+        { name: "Express", icon: SiExpress },
         { name: "Docker", icon: TbBrandDocker },
-        { name: "MySQL", icon: TbBrandMysql },
-        { name: "Django", icon: TbBrandDjango },
-        { name: "Kubernetes", icon: SiKubernetes },
         { name: "Postman", icon: SiPostman },
-        { name: "Azure", icon: VscAzure },
+        { name: "Git", icon: FaGitAlt },
+        { name: "Npm", icon: FaNpm },
+        { name: "MySQL", icon: TbBrandMysql },
+        { name: "PostgreSQL", icon: BiLogoPostgresql },
+        { name: "MongoDB", icon: SiMongodb },
+        { name: "Linux Terminal", icon: VscTerminalLinux },
       ],
     },
   },

@@ -1,6 +1,4 @@
 import React from "react";
-import { ThemeInput } from "react-activity-calendar";
-import GitHubCalendar from "react-github-calendar";
 import { LuMapPin, LuZap } from "react-icons/lu";
 
 import Globe from "@/components/about/globe";
@@ -9,6 +7,8 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import AboutSection from "@/components/section/about";
 import "@/styles/about/coding-stats.css";
 import type { VCardIconType } from "@/types/config";
+
+import GithubCalendar from "./github-calendar";
 
 interface TechStack {
   name: string;
@@ -26,11 +26,6 @@ interface CodingStatsProps {
 }
 
 function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
-  const yellowTheme: ThemeInput = {
-    light: ["#EBEBEB", "#FFDA6B"],
-    dark: ["#383838", "#FFDA6B"],
-  };
-
   return (
     <AboutSection id="coding-stats" title="Coding Stats">
       <BlurFade inView delay={0.4} direction="left">
@@ -65,7 +60,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
               <div className="flex items-center gap-2 text-white-2 mt-4 ml-4">
                 <LuMapPin size={18} />
                 <h2 className="text-sm font-light">
-                  Taipei, Taiwan (UTC +08:00)
+                  HaNoi, Vietnam (UTC +07:00)
                 </h2>
               </div>
               <Globe />
@@ -75,18 +70,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
       </BlurFade>
 
       <BlurFade inView delay={0.4} direction="up">
-        <section id="github-calendar" className="text-light-gray mt-5">
-          <GitHubCalendar
-            username={githubUsername}
-            blockSize={12}
-            blockMargin={4}
-            colorScheme="dark"
-            blockRadius={2}
-            fontSize={14}
-            style={{ fontWeight: "bold" }}
-            theme={yellowTheme}
-          />
-        </section>
+        <GithubCalendar githubUsername={githubUsername} />
       </BlurFade>
     </AboutSection>
   );

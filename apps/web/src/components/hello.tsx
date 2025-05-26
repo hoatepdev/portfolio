@@ -6,7 +6,7 @@ function Hello() {
   useEffect(() => {
     console.log(`
 |￣￣￣￣￣￣￣￣￣￣￣￣|
-| Open-source ≠ Free |
+|   Xin chào    🇻🇳   |
 |____________________|
       \\ (•◡•) /
        \\     /
@@ -14,9 +14,7 @@ function Hello() {
         |   |
        _|   |_
 
-Hi There 👋 This is Hugo!
-
-Love the design? Star ✨ on https://github.com/1chooo/1chooo.com
+Hi There 👋 This is Thomas!
 `);
   }, []);
 

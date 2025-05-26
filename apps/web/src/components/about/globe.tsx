@@ -48,8 +48,8 @@ function Globe() {
       baseColor: [0.8, 0.8, 0.8],
       markerColor: [1, 0.85, 0.42],
       glowColor: [0.5, 0.5, 0.5],
-      markers: [{ location: [25.105497, 121.597366], size: 0.1 }],
-      scale: 1.05,
+      markers: [{ location: [21.0278, 105.8342], size: 0.1 }],
+      scale: 1,
       onRender: (state) => {
         state.phi = 2.75 + r.get();
         state.width = width * 2;
