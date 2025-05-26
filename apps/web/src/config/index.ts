@@ -3,7 +3,7 @@ import { GraduationCap, Monitor } from "lucide-react";
 import { AiOutlinePython } from "react-icons/ai";
 import { BiLogoFlask } from "react-icons/bi";
 import { DiRedis } from "react-icons/di";
-import { FaAws, FaReact } from "react-icons/fa";
+import { FaAws, FaDev, FaReact } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import {
   LuGithub,
@@ -36,32 +36,32 @@ import { Config } from "@/types/config";
 
 const config: Config = {
   avatar: "/images/profile.webp",
-  title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+  title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
   description:
-    "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
-  author: "Chun-Ho (Hugo) Lin - 1chooo",
+    "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+  author: "Hoà T. (Thomas) Nguyen - hoatepdev",
   keywords: [
-    "Hugo ChunHo Lin",
-    "1chooo",
+    "Hoà T. (Thomas) Nguyen",
+    "hoatepdev",
     "Software Engineering",
     "Next.js",
     "React",
   ],
   status: "Dive Deep. 🤿",
-  siteURL: "https://www.1chooo.com",
+  siteURL: "https://www.hoatepdev.com",
   openGraph: {
-    url: "https://www.1chooo.com/",
+    url: "https://www.hoatepdev.com/",
     type: "website",
-    siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
-    title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+    siteName: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
+    title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
     description:
-      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+      "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
     images: [
       {
         url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
         width: 1200,
         height: 630,
-        alt: "Chun-Ho (Hugo) Lin - 1chooo Cover Image",
+        alt: "Hoà T. (Thomas) Nguyen - hoatepdev Cover Image",
       },
     ],
   },
@@ -76,45 +76,45 @@ const config: Config = {
     {
       icon: LuMapPin,
       title: "Location",
-      content: "Los Angeles, CA 🇺🇸",
+      content: "Hanoi, Vietnam 🇻🇳",
     },
     {
       icon: LuMail,
       title: "Email",
-      link: "mailto:hugo970217@gmail.com",
-      content: "hugo970217@gmail.com",
+      link: "mailto:hoanguyentrandev@gmail.com",
+      content: "hoanguyentrandev@gmail.com",
     },
     {
       icon: LuGithub,
       title: "GitHub",
-      link: "https://github.com/1chooo",
-      content: "@1chooo",
+      link: "https://github.com/hoatepdev",
+      content: "@hoatepdev",
     },
     {
       icon: LuLinkedin,
       title: "LinkedIn",
-      link: "https://www.linkedin.com/in/1chooo/",
-      content: "in/1chooo",
+      link: "https://www.linkedin.com/in/hoatepdev/",
+      content: "in/hoatepdev",
     },
   ],
   socialLinks: [
     {
-      url: "https://github.com/1chooo",
+      url: "https://github.com/hoatepdev",
       icon: LuGithub,
       name: "GitHub",
     },
     {
-      url: "https://www.linkedin.com/in/1chooo/",
+      url: "https://www.linkedin.com/in/hoatepdev/",
       icon: LuLinkedin,
       name: "LinkedIn",
     },
     {
-      url: "https://medium.com/@1chooo",
-      icon: PiMediumLogoBold,
-      name: "Medium",
+      url: "https://dev.to/hoatepdev",
+      icon: FaDev,
+      name: "Dev.to",
     },
     {
-      url: "https://twitter.com/1chooo___",
+      url: "https://twitter.com/hoatepdev",
       icon: FaXTwitter,
       name: "Twitter",
     },
@@ -130,41 +130,41 @@ const config: Config = {
     },
   ],
   homeMetaData: {
-    metadataBase: new URL("https://www.1chooo.com"),
-    title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+    metadataBase: new URL("https://www.hoatepdev.com"),
+    title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
     description:
-      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
-    authors: [{ name: "Chun-Ho (Hugo) Lin" }],
-    creator: "Chun-Ho (Hugo) Lin",
+      "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+    authors: [{ name: "Hoà T. (Thomas) Nguyen" }],
+    creator: "Hoà T. (Thomas) Nguyen",
     keywords: [
-      "Chun-Ho (Hugo) Lin",
-      "1chooo",
+      "Hoà T. (Thomas) Nguyen",
+      "hoatepdev",
       "Software Engineering",
       "Next.js",
       "React",
     ],
     openGraph: {
-      url: "https://www.1chooo.com/",
+      url: "https://www.hoatepdev.com/",
       type: "website",
-      siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
-      title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+      siteName: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
+      title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
       description:
-        "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+        "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
       images: [
         {
           url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
           width: 1200,
           height: 630,
-          alt: "Chun-Ho (Hugo) Lin - 1chooo Cover Image",
+          alt: "Hoà T. (Thomas) Nguyen - hoatepdev Cover Image",
         },
       ],
     },
     manifest: "/manifest.json",
     twitter: {
       card: "summary_large_image",
-      title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+      title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
       description:
-        "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+        "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
       images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
     },
     icons: {
@@ -180,13 +180,13 @@ const config: Config = {
     },
   },
   about: {
-    firstName: "Chun-Ho",
-    lastName: "Lin",
+    firstName: "Hoà T.",
+    lastName: "Nguyen",
     middleName: "",
-    preferredName: "Hugo",
-    additionalName: "Hugo",
+    preferredName: "Thomas",
+    additionalName: "Thomas",
     pronouns: "He/Him",
-    githubUsername: "1chooo",
+    githubUsername: "hoatepdev",
     introduction: `
 I'm an incoming student at [University of Southern California](https://usc.edu) ✌️. Previously, I obtained my Bachelor's degree from [National Central University](https://www.ncu.edu.tw/) 🐿️.
 

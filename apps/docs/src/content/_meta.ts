@@ -1,5 +1,5 @@
 export default {
-  index: "Welcome to 1chooo.com",
+  index: "Welcome to hoatepdev.com",
   "user-guide": "User Guide",
   stack: "Stack",
   "code-walkthrough": "Code Walkthrough",
@@ -10,6 +10,6 @@ export default {
   demo: {
     type: "page",
     title: "Demo",
-    href: "https://www.1chooo.com",
+    href: "https://www.hoatepdev.com",
   },
 };

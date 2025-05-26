@@ -1,19 +1,19 @@
 {
-  "name": "1chooo-com",
+  "name": "hoatepdev",
   "version": "0.8.1",
   "private": true,
   "license": "CC-BY-4.0",
   "author": {
-    "name": "1chooo",
-    "email": "hugo970217@gmail.com"
+    "name": "hoatepdev",
+    "email": "hoanguyentrandev@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/1chooo/1chooo.com"
+    "url": "https://github.com/hoatepdev/portfolio"
   },
-  "homepage": "https://www.1chooo.com",
+  "homepage": "https://www.hoatepdev.com",
   "bugs": {
-    "url": "https://github.com/1chooo/1chooo.com/issues"
+    "url": "https://github.com/hoatepdev/portfolio/issues"
   },
   "keywords": [
     "next",

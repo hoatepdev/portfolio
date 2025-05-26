@@ -75,8 +75,9 @@ function SideBar({
             className="name"
             title={`${firstName} (${preferredName}) ${lastName}`}
           >
-            {firstName} ({preferredName}) {lastName}
+            {firstName} <span>({preferredName})</span> {lastName}
           </h1>
+          <p className="subname">({preferredName})</p>
           <p className="title">{status}</p>
         </div>
 

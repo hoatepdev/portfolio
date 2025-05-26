@@ -2,11 +2,11 @@ import moment from "moment";
 
 import type { Breakpoint } from "@/hooks/use-responsive-image-size";
 
-export const GITHUB_USERNAME = "1chooo";
-export const MEDIUM_USERNAME = "1chooo";
-export const TWITTER_USERNAME = "1chooo___";
-export const LINKEDIN_USERNAME = "1chooo";
-export const EMAIL = "hugo970217@gmail.com";
+export const GITHUB_USERNAME = "hoatepdev";
+export const MEDIUM_USERNAME = "hoatepdev";
+export const TWITTER_USERNAME = "hoatepdev";
+export const LINKEDIN_USERNAME = "hoatepdev";
+export const EMAIL = "hoanguyentrandev@gmail.com";
 
 export const POSTS_PER_PAGE = 8;
 export const BUILD_TIME = moment().format("MMMM Do YYYY");
