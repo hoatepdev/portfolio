@@ -7,7 +7,7 @@ interface IconBoxProps {
 
 function IconBox({ icon: Icon }: IconBoxProps) {
   return (
-    <div className="icon-box bg-border-gradient-onyx text-orange-yellow-crayola flex items-center justify-center text-lg shadow-shadow-1 relative rounded-xl w-[40px] h-[40px] md:w-[48px] md:h-[48px] md:text-xl z-1 before:bg-eerie-black-1 before:rounded-xl before:absolute before:content-[''] before:inset-[1px]">
+    <div className="icon-box bg-border-gradient-onyx text-orange-yellow-crayola shadow-shadow-1 z-1 before:bg-eerie-black-1 relative flex h-[40px] w-[40px] items-center justify-center rounded-xl text-lg before:absolute before:inset-[1px] before:rounded-xl before:content-[''] md:h-[48px] md:w-[48px] md:text-xl">
       <Icon />
     </div>
   );

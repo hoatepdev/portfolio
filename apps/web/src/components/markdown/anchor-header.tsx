@@ -38,14 +38,14 @@ function AnchorHeader({ level, children, ...props }: HeaderProps) {
   return (
     <Tag
       id={id}
-      className={`relative group cursor-pointer ${margins}`}
+      className={`group relative cursor-pointer ${margins}`}
       {...props}
     >
       <a
         href={`#${id}`}
-        className="no-underline text-[#d6d6d6] hover:underline flex items-center"
+        className="flex items-center text-[#d6d6d6] no-underline hover:underline"
       >
-        <span className="absolute left-[-2.0rem] top-[0.2rem] opacity-0 transition-opacity duration-200 ease-in-out scale-90 group-hover:opacity-100">
+        <span className="absolute left-[-2.0rem] top-[0.2rem] scale-90 opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100">
           <IoLink />
         </span>
       </a>

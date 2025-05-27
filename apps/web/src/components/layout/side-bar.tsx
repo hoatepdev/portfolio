@@ -100,24 +100,23 @@ function SideBar({
             const ContentElement = link ? (
               <Link
                 href={link}
-                className="block text-white-2 text-sm font-light truncate hover:text-orange-yellow-crayola
-            transition-colors"
+                className="text-white-2 hover:text-orange-yellow-crayola block truncate text-sm font-light transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {content}
               </Link>
             ) : (
-              <span className="block text-white-2 text-sm font-light truncate">
+              <span className="text-white-2 block truncate text-sm font-light">
                 {content}
               </span>
             );
 
             return (
-              <li key={index} className="min-w-full flex items-center gap-4">
+              <li key={index} className="flex min-w-full items-center gap-4">
                 <IconBox icon={Icon} />
                 <div className="contact-info">
-                  <p className="text-light-gray-70 uppercase mb-1 text-xs">
+                  <p className="text-light-gray-70 mb-1 text-xs uppercase">
                     {title}
                   </p>
                   {ContentElement}
@@ -127,11 +126,11 @@ function SideBar({
           })}
         </ul>
         <div className="separator-no-line"></div>
-        <ul className="flex items-center gap-4 pb-1 pl-2 justify-center">
+        <ul className="flex items-center justify-center gap-4 pb-1 pl-2">
           {propSocialLinks.map(({ url, icon: Icon, name }) => (
             <li
               key={name}
-              className="text-light-gray-70 text-lg hover:scale-110 hover:text-orange-yellow-crayola"
+              className="text-light-gray-70 hover:text-orange-yellow-crayola text-lg hover:scale-110"
             >
               <Link
                 href={url}

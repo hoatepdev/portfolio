@@ -27,7 +27,7 @@ The original blog page was written like this:
 ```tsx
 <ul className="blog-posts-list">
   <li
-    className="blog-post-item  active"
+    className="blog-post-item active"
     data-filter-item
     data-category="unboxing"
   >
@@ -58,11 +58,7 @@ The original blog page was written like this:
     </a>
   </li>
 
-  <li
-    className="blog-post-item  active"
-    data-filter-item
-    data-category="devops"
-  >
+  <li className="blog-post-item active" data-filter-item data-category="devops">
     <a
       href="https://medium.com/@1chooo/%E8%B8%8F%E5%85%A5-git-%E7%9A%84%E4%B8%96%E7%95%8C-%E4%BD%BF%E7%94%A8-ssh-%E8%88%87-github-%E9%80%A3%E7%B7%9A-7324b01349dd"
       target="_blank"

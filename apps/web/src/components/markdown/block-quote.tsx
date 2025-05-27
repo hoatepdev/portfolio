@@ -13,7 +13,7 @@ interface BlockQuoteProps {
  */
 function BlockQuote({ children }: BlockQuoteProps) {
   return (
-    <blockquote className="border-l-4 border-gray-300 pl-4 text-white-2 text-xl italic font-serif">
+    <blockquote className="text-white-2 border-l-4 border-gray-300 pl-4 font-serif text-xl italic">
       {children}
     </blockquote>
   );

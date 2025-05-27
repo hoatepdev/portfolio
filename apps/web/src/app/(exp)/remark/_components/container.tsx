@@ -4,7 +4,7 @@ type Props = {
 
 const Container = ({ children }: Props) => {
   return (
-    <div className="container mx-auto px-5 text-light-gray">{children}</div>
+    <div className="text-light-gray container mx-auto px-5">{children}</div>
   );
 };
 

@@ -40,14 +40,14 @@ export default function ResumeCard({
             />
           </div>
           <div className="space-y-1">
-            <div className="font-semibold text-white-1">{company}</div>
-            <div className="text-sm text-light-gray">{title}</div>
+            <div className="text-white-1 font-semibold">{company}</div>
+            <div className="text-light-gray text-sm">{title}</div>
           </div>
         </div>
 
         <div className="px-6 pb-2">
           <div className="mb-4 flex flex-wrap gap-2">
-            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
+            <span className="text-orange-yellow-crayola inline-flex items-center gap-1 rounded-full border border-gray-700 px-2.5 py-0.5 text-xs font-medium">
               {/* 
               @todo Since the resume does not have fixed key definitions and allows users to define them, we need a field that can map these keys to icons based on the user's configuration.
               */}
@@ -58,11 +58,11 @@ export default function ResumeCard({
               ) : null}
               {employmentType}
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
+            <span className="text-orange-yellow-crayola inline-flex items-center gap-1 rounded-full border border-gray-700 px-2.5 py-0.5 text-xs font-medium">
               <MapPin className="h-3 w-3" />
               {location}
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
+            <span className="text-orange-yellow-crayola inline-flex items-center gap-1 rounded-full border border-gray-700 px-2.5 py-0.5 text-xs font-medium">
               <CalendarIcon className="h-3 w-3" />
               {timePeriod}
             </span>

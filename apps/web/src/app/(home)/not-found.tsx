@@ -18,10 +18,10 @@ function NotFound() {
       <PageHeader header="Page Not Found!" />
 
       <div className="flex flex-col items-center justify-center px-4 py-12">
-        <div className="w-full max-w-3xl mx-auto text-center">
-          <div className="relative w-64 h-64 mx-auto mb-6">
+        <div className="mx-auto w-full max-w-3xl text-center">
+          <div className="relative mx-auto mb-6 h-64 w-64">
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-9xl font-bold text-light-gray">404</span>
+              <span className="text-light-gray text-9xl font-bold">404</span>
             </div>
           </div>
           <h2 className="text-xl text-gray-500 dark:text-gray-400">
@@ -29,12 +29,12 @@ function NotFound() {
           </h2>
         </div>
 
-        <div className="flex flex-col gap-6 mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto w-full">
+        <div className="mt-8 flex flex-col gap-6">
+          <div className="mx-auto grid w-full max-w-lg grid-cols-1 gap-4 md:grid-cols-2">
             <div className="flex items-center justify-center">
               <Link
                 href="/"
-                className="flex items-center border-none px-4 py-2 mx-1 cursor-pointer text-base bg-border-gradient-onyx hover:scale-105 active:scale-95 rounded-xl shadow-lg hover:bg-orange-yellow-crayola-dark text-white-2 font-bold"
+                className="bg-border-gradient-onyx hover:bg-orange-yellow-crayola-dark text-white-2 mx-1 flex cursor-pointer items-center rounded-xl border-none px-4 py-2 text-base font-bold shadow-lg hover:scale-105 active:scale-95"
               >
                 <Home className="mr-2 h-4 w-4" />
                 <span>Return Home</span>
@@ -43,7 +43,7 @@ function NotFound() {
             <div className="flex items-center justify-center">
               <Link
                 href="javascript:history.back()"
-                className="flex items-center border-none px-4 py-2 mx-1 cursor-pointer text-base bg-border-gradient-onyx hover:scale-105 active:scale-95 rounded-xl shadow-lg hover:bg-orange-yellow-crayola-dark text-orange-yellow-crayola font-bold"
+                className="bg-border-gradient-onyx hover:bg-orange-yellow-crayola-dark text-orange-yellow-crayola mx-1 flex cursor-pointer items-center rounded-xl border-none px-4 py-2 text-base font-bold shadow-lg hover:scale-105 active:scale-95"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 <span>Go Back</span>
@@ -52,7 +52,7 @@ function NotFound() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-gray-800 text-sm text-gray-500">
+        <div className="mt-12 border-t border-gray-800 pt-6 text-sm text-gray-500">
           <p>
             Still having trouble?{" "}
             <Link

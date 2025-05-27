@@ -10,13 +10,13 @@ export function MagicCardDemo() {
       }
     >
       <MagicCard
-        className="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+        className="cursor-pointer flex-col items-center justify-center whitespace-nowrap text-4xl shadow-2xl"
         gradientColor={"#262626"}
       >
         Magic
       </MagicCard>
       <MagicCard
-        className="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+        className="cursor-pointer flex-col items-center justify-center whitespace-nowrap text-4xl shadow-2xl"
         gradientColor={"#262626"}
       >
         Card

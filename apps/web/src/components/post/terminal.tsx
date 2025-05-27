@@ -37,17 +37,17 @@ export function Terminal({ terminalSteps }: TerminalProps) {
   };
 
   return (
-    <div className="w-full rounded-2xl shadow-lg overflow-hidden bg-gradient-onyx text-white font-mono text-sm relative">
+    <div className="bg-gradient-onyx relative w-full overflow-hidden rounded-2xl font-mono text-sm text-white shadow-lg">
       <div className="p-4">
-        <div className="flex justify-between items-center mb-4">
+        <div className="mb-4 flex items-center justify-between">
           <div className="flex space-x-2">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <div className="h-3 w-3 rounded-full bg-red-500"></div>
+            <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
+            <div className="h-3 w-3 rounded-full bg-green-500"></div>
           </div>
           <button
             onClick={copyToClipboard}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-gray-400 transition-colors hover:text-white"
             aria-label="Copy to clipboard"
           >
             {copied ? (

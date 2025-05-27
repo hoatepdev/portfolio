@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export async function AnimatedGradientTextDemo() {
   return (
-    <div className="z-10 flex items-center justify-center mt-5">
+    <div className="z-10 mt-5 flex items-center justify-center">
       <Link
         href="https://magicui.design/"
         target="_blank"
@@ -16,7 +16,7 @@ export async function AnimatedGradientTextDemo() {
           🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
           <span
             className={cn(
-              `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+              `animate-gradient inline bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
             )}
           >
             Thanks for Magic UI!

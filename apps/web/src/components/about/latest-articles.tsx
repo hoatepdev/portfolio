@@ -49,13 +49,13 @@ export function LatestArticles({ posts }: Props) {
       <StaggeredAnimationSection>
         <div className="latest-post-list">
           {visiblePosts.map((post) => (
-            <div key={post.slug} className="latest-post-item group active">
+            <div key={post.slug} className="latest-post-item active group">
               <ProgressBarLink
                 href={`/post/${post.slug}`}
                 rel="noopener noreferrer"
               >
                 <figure className="latest-post-img">
-                  <div className="absolute latest-post-item-icon-box text-orange-yellow-crayola text-xl bg-jet p-[18px] rounded-xl top-1/2 left-1/2 transition-all duration-250 ease-linear">
+                  <div className="latest-post-item-icon-box text-orange-yellow-crayola bg-jet duration-250 absolute left-1/2 top-1/2 rounded-xl p-[18px] text-xl transition-all ease-linear">
                     <LuEye />
                   </div>
                   <Image
@@ -69,7 +69,7 @@ export function LatestArticles({ posts }: Props) {
                     loading="eager"
                   />
                 </figure>
-                <h3 className="ml-[10px] text-white-2 text-base font-normal capitalize leading-[1.3] group-hover:text-orange-yellow-crayola group-hover:font-bold">
+                <h3 className="text-white-2 group-hover:text-orange-yellow-crayola ml-[10px] text-base font-normal capitalize leading-[1.3] group-hover:font-bold">
                   {post.title}
                 </h3>
               </ProgressBarLink>

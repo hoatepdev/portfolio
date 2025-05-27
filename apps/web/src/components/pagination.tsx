@@ -14,7 +14,7 @@ function Pagination({
   basePath,
 }: PaginationProps) {
   return (
-    <div className="flex justify-center mt-5">
+    <div className="mt-5 flex justify-center">
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
         <ProgressBarLink
           key={pageNum}
@@ -22,7 +22,7 @@ function Pagination({
             pathname: basePath,
             query: { tag: selectedTag, page: pageNum.toString() },
           }}
-          className={`flex items-center justify-center border-none w-10 h-10 px-4 py-2 mx-1 cursor-pointer text-base bg-border-gradient-onyx hover:scale-105 active:scale-95 rounded-xl shadow-lg hover:bg-orange-yellow-crayola-dark ${
+          className={`bg-border-gradient-onyx hover:bg-orange-yellow-crayola-dark mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border-none px-4 py-2 text-base shadow-lg hover:scale-105 active:scale-95 ${
             pageNum === currentPage
               ? "text-orange-yellow-crayola"
               : "text-white-2"

@@ -126,23 +126,23 @@ export default async function Post(props: { params: tParams }) {
       <article>
         <section className="blog-text">
           <header>
-            <h1 className="relative pb-[7px] mb-[30px] font-semibold text-3xl text-light-gray after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[30px] after:h-[3px] after:rounded-sm  after:bg-text-gradient-yellow sm:pb-[15px] sm:after:w-[40px] sm:after:h-[5px] md:pb-[20px]">
+            <h1 className="text-light-gray after:bg-text-gradient-yellow relative mb-[30px] pb-[7px] text-3xl font-semibold after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-[30px] after:rounded-sm after:content-[''] sm:pb-[15px] sm:after:h-[5px] sm:after:w-[40px] md:pb-[20px]">
               {"Hugo's Blog"}
             </h1>
           </header>
-          <h1 className="font-semibold text-4xl text-white-2 max-w-[650px]">
+          <h1 className="text-white-2 max-w-[650px] text-4xl font-semibold">
             <MarkdownRenderer content={post.metadata.title} />
           </h1>
-          <div className="flex items-center justify-between mt-4 text-sm w-full text-neutral-600 dark:text-neutral-400">
+          <div className="mt-4 flex w-full items-center justify-between text-sm text-neutral-600 dark:text-neutral-400">
             <div className="flex items-center space-x-2">
               <span>{formatDate(post.metadata.publishedAt)}</span>
               <span
-                className="w-1 h-1 bg-current rounded-full"
+                className="h-1 w-1 rounded-full bg-current"
                 aria-hidden="true"
               ></span>
               <span>{post.metadata.category}</span>
             </div>
-            <div className="flex items-center space-x-2 ml-4">
+            <div className="ml-4 flex items-center space-x-2">
               <Link
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
                 target="_blank"
@@ -150,7 +150,7 @@ export default async function Post(props: { params: tParams }) {
                 className="hover:text-orange-yellow-crayola transition-colors"
                 aria-label="Share on Facebook"
               >
-                <LuFacebook className="w-5 h-5" />
+                <LuFacebook className="h-5 w-5" />
               </Link>
               <Link
                 href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`}
@@ -159,7 +159,7 @@ export default async function Post(props: { params: tParams }) {
                 className="hover:text-orange-yellow-crayola transition-colors"
                 aria-label="Share on Twitter"
               >
-                <LuTwitter className="w-5 h-5" />
+                <LuTwitter className="h-5 w-5" />
               </Link>
             </div>
           </div>

@@ -19,7 +19,7 @@ function Loading() {
           ))}
         </ul>
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="mt-4 flex justify-center">
         <Skeleton width={200} height={40} className="items-center" />
       </div>
     </SkeletonTheme>

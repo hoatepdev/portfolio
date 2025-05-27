@@ -14,14 +14,14 @@ function MarkdownImage({ src, alt }: MarkdownImageProps) {
   return (
     <div className="my-10 text-center">
       <div
-        className="relative mx-auto rounded-2xl overflow-hidden max-h-[200px] sm:max-h-[400px]"
+        className="relative mx-auto max-h-[200px] overflow-hidden rounded-2xl sm:max-h-[400px]"
         style={{
           maxWidth: "100%",
           aspectRatio: aspectRatio,
         }}
       >
         <Image
-          className="object-contain rounded-2xl"
+          className="rounded-2xl object-contain"
           src={src}
           alt={alt ?? "Image"}
           fill
@@ -32,7 +32,7 @@ function MarkdownImage({ src, alt }: MarkdownImageProps) {
         />
       </div>
       {alt && (
-        <div className="mt-2 text-sm text-light-gray-70 text-center mb-4">
+        <div className="text-light-gray-70 mb-4 mt-2 text-center text-sm">
           {alt}
         </div>
       )}

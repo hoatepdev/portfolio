@@ -117,10 +117,10 @@ export default async function Portfolio(props: { params: tParams }) {
       <article>
         <section className="blog-text">
           <PageHeader header="Hugo's Portfolio" />
-          <h1 className="title font-semibold text-2xl font-text-2xl tracking-tighter max-w-[650px]">
+          <h1 className="title font-text-2xl max-w-[650px] text-2xl font-semibold tracking-tighter">
             <MarkdownRenderer content={post.metadata.title} />
           </h1>
-          <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+          <div className="mb-8 mt-2 flex max-w-[650px] items-center justify-between text-sm">
             <Suspense fallback={<p className="h-5" />}>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
                 {formatDate(post.metadata.publishedAt)}

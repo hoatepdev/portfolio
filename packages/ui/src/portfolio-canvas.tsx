@@ -4,7 +4,7 @@ const PortfolioCanvas = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
         <h1 className="text-4xl font-bold">你的標題</h1>
         <p className="mt-4 text-lg">這是描述文字，可以放更多內容。</p>
-        <button className="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg">
+        <button className="mt-6 rounded-lg bg-blue-500 px-6 py-3 hover:bg-blue-600">
           按鈕
         </button>
       </div>

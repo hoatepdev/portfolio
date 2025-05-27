@@ -55,12 +55,12 @@ export default function Card3D({ imageUrl, altText }: Card3DProps) {
 
   return (
     <div
-      className="w-full h-screen flex justify-center items-center bg-gray-500"
+      className="flex h-screen w-full items-center justify-center bg-gray-500"
       style={{ perspective: "500px" }}
     >
       <div
         ref={cardRef}
-        className="w-[250px] bg-white p-4 rounded-2xl flex justify-center items-center overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.1)]"
+        className="flex w-[250px] items-center justify-center overflow-hidden rounded-2xl bg-white p-4 shadow-[0_4px_8px_rgba(0,0,0,0.1)]"
         style={{
           transition: "transform 0.1s ease",
           transformStyle: "preserve-3d",
@@ -73,7 +73,7 @@ export default function Card3D({ imageUrl, altText }: Card3DProps) {
       >
         <div
           ref={glossyRef}
-          className="w-full h-full absolute top-0 left-0 z-2 mix-blend-lighten"
+          className="z-2 absolute left-0 top-0 h-full w-full mix-blend-lighten"
           style={{
             transition: "0.3s",
             opacity: isHovering ? 1 : 0,
@@ -81,7 +81,7 @@ export default function Card3D({ imageUrl, altText }: Card3DProps) {
           }}
         />
         <img
-          className="w-full h-full rounded-lg"
+          className="h-full w-full rounded-lg"
           src={imageUrl}
           alt={altText}
         />

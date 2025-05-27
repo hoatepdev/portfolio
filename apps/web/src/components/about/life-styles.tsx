@@ -11,10 +11,10 @@ function LifeStyles({ lifestyles }: LifeStylesProps) {
   return (
     <AboutSection id="life-styles" title="Life Styles">
       <BlurFade inView delay={0.4} direction="up">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           {lifestyles.map((lifestyle: LifeStyle, index) => (
             <GradientCard key={lifestyle.title || index}>
-              <div className="mb-2.5 sm:mb-0 sm:mt-2 flex justify-center items-center">
+              <div className="mb-2.5 flex items-center justify-center sm:mb-0 sm:mt-2">
                 <lifestyle.icon
                   className="text-orange-yellow-crayola"
                   size={24}
@@ -22,7 +22,7 @@ function LifeStyles({ lifestyles }: LifeStylesProps) {
               </div>
 
               <div className="text-center sm:text-left">
-                <h4 className="text-white-2 text-lg font-bold mb-[7px]">
+                <h4 className="text-white-2 mb-[7px] text-lg font-bold">
                   {lifestyle.title}
                 </h4>
                 <p className="text-light-gray text-sm font-light leading-6">

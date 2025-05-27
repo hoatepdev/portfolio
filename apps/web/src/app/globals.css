@@ -940,7 +940,7 @@ textarea.form-input::-webkit-resizer {
   article {
     width: 520px;
     margin-inline: auto;
-    padding: 30px;
+    padding: 24px;
   }
 
   /**
@@ -966,7 +966,7 @@ textarea.form-input::-webkit-resizer {
   }
 
   .separator {
-    margin: 32px 0;
+    margin: 24px 0;
   }
 
   /* clients */
@@ -1293,7 +1293,7 @@ textarea.form-input::-webkit-resizer {
     max-height: max-content;
     height: 100%;
     margin-bottom: 0;
-    padding-top: 60px;
+    /* padding-top: 60px; */
     z-index: 1;
   }
 
