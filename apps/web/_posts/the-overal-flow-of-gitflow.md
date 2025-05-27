@@ -1,6 +1,6 @@
 ---
 title: "The overall flow of Gitflow"
-excerpt: ""
+excerpt: "Gitflow is a legacy Git workflow, that is the strategy for managing Git branches. Gitflow is an alternative Git branching model that defines a strict branching structure around a project release"
 coverImage: "/images/banner/posts/the-overal-flow-of-gitflow.png"
 date: "2025-05-01"
 author:
@@ -9,7 +9,7 @@ author:
 ogImage:
   url: "/images/banner/posts/the-overal-flow-of-gitflow.png"
 
-publishedAt: "2023-12-04"
+publishedAt: "2022-10-12"
 category: Project
 tags:
   - git
