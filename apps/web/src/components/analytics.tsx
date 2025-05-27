@@ -24,6 +24,8 @@ import config from "@/config";
 
 // https://github.com/madewithnovel/next.js/blob/80185c2dea73ed8a70fe03b75b43e950af3ef7a6/app/analytics.tsx
 
+// https://github.com/madewithnovel/next.js/blob/80185c2dea73ed8a70fe03b75b43e950af3ef7a6/app/analytics.tsx
+
 const { googleAnalyticId, googleTagManagerId } = config;
 
 const ANALYTICS = {

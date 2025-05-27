@@ -61,7 +61,7 @@ const GithubCalendar = ({ githubUsername }: GithubCalendarProps) => {
           style={{
             fontWeight: "bold",
           }}
-          hideColorLegend
+          // hideColorLegend
           // hideTotalCount
           theme={yellowTheme}
         />
