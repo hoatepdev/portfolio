@@ -1,45 +1,45 @@
 .blog-text {
-    color: var(--light-gray);
-    font-weight: var(--fw-300);
-    line-height: 1.6;
+  color: var(--light-gray);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
 }
 
 .blog-text p {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .blog-text ul li {
-    list-style: disc;
+  list-style: disc;
 }
 
 .blog-text ul li ul li {
-    list-style: circle;
+  list-style: circle;
 }
 
 .blog-text ul li ul li ul li {
-    list-style: square;
+  list-style: square;
 }
 
 .blog-text ol li {
-    list-style: decimal;
+  list-style: decimal;
 }
 
 .blog-text ol li ol li {
-    list-style: lower-alpha;
+  list-style: lower-alpha;
 }
 
 .blog-text ol li ol li ol li {
-    list-style: lower-roman;
+  list-style: lower-roman;
 }
 
 @media (min-width: 375px) {
-    .blog-text h3 {
-        margin-top: 30px;
-    }
+  .blog-text h3 {
+    margin-top: 30px;
+  }
 }
 
 @media (min-width: 580px) {
-    .blog-text {
-        margin-bottom: 40px;
-    }
+  .blog-text {
+    margin-bottom: 40px;
+  }
 }

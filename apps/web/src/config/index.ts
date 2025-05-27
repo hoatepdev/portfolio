@@ -367,8 +367,8 @@ In my spare time, I love developing personal projects, exploring new tech stacks
   },
   giscusConfig: {
     id: "comments",
-    repo: "1chooo/1chooo.com",
-    repoId: process.env.NEXT_PUBLIC_GISCUS_REPO_ID || "",
+    repo: "hoatepdev/portfolio",
+    repoId: process.env.NEXT_PUBLIC_GISCUS_CONFIG_REPO_ID || "",
     category: "General",
     categoryId: process.env.NEXT_PUBLIC_GISCUS_CONFIG_CATEGORY_ID || "",
     mapping: "pathname",
