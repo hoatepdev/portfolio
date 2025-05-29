@@ -10,12 +10,12 @@ FROM base AS build
 WORKDIR /app
 
 # Copy only the lockfile and package manifests for efficient caching
+COPY pnpm-workspace.yaml ./
 COPY pnpm-lock.yaml package.json ./
 COPY apps/web/package.json ./apps/web/package.json
 COPY packages/ui/package.json ./packages/ui/package.json
 COPY packages/eslint-config/package.json ./packages/eslint-config/package.json
 COPY packages/typescript-config/package.json ./packages/typescript-config/package.json
-
 # Copy turbo config
 COPY turbo.json ./
 
