@@ -2,6 +2,9 @@ FROM node:20-alpine AS base
 WORKDIR /app
 ENV NODE_ENV=production
 
+# Set max memory for Node.js
+ENV NODE_OPTIONS=--max-old-space-size=1536
+
 # Install pnpm
 RUN corepack enable && corepack prepare pnpm@10.11.0 --activate
 
