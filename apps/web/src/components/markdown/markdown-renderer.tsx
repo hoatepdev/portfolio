@@ -13,14 +13,12 @@ import Paragraph from "@/components/markdown/paragraph";
 import "@/styles/markdown-alert.css";
 
 interface MarkdownRendererProps {
-  className?: string;
   content: string;
 }
 
-function MarkdownRenderer({ className, content }: MarkdownRendererProps) {
+function MarkdownRenderer({ content }: MarkdownRendererProps) {
   return (
     <ReactMarkdown
-      className={className}
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw, rehypeGithubAlerts]}
       components={{
@@ -30,15 +28,13 @@ function MarkdownRenderer({ className, content }: MarkdownRendererProps) {
         a: (props) => <Anchor {...props} />,
         sup: "sup",
         sub: "sub",
-        img: (props) => <MarkdownImage src={props.src ?? ""} alt={props.alt} />,
-        ul: (props) => (
-          <ul
-            {...props}
-            style={{
-              paddingLeft: "1.0rem",
-            }}
+        img: (props) => (
+          <MarkdownImage
+            src={typeof props.src === "string" ? props.src : ""}
+            alt={props.alt}
           />
         ),
+        ul: (props) => <ul {...props} style={{ paddingLeft: "1.0rem" }} />,
         ol: (props) => (
           <ol
             {...props}

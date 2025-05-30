@@ -100,10 +100,9 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
                     <MarkdownRenderer content={post.metadata.title} />
                   </Balancer>
                 </h3>
-                <MarkdownRenderer
-                  className="text-light-gray text-s line-clamp-2 overflow-hidden font-light leading-6"
-                  content={post.metadata.summary}
-                />
+                <div className="text-light-gray text-s line-clamp-2 overflow-hidden font-light leading-6">
+                  <MarkdownRenderer content={post.metadata.summary} />
+                </div>
               </div>
             </ProgressBarLink>
           </li>
