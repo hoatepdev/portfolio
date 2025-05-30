@@ -100,7 +100,7 @@ function SideBar({
             const ContentElement = link ? (
               <Link
                 href={link}
-                className="text-white-2 hover:text-orange-yellow-crayola block truncate text-sm font-light transition-colors"
+                className="hover:text-orange-yellow-crayola text-white-2 block truncate text-sm font-light transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >

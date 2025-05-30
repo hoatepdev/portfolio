@@ -12,7 +12,7 @@ function DownloadCV() {
           📑 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
           <span
             className={cn(
-              `animate-gradient inline bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+              `animate-gradient bg-linear-to-r bg-size-[var(--bg-size)_100%] inline from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-clip-text text-transparent`
             )}
           >
             Download Hugo's full CV

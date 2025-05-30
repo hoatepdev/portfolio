@@ -1,8 +1,9 @@
+// TODO: Migrate to global.css
 import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 
 const config: Partial<Config> = {
-  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       screens: {
@@ -17,6 +18,7 @@ const config: Partial<Config> = {
         "smoky-black": "hsl(0, 0%, 7%)",
         "white-1": "hsl(0, 0%, 100%)",
         "white-2": "hsl(0, 0%, 98%)",
+        "brand-primary": "hsl(0, 43%, 51%)",
         "orange-yellow-crayola": "hsl(45, 100%, 72%)",
         "orange-yellow-crayola-dark": "hsl(45, 100%, 10%)",
         "vegas-gold": "hsl(45, 54%, 58%)",

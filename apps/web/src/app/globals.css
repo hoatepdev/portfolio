@@ -1,20 +1,75 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@theme {
+  /* Custom breakpoints */
+  --breakpoint-custom-md: 580px;
+  --breakpoint-custom-lg: 1250px;
+
+  /* Custom colors */
+  --color-jet: hsl(0, 0%, 22%);
+  --color-onyx: hsl(240, 1%, 17%);
+  --color-eerie-black-1: hsl(240, 2%, 13%);
+  --color-eerie-black-2: hsl(240, 2%, 12%);
+  --color-smoky-black: hsl(0, 0%, 7%);
+  --color-white-1: hsl(0, 0%, 100%);
+  --color-white-2: hsl(0, 0%, 98%);
+  --color-orange-yellow-crayola: hsl(45, 100%, 72%);
+  --color-vegas-gold: hsl(45, 54%, 58%);
+  --color-light-gray: hsl(0, 0%, 84%);
+  --color-light-gray-70: hsla(0, 0%, 84%, 0.7);
+  --color-bittersweet-shimmer: hsl(0, 43%, 51%);
+
+  /* Dynamic colors with CSS variables */
+  --color-color-1: hsl(var(--color-1));
+  --color-color-2: hsl(var(--color-2));
+  --color-color-3: hsl(var(--color-3));
+  --color-color-4: hsl(var(--color-4));
+  --color-color-5: hsl(var(--color-5));
+
+  /* Custom font sizes */
+  --font-size-fs-1: 24px;
+  --font-size-fs-2: 18px;
+  --font-size-fs-3: 17px;
+  --font-size-fs-4: 16px;
+  --font-size-fs-5: 15px;
+  --font-size-fs-6: 14px;
+  --font-size-fs-7: 13px;
+  --font-size-fs-8: 11px;
+
+  /* Custom font weights */
+  --font-weight-fw-300: 300;
+  --font-weight-fw-400: 400;
+  --font-weight-fw-500: 500;
+  --font-weight-fw-600: 600;
+
+  /* Custom shadows */
+  --shadow-shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+  --shadow-shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
+  --shadow-shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
+  --shadow-shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
+  --shadow-shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+
+  /* Border radius */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Custom transitions */
+  --transition-transition-1: 0.25s ease;
+  --transition-transition-2: 0.5s ease-in-out;
+}
+
+/* Define your dynamic color variables */
 :root {
-  /**
-  * colors
-  */
-
+  /* Dynamic colors */
   --color-1: 0 100% 63%;
   --color-2: 270 100% 63%;
   --color-3: 210 100% 63%;
   --color-4: 195 100% 63%;
   --color-5: 90 100% 63%;
 
-  /* gradient */
-
+  /* Gradient variables */
   --bg-gradient-onyx: linear-gradient(
     to bottom right,
     hsl(240, 1%, 25%) 3%,
@@ -50,8 +105,7 @@
     hsl(35, 100%, 68%)
   );
 
-  /* solid */
-
+  /* Solid colors */
   --jet: hsl(0, 0%, 22%);
   --onyx: hsl(240, 1%, 17%);
   --eerie-black-1: hsl(240, 2%, 13%);
@@ -65,11 +119,7 @@
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
 
-  /**
-  * typography
-  */
-
-  /* font-size */
+  /* Typography */
   --fs-1: 24px;
   --fs-2: 18px;
   --fs-3: 17px;
@@ -79,34 +129,53 @@
   --fs-7: 13px;
   --fs-8: 11px;
 
-  /* font-weight */
+  /* Font weights */
   --fw-300: 300;
   --fw-400: 400;
   --fw-500: 500;
   --fw-600: 600;
 
-  /**
-  * shadow
-  */
-
+  /* Shadows */
   --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
   --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
   --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
   --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
   --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
 
-  /**
-  * transition
-  */
-
+  /* Transitions */
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
 }
 
-/*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
+/* Custom utility classes */
+@utility gradient-onyx {
+  background-image: var(--bg-gradient-onyx);
+}
 
+@utility gradient-jet {
+  background-image: var(--bg-gradient-jet);
+}
+
+@utility gradient-yellow-1 {
+  background-image: var(--bg-gradient-yellow-1);
+}
+
+@utility gradient-yellow-2 {
+  background-image: var(--bg-gradient-yellow-2);
+}
+
+@utility border-gradient-onyx {
+  background-image: var(--border-gradient-onyx);
+}
+
+@utility text-gradient-yellow {
+  background-image: var(--text-gradient-yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Reset styles (keep as regular CSS since these are global) */
 *,
 *::before,
 *::after {
@@ -159,10 +228,26 @@ body {
   background: var(--smoky-black);
 }
 
-/*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
+/* Keyframes */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Custom component styles */
 .sidebar,
 article {
   background: var(--eerie-black-2);
@@ -199,16 +284,6 @@ article {
   animation: fade 0.5s ease backwards;
 }
 
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 .h2,
 .h3,
 .h4,
@@ -234,6 +309,7 @@ article {
   font-weight: var(--fw-500);
 }
 
+/* TODO: Split to another file */
 .has-scrollbar::-webkit-scrollbar {
   /* for vertical scrollbar */
   width: 5px;

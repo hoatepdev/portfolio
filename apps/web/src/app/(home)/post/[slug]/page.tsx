@@ -126,7 +126,7 @@ export default async function Post(props: { params: tParams }) {
       <article>
         <section className="blog-text">
           <header>
-            <h1 className="text-light-gray after:bg-text-gradient-yellow relative mb-[30px] pb-[7px] text-3xl font-semibold after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-[30px] after:rounded-sm after:content-[''] sm:pb-[15px] sm:after:h-[5px] sm:after:w-[40px] md:pb-[20px]">
+            <h1 className="text-light-gray after:bg-text-gradient-yellow after:rounded-xs relative mb-[30px] pb-[7px] text-3xl font-semibold after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-[30px] after:content-[''] sm:pb-[15px] sm:after:h-[5px] sm:after:w-[40px] md:pb-[20px]">
               {"Hugo's Blog"}
             </h1>
           </header>

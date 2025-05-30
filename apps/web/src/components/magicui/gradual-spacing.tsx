@@ -20,7 +20,7 @@ interface GradualSpacingProps {
  * export function GradualSpacingDemo() {
  *   return (
  *     <GradualSpacing
- *       className="font-display text-center text-4xl font-bold -tracking-widest  text-black dark:text-white md:text-7xl md:leading-[5rem]"
+ *       className="font-display text-center text-4xl font-bold -tracking-widest  text-black dark:text-white md:text-7xl md:leading-20"
  *       text="Gradual Spacing"
  *     />
  *   );
@@ -47,7 +47,7 @@ export function GradualSpacing({
             exit="hidden"
             variants={framerProps}
             transition={{ duration, delay: i * delayMultiple }}
-            className={cn("drop-shadow-sm", className)}
+            className={cn("drop-shadow-xs", className)}
           >
             {char === " " ? <span>&nbsp;</span> : char}
           </motion.h1>
