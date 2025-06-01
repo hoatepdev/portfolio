@@ -1,4 +1,5 @@
 
 
+git stash push --keep-index --include-untracked
 pnpm test
 pnpm run lint-staged

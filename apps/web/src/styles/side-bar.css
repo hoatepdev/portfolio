@@ -119,7 +119,7 @@
   gap: 0.5rem;
 }
 
-.info-content .title {
+.info-content .tag {
   color: var(--white-1);
   background: var(--onyx);
   font-size: var(--fs-8);
@@ -128,6 +128,7 @@
   padding: 3px 12px;
   border-radius: 8px;
   margin-top: 10px;
+  transition: all 0.3s ease;
 }
 
 @media (min-width: 375px) {
@@ -184,7 +185,7 @@
   .info-content .pronoun {
     padding: 10px 18px;
   }
-  .info-content .title {
+  .info-content .tag {
     padding: 5px 18px;
   }
 }
@@ -261,7 +262,7 @@
     display: flex;
     justify-content: center;
   }
-  .info-content .title {
+  .info-content .tag {
     margin: 10px auto 0;
   }
 }

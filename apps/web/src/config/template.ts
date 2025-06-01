@@ -47,7 +47,7 @@ const config: Config = {
     "Next.js",
     "React",
   ],
-  status: "Dive Deep. 🤿",
+  status: ["Dive Deep. 🤿", "Explore. 🔍", "Build. 🔨"],
   siteURL: "https://www.1chooo.com",
   openGraph: {
     url: "https://www.1chooo.com/",
@@ -70,7 +70,7 @@ const config: Config = {
     { path: "/resume", label: "Resume" },
     { path: "/portfolio", label: "Portfolio" },
     { path: "/post", label: "Post" },
-    { path: "/gallery", label: "Gallery" },
+    { path: "/contact", label: "Contact" },
   ],
   contacts: [
     {

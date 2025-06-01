@@ -57,7 +57,7 @@ const config: Config = {
     "React",
   ],
   status: [
-    "Curious🤔",
+    "Curious 🤔",
     "Passionate 🔥",
     "Dedicated 💪",
     "Collaborative 🤝",
@@ -68,6 +68,9 @@ const config: Config = {
     "Reliable ⏱️",
     "Adaptable 🌱",
     "Optimistic 🌈",
+    "Dive Deep. 🤿",
+    "Explore. 🔍",
+    "Build. 🔨",
   ],
   siteURL: "https://www.hoatepdev.com",
   openGraph: {
@@ -91,7 +94,7 @@ const config: Config = {
     { path: "/resume", label: "Resume" },
     { path: "/portfolio", label: "Portfolio" },
     { path: "/post", label: "Post" },
-    { path: "/gallery", label: "Gallery" },
+    { path: "/contact", label: "Contact" },
   ],
   contacts: [
     {

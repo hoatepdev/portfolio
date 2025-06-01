@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MdExpandMore } from "react-icons/md";
 
 import IconBox from "@/components/icon-box";
@@ -37,24 +37,22 @@ function SideBar({
   socialLinks: propSocialLinks = socialLinks,
 }: SideBarProps) {
   const [isActive, setIsActive] = useState(false);
+  const [tags, setTags] = useState<string[]>(status.slice(0, 2));
   const sideBarRef = useRef<HTMLDivElement>(null);
   const imageSize = useResponsiveImageSize(breakpoints);
 
   const handleSidebarToggle = () => setIsActive((prev) => !prev);
   const sideBarState = `sidebar${isActive ? " active" : ""}`;
 
-  const randomTwoStatus = useMemo(
-    () =>
-      status
-        ?.sort(() => Math.random() - 0.5)
-        .slice(0, 2)
-        .map((s, index) => (
-          <p key={index} className="title">
-            {s}
-          </p>
-        )),
-    [status]
-  );
+  const randomTwoStatusEach = () => {
+    setTags(status.sort(() => Math.random() - 0.5).slice(0, 2));
+  };
+
+  useEffect(() => {
+    const interval = setInterval(randomTwoStatusEach, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <aside className={sideBarState} ref={sideBarRef} data-sidebar>
@@ -81,7 +79,13 @@ function SideBar({
             </h1>
             <p className="subname">({preferredName})</p>
           </div>
-          <div className="status-container">{randomTwoStatus}</div>
+          <div className="status-container">
+            {tags.map((s, index) => (
+              <p key={index} className="tag">
+                {s}
+              </p>
+            ))}
+          </div>
         </div>
         <button
           className="info-more-btn"
