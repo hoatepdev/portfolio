@@ -44,8 +44,8 @@ import { Icons } from "@/components/icons";
 import { Config } from "@/types/config";
 
 const config: Config = {
-  avatar: "/images/profile.webp",
-  title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
+  avatar: "/images/avatar.avif",
+  title: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
   description:
     "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
   author: "Hoà T. (Thomas) Nguyen - hoatepdev",
@@ -56,13 +56,25 @@ const config: Config = {
     "Next.js",
     "React",
   ],
-  status: "Dive Deep. 🤿",
+  status: [
+    "Curious 🤔",
+    "Passionate 🔥",
+    "Dedicated 💪",
+    "Collaborative 🤝",
+    "Focused 🎯",
+    "Creative 🎨",
+    "Resilient 🛡️",
+    "Innovative 💡",
+    "Reliable ⏱️",
+    "Adaptable 🌱",
+    "Optimistic 🌈",
+  ],
   siteURL: "https://www.hoatepdev.com",
   openGraph: {
     url: "https://www.hoatepdev.com/",
     type: "website",
-    siteName: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
-    title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
+    siteName: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
+    title: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
     description:
       "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
     images: [
@@ -140,7 +152,7 @@ const config: Config = {
   ],
   homeMetaData: {
     metadataBase: new URL("https://www.hoatepdev.com"),
-    title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
+    title: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
     description:
       "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
     authors: [{ name: "Hoà T. (Thomas) Nguyen" }],
@@ -155,8 +167,8 @@ const config: Config = {
     openGraph: {
       url: "https://www.hoatepdev.com/",
       type: "website",
-      siteName: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
-      title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
+      siteName: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
+      title: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
       description:
         "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
       images: [
@@ -171,7 +183,7 @@ const config: Config = {
     manifest: "/manifest.json",
     twitter: {
       card: "summary_large_image",
-      title: "Hoà T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
+      title: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
       description:
         "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
       images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",

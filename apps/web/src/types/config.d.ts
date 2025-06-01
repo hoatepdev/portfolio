@@ -32,7 +32,7 @@ export type Config = {
   description: string;
   author: string;
   keywords: string[];
-  status: string;
+  status: string[];
   siteURL: string;
   openGraph: OpenGraph;
   navigationLinks: NavigationLink[];

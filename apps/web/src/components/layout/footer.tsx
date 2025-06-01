@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import "@/styles/layout/footer.css";
+import "@/styles/footer.css";
 
 function Footer() {
   return (

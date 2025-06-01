@@ -175,15 +175,6 @@
   background-clip: text;
 }
 
-/* Reset styles (keep as regular CSS since these are global) */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 a {
   text-decoration: none;
 }
@@ -196,7 +187,7 @@ time {
 
 a,
 span {
-  display: inline;
+  /* display: inline; */
 }
 
 button {
@@ -248,7 +239,6 @@ body {
 }
 
 /* Custom component styles */
-.sidebar,
 article {
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
@@ -377,32 +367,6 @@ main {
   height: 3px;
   background: var(--text-gradient-yellow);
   border-radius: 3px;
-}
-
-/*-----------------------------------*\
-  #SIDEBAR
-\*-----------------------------------*/
-
-.sidebar {
-  margin-bottom: 15px;
-  max-height: 112px;
-  overflow: hidden;
-  transition: var(--transition-2);
-}
-
-.sidebar.active {
-  max-height: 500px;
-}
-
-.sidebar-info-more {
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition-2);
-}
-
-.sidebar.active .sidebar-info-more {
-  opacity: 1;
-  visibility: visible;
 }
 
 /**
@@ -1012,7 +976,6 @@ textarea.form-input::-webkit-resizer {
   * #REUSED STYLE
   */
 
-  .sidebar,
   article {
     width: 520px;
     margin-inline: auto;
@@ -1026,19 +989,6 @@ textarea.form-input::-webkit-resizer {
   main {
     margin-top: 60px;
     margin-bottom: 100px;
-  }
-
-  /**
-  * #SIDEBAR
-  */
-
-  .sidebar {
-    max-height: 180px;
-    margin-bottom: 30px;
-  }
-
-  .sidebar.active {
-    max-height: 625px;
   }
 
   .separator {
@@ -1139,21 +1089,12 @@ textarea.form-input::-webkit-resizer {
   * REUSED STYLE
   */
 
-  .sidebar,
   article {
     width: 700px;
   }
 
   .has-scrollbar::-webkit-scrollbar-button {
     width: 100px;
-  }
-
-  /**
-  * SIDEBAR
-  */
-
-  .sidebar.active {
-    max-height: 900px;
   }
 
   /**
@@ -1249,7 +1190,6 @@ textarea.form-input::-webkit-resizer {
   * REUSED STYLE
   */
 
-  .sidebar,
   article {
     width: 950px;
     box-shadow: var(--shadow-5);
@@ -1331,7 +1271,6 @@ textarea.form-input::-webkit-resizer {
   * REUSED STYLE
   */
 
-  .sidebar,
   article {
     width: auto;
   }
@@ -1357,29 +1296,5 @@ textarea.form-input::-webkit-resizer {
     min-width: 75%;
     width: 75%;
     margin: 0;
-  }
-
-  /**
-  * SIDEBAR
-  */
-
-  .sidebar {
-    position: sticky;
-    top: 60px;
-    max-height: max-content;
-    height: 100%;
-    margin-bottom: 0;
-    /* padding-top: 60px; */
-    z-index: 1;
-  }
-
-  .sidebar-info-more {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .separator:last-of-type {
-    margin: 15px 0;
-    opacity: 0;
   }
 }

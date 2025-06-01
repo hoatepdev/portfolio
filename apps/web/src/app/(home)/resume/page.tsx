@@ -6,16 +6,18 @@ import ResumeSection from "@/components/section/resume";
 import config from "@/config";
 import type { ResumeSection as ResumeSectionType } from "@/types/resume";
 
-const { title, resumes } = config;
+const { title, resumes, about } = config;
 
 export const metadata: Metadata = {
   title: `Resume | ${title}`,
 };
 
+console.log(resumes);
+
 export default function Resume() {
   return (
     <article>
-      <PageHeader header="Hugo's Resume" />
+      <PageHeader header={`${about.preferredName}'s Resume`} />
       {(Object.entries(resumes) as [string, ResumeSectionType][]).map(
         ([key, resumeSection]) => (
           <ResumeSection
