@@ -2,4 +2,5 @@
 
 if [ "$CI" != "true" ]; then
   git push
+  git stash pop
 fi
