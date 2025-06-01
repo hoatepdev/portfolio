@@ -23,7 +23,6 @@ function ResumeSection({
         <IconBox icon={icon} />
         <h3 className="text-white-2 text-2xl font-bold">{title}</h3>
       </div>
-
       <ol className="timeline-list">
         {timeLines.map((timeLine: TimeLine) => (
           <li className="timeline-item" key={timeLine.company}>

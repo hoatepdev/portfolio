@@ -48,7 +48,11 @@ function SideBar({
       status
         ?.sort(() => Math.random() - 0.5)
         .slice(0, 2)
-        .map((s) => <p className="title">{s}</p>),
+        .map((s, index) => (
+          <p key={index} className="title">
+            {s}
+          </p>
+        )),
     [status]
   );
 

@@ -12,8 +12,6 @@ export const metadata: Metadata = {
   title: `Resume | ${title}`,
 };
 
-console.log(resumes);
-
 export default function Resume() {
   return (
     <article>
