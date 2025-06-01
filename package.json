@@ -37,6 +37,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
+      "git stash push --keep-index",
       "pnpm run lint:fix",
       "pnpm run format",
       "git add ."
