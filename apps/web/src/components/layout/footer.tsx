@@ -14,15 +14,23 @@ function Footer() {
       <div className="footer-links">
         <Link
           className="footer-link"
+          href="/cv"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CV
+        </Link>
+        <Link
+          className="footer-link"
           href="https://github.com/hoatepdev/portfolio"
           target="_blank"
           rel="noopener noreferrer"
         >
           Code
         </Link>
-        <Link className="footer-link" href="/terms">
+        {/* <Link className="footer-link" href="/terms">
           Terms
-        </Link>
+        </Link> */}
         <Link
           className="footer-link"
           href="https://docs.hoatepdev.com"
