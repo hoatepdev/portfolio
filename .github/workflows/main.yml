@@ -1,0 +1,88 @@
+name: Direct SSH Build and Deploy
+
+on:
+  push:
+    branches:
+      - production
+  pull_request:
+    branches:
+      - production
+    types: [closed]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Only run on direct push or merged PR
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+
+    steps:
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          command_timeout: 10m
+          script: |
+            echo "🚀 Starting deployment..."
+
+            # Navigate to app directory
+            cd /services/portfolio || {
+              echo "❌ App directory not found!"
+              exit 1
+            }
+
+            # Show current status
+            echo "📋 Current branch: $(git branch --show-current)"
+            echo "📋 Current commit: $(git rev-parse --short HEAD)"
+
+            # Pull latest changes
+            echo "⬇️ Pulling latest code..."
+            git fetch origin
+            git reset --hard origin/production
+
+            # Show new status
+            echo "📋 New commit: $(git rev-parse --short HEAD)"
+            echo "📋 Changes pulled successfully"
+
+            # Build new Docker image
+            echo "🔨 Building Docker image..."
+            docker build -t your-app:latest . || {
+              echo "❌ Docker build failed!"
+              exit 1
+            }
+
+            # Stop existing containers
+            echo "⏹️ Stopping existing containers..."
+            docker-compose down || true
+
+            # Start new containers
+            echo "▶️ Starting new containers..."
+            docker-compose up -d || {
+              echo "❌ Failed to start containers!"
+              exit 1
+            }
+
+            # Wait for containers to be ready
+            echo "⏳ Waiting for containers to start..."
+            sleep 10
+
+            # Health check
+            echo "🏥 Performing health check..."
+            if docker-compose ps | grep -q "Up"; then
+              echo "✅ Deployment successful!"
+              docker-compose ps
+            else
+              echo "❌ Some containers are not running!"
+              docker-compose ps
+              docker-compose logs --tail=20
+              exit 1
+            fi
+
+            # Cleanup old images
+            echo "🧹 Cleaning up old images..."
+            docker image prune -f
+            docker system prune -f --volumes=false
+
+            echo "🎉 Deployment completed successfully!"
