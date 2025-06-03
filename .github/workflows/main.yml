@@ -28,7 +28,7 @@ jobs:
             echo "🚀 Starting deployment..."
 
             # Navigate to app directory
-            cd /services/portfolio || {
+            cd ~/services/portfolio || {
               echo "❌ App directory not found!"
               exit 1
             }
@@ -36,6 +36,10 @@ jobs:
             # Show current status
             echo "📋 Current branch: $(git branch --show-current)"
             echo "📋 Current commit: $(git rev-parse --short HEAD)"
+
+            # Add SSH key to ssh-agent
+            eval "$(ssh-agent -s)"
+            ssh-add ${{ secrets.VPS_SSH_KEY }}
 
             # Pull latest changes
             echo "⬇️ Pulling latest code..."
