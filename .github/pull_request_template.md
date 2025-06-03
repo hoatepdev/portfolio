@@ -1,5 +1,9 @@
 ## 📄 Description
 
+Major (v1.0.0 → v2.0.0): "breaking", "major" in title/labels
+Minor (v1.0.0 → v1.1.0): "feature", "minor", "feat" in title/labels
+Patch (v1.0.0 → v1.0.1): "fix", "patch", "bug" in title/labels (default)
+
 Brief description of the changes made in this PR.
 
 ---

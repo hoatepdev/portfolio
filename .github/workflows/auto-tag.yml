@@ -1,0 +1,136 @@
+name: Auto Tag on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - production
+
+jobs:
+  create-tag:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get latest tag
+        id: get-latest-tag
+        run: |
+          # Get the latest tag, if no tags exist, start with v0.0.0
+          LATEST_TAG=$(git tag -l --sort=-version:refname | head -n1)
+          if [ -z "$LATEST_TAG" ]; then
+            LATEST_TAG="v0.0.0"
+          fi
+          echo "latest-tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+          echo "Latest tag: $LATEST_TAG"
+
+      - name: Determine version bump
+        id: version-bump
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_LABELS="${{ toJson(github.event.pull_request.labels.*.name) }}"
+
+          echo "PR Title: $PR_TITLE"
+          echo "PR Labels: $PR_LABELS"
+
+          # Default to patch version
+          BUMP_TYPE="patch"
+
+          # Check for version bump indicators in PR title or labels
+          if echo "$PR_TITLE" | grep -i -E "(breaking|major)" || echo "$PR_LABELS" | grep -i -E "(breaking|major)"; then
+            BUMP_TYPE="major"
+          elif echo "$PR_TITLE" | grep -i -E "(feature|minor|feat)" || echo "$PR_LABELS" | grep -i -E "(feature|minor|enhancement)"; then
+            BUMP_TYPE="minor"
+          elif echo "$PR_TITLE" | grep -i -E "(fix|patch|bug)" || echo "$PR_LABELS" | grep -i -E "(bug|fix|patch)"; then
+            BUMP_TYPE="patch"
+          fi
+
+          echo "bump-type=$BUMP_TYPE" >> $GITHUB_OUTPUT
+          echo "Version bump type: $BUMP_TYPE"
+
+      - name: Calculate new version
+        id: new-version
+        run: |
+          LATEST_TAG="${{ steps.get-latest-tag.outputs.latest-tag }}"
+          BUMP_TYPE="${{ steps.version-bump.outputs.bump-type }}"
+
+          # Remove 'v' prefix if present
+          VERSION=${LATEST_TAG#v}
+
+          # Split version into parts
+          IFS='.' read -ra VERSION_PARTS <<< "$VERSION"
+          MAJOR=${VERSION_PARTS[0]:-0}
+          MINOR=${VERSION_PARTS[1]:-0}
+          PATCH=${VERSION_PARTS[2]:-0}
+
+          # Increment based on bump type
+          case $BUMP_TYPE in
+            "major")
+              MAJOR=$((MAJOR + 1))
+              MINOR=0
+              PATCH=0
+              ;;
+            "minor")
+              MINOR=$((MINOR + 1))
+              PATCH=0
+              ;;
+            "patch")
+              PATCH=$((PATCH + 1))
+              ;;
+          esac
+
+          NEW_VERSION="v$MAJOR.$MINOR.$PATCH"
+          echo "new-version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "New version: $NEW_VERSION"
+
+      - name: Create and push tag
+        run: |
+          NEW_VERSION="${{ steps.new-version.outputs.new-version }}"
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+
+          # Create tag message
+          TAG_MESSAGE="Release $NEW_VERSION
+
+          Merged PR #$PR_NUMBER: $PR_TITLE
+          Author: @$PR_AUTHOR
+
+          Auto-generated tag from PR merge."
+
+          # Create and push the tag
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git tag -a "$NEW_VERSION" -m "$TAG_MESSAGE"
+          git push origin "$NEW_VERSION"
+
+          echo "Created and pushed tag: $NEW_VERSION"
+
+      - name: Create GitHub Release (Optional)
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.new-version.outputs.new-version }}
+          release_name: Release ${{ steps.new-version.outputs.new-version }}
+          body: |
+            ## Changes
+            Merged PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}
+
+            **Author:** @${{ github.event.pull_request.user.login }}
+
+            **Type:** ${{ steps.version-bump.outputs.bump-type }} release
+
+            ---
+            *This release was automatically created by GitHub Actions*
+          draft: false
+          prerelease: false
