@@ -11,9 +11,10 @@ on:
 
 jobs:
   deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     # Only run on direct push or merged PR
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    # if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
 
     steps:
       - name: Deploy to VPS via SSH
@@ -52,7 +53,7 @@ jobs:
 
             # Build new Docker image
             echo "🔨 Building Docker image..."
-            docker build -t portfolio:latest ./apps/web || {
+            docker build -t portfolio:latest ./apps/web/Dockerfile --no-cache . || {
               echo "❌ Docker build failed!"
               exit 1
             }
