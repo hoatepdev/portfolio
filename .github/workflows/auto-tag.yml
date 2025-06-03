@@ -1,10 +1,10 @@
 name: Auto Tag on PR Merge
 
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - production
+    types: [closed]
 
 jobs:
   create-tag:

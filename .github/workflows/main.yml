@@ -1,9 +1,8 @@
 name: Direct SSH Build and Deploy
 
 on:
-  pull_request:
-    branches:
-      - production
+  push:
+    branches: [production]
     types: [closed]
 
 jobs:
