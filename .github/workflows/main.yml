@@ -35,7 +35,11 @@ jobs:
             echo "📋 Current branch: $(git branch --show-current)"
             echo "📋 Current commit: $(git rev-parse --short HEAD)"
 
-            # Pull latest changes (without SSH agent setup if using HTTPS or if SSH is already configured)
+            # Add SSH key to ssh-agent
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/${{ secrets.VPS_SSH_NAME }}
+
+            # Pull latest changes
             echo "⬇️ Pulling latest code..."
             git fetch origin
             git reset --hard origin/production
