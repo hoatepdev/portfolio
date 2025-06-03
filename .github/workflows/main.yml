@@ -53,11 +53,7 @@ jobs:
 
             # Build new Docker image
             echo "🔨 Building Docker image..."
-<<<<<<< HEAD
-            docker build -t portfolio:latest ./apps/web || {
-=======
             docker build -t portfolio:latest ./apps/web/Dockerfile --no-cache . || {
->>>>>>> develop
               echo "❌ Docker build failed!"
               exit 1
             }
