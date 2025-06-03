@@ -28,7 +28,7 @@ jobs:
             echo "🚀 Starting deployment..."
 
             # Navigate to app directory
-            cd /services/portfolio || {
+            cd ~/services/portfolio || {
               echo "❌ App directory not found!"
               exit 1
             }
