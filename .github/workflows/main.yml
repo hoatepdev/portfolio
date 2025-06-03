@@ -48,19 +48,12 @@ jobs:
             echo "📋 New commit: $(git rev-parse --short HEAD)"
             echo "📋 Changes pulled successfully"
 
-            # # Build new Docker image
-            # echo "🔨 Building Docker image..."
-            # docker build -t portfolio:latest -f ./apps/web/Dockerfile --no-cache . || {
-            #   echo "❌ Docker build failed!"
-            #   exit 1
-            # }
-
             # Stop existing containers
             echo "⏹️ Stopping existing containers..."
             docker-compose down || true
 
-            # # Build new Docker image
-            # docker compose build --no-cache || true
+            # Build new Docker image
+            docker compose build --no-cache || true
 
             # Start new containers
             echo "▶️ Starting new containers..."
