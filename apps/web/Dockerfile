@@ -19,18 +19,19 @@ COPY apps/web/package.json ./apps/web/package.json
 COPY packages/ui/package.json ./packages/ui/package.json
 COPY packages/eslint-config/package.json ./packages/eslint-config/package.json
 COPY packages/typescript-config/package.json ./packages/typescript-config/package.json
+
 # Copy turbo config
 COPY turbo.json ./
 
-# Install dependencies (monorepo)
+# Install dependencies (monorepo) - this will install turbo locally
 RUN pnpm install --frozen-lockfile
 
 # Copy the rest of the repo
 COPY . .
 
-RUN pnpm add -g turbo
-# Build the web app
-RUN turbo build --filter=apps-web...
+# Build using local turbo installation
+RUN pnpm exec turbo run build --filter=apps-web...
+
 
 # Production image, copy only necessary files
 FROM base AS runner
