@@ -32,6 +32,7 @@ COPY . .
 # Build using local turbo installation
 RUN pnpm exec turbo run build --filter=apps-web...
 
+
 # Production image, copy only necessary files
 FROM base AS runner
 WORKDIR /app
