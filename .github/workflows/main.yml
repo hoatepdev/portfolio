@@ -39,7 +39,7 @@ jobs:
 
             # Add SSH key to ssh-agent
             eval "$(ssh-agent -s)"
-            ssh-add ${{ secrets.VPS_SSH_KEY }}
+            ssh-add ~/.ssh/${{ secrets.VPS_SSH_NAME }}
 
             # Pull latest changes
             echo "⬇️ Pulling latest code..."
