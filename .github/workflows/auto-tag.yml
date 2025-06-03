@@ -1,9 +1,8 @@
 name: Auto Tag on PR Merge
 
 on:
-  push:
-    branches:
-      - production
+  pull_request:
+    branches: [production]
     types: [closed]
 
 jobs:
