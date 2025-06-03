@@ -52,7 +52,7 @@ jobs:
 
             # Build new Docker image
             echo "🔨 Building Docker image..."
-            docker build -t portfolio:$TIMESTAMP -t portfolio:latest ./apps/web || {
+            docker build -t portfolio:latest ./apps/web || {
               echo "❌ Docker build failed!"
               exit 1
             }
