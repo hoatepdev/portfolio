@@ -28,8 +28,9 @@ RUN pnpm install --frozen-lockfile
 # Copy the rest of the repo
 COPY . .
 
+RUN pnpm add -g turbo
 # Build the web app
-RUN pnpm turbo run build --filter=apps-web...
+RUN turbo build --filter=apps-web...
 
 # Production image, copy only necessary files
 FROM base AS runner
