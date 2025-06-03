@@ -94,7 +94,7 @@
     "@workspace/typescript-config": "workspace:*",
     "autoprefixer": "^10.4.21",
     "eslint-plugin-import": "^2.31.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8",
     "typescript": "5.8.3"
   }
