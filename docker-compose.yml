@@ -7,4 +7,3 @@ services:
       - "1000:3000"
     env_file:
       - apps/web/.env
-    restart: unless-stopped
