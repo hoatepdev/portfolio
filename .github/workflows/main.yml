@@ -10,8 +10,6 @@ jobs:
   deploy:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    # Only run on direct push or merged PR
-    # if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
 
     steps:
       - name: Deploy to VPS via SSH
@@ -21,8 +19,10 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT || 22 }}
-          command_timeout: 10m
+          command_timeout: 15m
           script: |
+            set -e  # Exit on any error
+
             echo "🚀 Starting deployment..."
 
             # Navigate to app directory
@@ -35,11 +35,7 @@ jobs:
             echo "📋 Current branch: $(git branch --show-current)"
             echo "📋 Current commit: $(git rev-parse --short HEAD)"
 
-            # Add SSH key to ssh-agent
-            eval "$(ssh-agent -s)"
-            ssh-add ~/.ssh/${{ secrets.VPS_SSH_NAME }}
-
-            # Pull latest changes
+            # Pull latest changes (without SSH agent setup if using HTTPS or if SSH is already configured)
             echo "⬇️ Pulling latest code..."
             git fetch origin
             git reset --hard origin/production
@@ -48,39 +44,50 @@ jobs:
             echo "📋 New commit: $(git rev-parse --short HEAD)"
             echo "📋 Changes pulled successfully"
 
-            # Stop existing containers
+            # Stop existing containers gracefully
             echo "⏹️ Stopping existing containers..."
-            docker-compose down || true
+            if docker compose ps -q | grep -q .; then
+              docker compose down --timeout 30
+            else
+              echo "No containers currently running"
+            fi
 
             # Build new Docker image
-            docker compose build --no-cache || true
+            echo "🔨 Building Docker image..."
+            docker compose build --no-cache
 
             # Start new containers
             echo "▶️ Starting new containers..."
-            docker-compose up -d || {
-              echo "❌ Failed to start containers!"
+            docker compose up -d
+
+            # Wait for containers to be ready
+            echo "⏳ Waiting for containers to start..."
+            sleep 15
+
+            # Health check
+            echo "🏥 Performing health check..."
+            if docker compose ps --format json | grep -q '"State":"running"'; then
+              echo "✅ Containers are running!"
+              docker compose ps
+            else
+              echo "❌ Some containers failed to start!"
+              docker compose ps
+              docker compose logs --tail=50
               exit 1
-            }
+            fi
 
-            # # Wait for containers to be ready
-            # echo "⏳ Waiting for containers to start..."
-            # sleep 10
+            # Test if the application is responding (adjust URL/port as needed)
+            echo "🌐 Testing application response..."
+            if curl -f -s http://localhost:3000 > /dev/null 2>&1; then
+              echo "✅ Application is responding!"
+            else
+              echo "⚠️ Application might not be ready yet (this may be normal)"
+            fi
 
-            # # Health check
-            # echo "🏥 Performing health check..."
-            # if docker-compose ps | grep -q "Up"; then
-            #   echo "✅ Deployment successful!"
-            #   docker-compose ps
-            # else
-            #   echo "❌ Some containers are not running!"
-            #   docker-compose ps
-            #   docker-compose logs --tail=20
-            #   exit 1
-            # fi
-
-            # Cleanup old images
+            # Cleanup old images and containers
             echo "🧹 Cleaning up old images..."
             docker image prune -f
+            docker container prune -f
             docker system prune -f --volumes=false
 
             echo "🎉 Deployment completed successfully!"
