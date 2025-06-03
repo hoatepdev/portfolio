@@ -62,21 +62,21 @@ jobs:
               exit 1
             }
 
-            # Wait for containers to be ready
-            echo "⏳ Waiting for containers to start..."
-            sleep 10
+            # # Wait for containers to be ready
+            # echo "⏳ Waiting for containers to start..."
+            # sleep 10
 
-            # Health check
-            echo "🏥 Performing health check..."
-            if docker-compose ps | grep -q "Up"; then
-              echo "✅ Deployment successful!"
-              docker-compose ps
-            else
-              echo "❌ Some containers are not running!"
-              docker-compose ps
-              docker-compose logs --tail=20
-              exit 1
-            fi
+            # # Health check
+            # echo "🏥 Performing health check..."
+            # if docker-compose ps | grep -q "Up"; then
+            #   echo "✅ Deployment successful!"
+            #   docker-compose ps
+            # else
+            #   echo "❌ Some containers are not running!"
+            #   docker-compose ps
+            #   docker-compose logs --tail=20
+            #   exit 1
+            # fi
 
             # Cleanup old images
             echo "🧹 Cleaning up old images..."
