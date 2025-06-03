@@ -59,6 +59,9 @@ jobs:
             echo "⏹️ Stopping existing containers..."
             docker-compose down || true
 
+            # # Build new Docker image
+            # docker compose build --no-cache || true
+
             # Start new containers
             echo "▶️ Starting new containers..."
             docker-compose up -d || {
