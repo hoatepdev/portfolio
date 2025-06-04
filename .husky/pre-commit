@@ -1,3 +1,5 @@
+git commit -m "__WIP__ delete files" --no-verify $(git diff --cached --name-only --diff-filter=D)
+
 git stash push --keep-index --include-untracked -m "🚧 [WIP]"
 
 pnpm test
