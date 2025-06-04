@@ -82,7 +82,7 @@ jobs:
 
             # Test if the application is responding (adjust URL/port as needed)
             echo "🌐 Testing application response..."
-            if curl -f -s http://localhost:3000 > /dev/null 2>&1; then
+            if curl -f -s http://localhost:3100 > /dev/null 2>&1; then
               echo "✅ Application is responding!"
             else
               echo "⚠️ Application might not be ready yet (this may be normal)"

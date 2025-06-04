@@ -68,7 +68,7 @@ $ pnpm install
 
 ```shell
 $ cd apps/web
-$ pnpm run dev   # Open http://localhost:3000 with your browser to see the result.
+$ pnpm run dev   # Open http://localhost:3100 with your browser to see the result.
 ```
 
 ### Run the Docs
