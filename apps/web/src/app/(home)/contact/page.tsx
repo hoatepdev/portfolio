@@ -1,5 +1,6 @@
 "use client";
 
+import emailjs from "@emailjs/browser";
 import React, { useEffect } from "react";
 import { FaRegPaperPlane } from "react-icons/fa";
 
@@ -21,6 +22,22 @@ function Contact() {
     document.title = `Contact | ${title}`;
   }, [title]);
 
+  const handleSubmit = (formData: FormData) => {
+    emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+      {
+        fullname: formData.get("fullname"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      },
+      {
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
+      }
+    );
+    alert("Message sent successfully!");
+  };
+
   return (
     <article>
       <PageHeader header={`${about.preferredName}'s Contact`} />
@@ -29,7 +46,7 @@ function Contact() {
         <h3 className="text-white-2 mb-[20px] text-2xl font-bold">
           Contact Form
         </h3>
-        <form action="#" className="form" data-form>
+        <form action={handleSubmit} className="form" data-form>
           <div className="input-wrapper">
             <input
               type="text"
@@ -55,12 +72,7 @@ function Contact() {
             required
             data-form-input
           ></textarea>
-          <button
-            className="form-btn"
-            disabled
-            data-form-btn
-            onClick={() => alert("not implemented yet!")}
-          >
+          <button className="form-btn" data-form-btn type="submit">
             <FaRegPaperPlane />
             <span>Send Message</span>
           </button>
