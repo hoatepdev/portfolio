@@ -65,8 +65,7 @@ upstream        git@github.com:hoatepdev/portfolio.git (push)
 
 If you have any valuable ideas to contribute, please create a pull request and provide details about the outstanding work you've done.
 
-> [!IMPORTANT]  
-> **Make sure to synchronize and update your repository before writing any code.**
+> [!IMPORTANT] > **Make sure to synchronize and update your repository before writing any code.**
 >
 > 1. Run `git stash save` to temporarily stash your local changes.
 > 2. Run `git fetch upstream` to sync the source project with your local copy.
@@ -89,7 +88,7 @@ In the project directory, you can run:
 #### `pnpm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3100](http://localhost:3100) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
