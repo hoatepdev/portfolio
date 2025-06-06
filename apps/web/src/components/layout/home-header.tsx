@@ -14,6 +14,7 @@ interface HomeHeaderProps {
 
 function HomeHeader({ navigationLinks }: HomeHeaderProps) {
   const currentPath = usePathname();
+  const clickSound = new Audio("/audio/click-button.mp3");
 
   const isActive = (path: string) => {
     if (path === "/post" && currentPath.startsWith("/post")) return true;
@@ -27,7 +28,13 @@ function HomeHeader({ navigationLinks }: HomeHeaderProps) {
       <BlurFade direction="up">
         <ul className="navbar-list">
           {navigationLinks.map((item) => (
-            <li className="navbar-item" key={item.path}>
+            <li
+              className="navbar-item"
+              key={item.path}
+              onClick={() => {
+                clickSound.play();
+              }}
+            >
               <ProgressBarLink
                 href={item.path}
                 className={`navbar-link text-light-gray ${isActive(item.path) ? "active" : ""}`}

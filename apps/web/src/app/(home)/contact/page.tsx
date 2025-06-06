@@ -18,6 +18,8 @@ const { title, about } = config;
  */
 
 function Contact() {
+  const emailSound = new Audio("/audio/send-email.mp3");
+
   useEffect(() => {
     document.title = `Contact | ${title}`;
   }, [title]);
@@ -36,6 +38,7 @@ function Contact() {
       }
     );
     alert("Message sent successfully!");
+    emailSound.play();
   };
 
   return (

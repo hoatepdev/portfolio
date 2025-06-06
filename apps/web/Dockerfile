@@ -24,6 +24,7 @@ COPY packages/typescript-config/package.json ./packages/typescript-config/packag
 COPY turbo.json ./
 
 # Install dependencies (monorepo) - this will install turbo locally
+# Install dependencies (monorepo) - this will install turbo locally
 RUN pnpm install --frozen-lockfile
 
 # Copy the rest of the repo
