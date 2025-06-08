@@ -1,6 +1,3 @@
-
-git stash push --keep-index --include-untracked -m "🚧 [WIP]"
-
 pnpm test
 
 pnpm run lint-staged
