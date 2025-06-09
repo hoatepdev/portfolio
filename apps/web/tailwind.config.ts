@@ -65,6 +65,7 @@ const config: Partial<Config> = {
         "marquee-left": "marquee-left var(--duration, 30s) linear infinite",
         "marquee-up": "marquee-up var(--duration, 30s) linear infinite",
         rainbow: "rainbow var(--speed, 2s) infinite linear",
+        particle: "fall 10s linear infinite",
       },
       keyframes: {
         "shiny-text": {
@@ -99,6 +100,10 @@ const config: Partial<Config> = {
         rainbow: {
           "0%": { "background-position": "0%" },
           "100%": { "background-position": "200%" },
+        },
+        fall: {
+          "0%": { transform: "translateY(0)", opacity: "0.6" },
+          "100%": { transform: "translateY(100vh)", opacity: "0" },
         },
       },
     },

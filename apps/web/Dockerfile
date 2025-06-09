@@ -3,7 +3,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Set max memory for Node.js
-ENV NODE_OPTIONS=--max-old-space-size=4096
+ENV NODE_OPTIONS=--max-old-space-size=1024
 
 # Install pnpm
 RUN corepack enable && corepack prepare pnpm@10.11.0 --activate
@@ -23,7 +23,6 @@ COPY packages/typescript-config/package.json ./packages/typescript-config/packag
 # Copy turbo config
 COPY turbo.json ./
 
-# Install dependencies (monorepo) - this will install turbo locally
 # Install dependencies (monorepo) - this will install turbo locally
 RUN pnpm install --frozen-lockfile
 
