@@ -1,7 +1,7 @@
 "use client";
 
 import emailjs from "@emailjs/browser";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { FaRegPaperPlane } from "react-icons/fa";
 
 import PageHeader from "@/components/page-header";
@@ -18,11 +18,15 @@ const { title, about } = config;
  */
 
 function Contact() {
-  const emailSound = new Audio("/audio/send-email.mp3");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     document.title = `Contact | ${title}`;
   }, [title]);
+
+  useEffect(() => {
+    audioRef.current = new Audio("/audio/send-email.mp3");
+  }, []);
 
   const handleSubmit = (formData: FormData) => {
     emailjs.send(
@@ -38,7 +42,7 @@ function Contact() {
       }
     );
     alert("Message sent successfully!");
-    emailSound.play();
+    audioRef.current?.play();
   };
 
   return (

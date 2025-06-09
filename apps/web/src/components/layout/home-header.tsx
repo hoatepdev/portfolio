@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { ProgressBarLink } from "@/components/progress-bar";
@@ -14,7 +14,7 @@ interface HomeHeaderProps {
 
 function HomeHeader({ navigationLinks }: HomeHeaderProps) {
   const currentPath = usePathname();
-  const clickSound = new Audio("/audio/click-button.mp3");
+  const clickSoundRef = useRef<HTMLAudioElement | null>(null);
 
   const isActive = (path: string) => {
     if (path === "/post" && currentPath.startsWith("/post")) return true;
@@ -22,6 +22,10 @@ function HomeHeader({ navigationLinks }: HomeHeaderProps) {
       return true;
     return currentPath === path;
   };
+
+  useEffect(() => {
+    clickSoundRef.current = new Audio("/audio/click-button.mp3");
+  }, []);
 
   return (
     <header className="navbar">
@@ -32,7 +36,7 @@ function HomeHeader({ navigationLinks }: HomeHeaderProps) {
               className="navbar-item"
               key={item.path}
               onClick={() => {
-                clickSound.play();
+                clickSoundRef.current?.play();
               }}
             >
               <ProgressBarLink
