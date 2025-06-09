@@ -147,6 +147,22 @@
   --transition-2: 0.5s ease-in-out;
 }
 
+@layer utilities {
+  .animate-particle {
+    animation: fall 10s linear infinite;
+  }
+  @keyframes fall {
+    0% {
+      transform: translateY(0);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+}
+
 /* Custom utility classes */
 @utility gradient-onyx {
   background-image: var(--bg-gradient-onyx);

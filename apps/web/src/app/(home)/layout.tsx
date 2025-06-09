@@ -9,6 +9,7 @@ import Hello from "@/components/hello";
 import HomeHeader from "@/components/layout/home-header";
 import SideBar from "@/components/layout/side-bar";
 import { ProgressBar } from "@/components/progress-bar";
+import ParticleBackground from "@/components/ui/particle-background";
 import { WebVitals } from "@/components/web-vitals";
 import config from "@/config";
 import type { JsonLdHtml } from "@/types/json-ld";
@@ -40,6 +41,7 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
       <WebVitals gaId={googleAnalyticId} />
       <body>
         <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
+          <ParticleBackground />
           <Hello />
           <main>
             <SideBar
@@ -60,7 +62,7 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
           id="application/ld+json"
           type="application/ld+json"
           dangerouslySetInnerHTML={addJsonLd()}
-          key="1chooo-website-jsonld"
+          key="hoatepdev-website-jsonld"
         />
         <Analytics />
       </body>
