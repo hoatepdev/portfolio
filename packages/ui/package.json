@@ -25,7 +25,7 @@
     "@tailwindcss/postcss": "^4.1.8",
     "@turbo/gen": "^2.5.2",
     "@types/node": "^24",
-    "@types/react": "19.1.6",
+    "@types/react": "19.1.7",
     "@types/react-dom": "19.1.0",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
