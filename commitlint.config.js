@@ -6,6 +6,9 @@ module.exports = {
       2,
       "always",
       [
+        "major",
+        "minor",
+        "patch",
         "feat",
         "fix",
         "docs",

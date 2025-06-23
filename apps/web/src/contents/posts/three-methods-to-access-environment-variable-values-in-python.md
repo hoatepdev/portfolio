@@ -13,6 +13,7 @@ summary: "In Python, you can access environment variables using the `os` module,
 banner: /images/banner/posts/three-methods-to-access-environment-variable-values-in-python.png
 alt: "Three methods to Access environment variable values in Python"
 mathjax: false
+hidden: true
 ---
 
 Hi everyone! I'm Hugo. I am currently focusing on developing https://1chooo.com and backend applications with Python. And there is a scenario where I need to access environment variable values in Python. However, sometimes it works, sometimes it doesn't. So, I decided to write this post to share with you three methods to access environment variable values in Python. That way, you can easily access environment variables in your Python applications.

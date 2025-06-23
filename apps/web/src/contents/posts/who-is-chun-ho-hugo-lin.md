@@ -12,6 +12,7 @@ summary: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from Natio
 banner: /images/banner/posts/who-is-chun-ho-hugo-lin.webp
 alt: "Who is Chun-Ho (Hugo) Lin"
 mathjax: true
+hidden: true
 ---
 
 I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a _sincere passion_ for **Software Engineering 💻.**

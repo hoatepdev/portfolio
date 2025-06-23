@@ -10,6 +10,7 @@ summary: "Given an array `nums`. We define a running sum of an array as `running
 banner: /images/banner/posts/1480-running-sum-of-1d-array.webp
 alt: "💯✅ LeetCode 1480. Running Sum of 1d Array | Go"
 mathjax: true
+hidden: true
 ---
 
 Link 👉🏻 [1480. Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array)

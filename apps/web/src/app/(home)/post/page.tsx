@@ -13,7 +13,7 @@ import config from "@/config";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import { getBlogPosts } from "@/lib/db/v1/post";
 
-const { title } = config;
+const { title, about } = config;
 
 export const metadata = {
   title: `Post | ${title}`,
@@ -125,7 +125,8 @@ export default function Post({
 }) {
   return (
     <article>
-      <PageHeader header="Hugo's Blog" />
+      <PageHeader header={`${about.preferredName}'s Blog`} />
+
       <Suspense fallback={<Loading />}>
         <BlogPosts searchParams={searchParams} />
       </Suspense>

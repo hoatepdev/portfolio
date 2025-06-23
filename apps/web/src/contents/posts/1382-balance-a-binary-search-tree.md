@@ -15,6 +15,7 @@ summary: "Given the `root` of a binary search tree, return a balanced binary sea
 banner: /images/banner/posts/1382-balance-a-binary-search-tree.webp
 alt: "LeetCode 1382. Balance a Binary Search Tree - Easy Solution | Go"
 mathjax: true
+hidden: true
 ---
 
 Link 👉🏻 [1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)
