@@ -10,6 +10,7 @@ tags:
   - TypeScript
 banner: /images/banner/posts/make-your-react-more-elegant-with-map.webp
 alt: How to Make Your React TypeScript Project More Elegant with `map()`
+hidden: true
 ---
 
 > With React TypeScript and `map()`, you can create a more elegant personal blog. In this article, I share how to use the `map()` method to handle dynamic rendering of blog post lists and show the thought process of implementing the modification suggestions provided by ChatGPT.

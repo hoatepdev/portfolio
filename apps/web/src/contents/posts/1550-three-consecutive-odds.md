@@ -9,6 +9,7 @@ summary: "Given an integer array arr, return true if there are three consecutive
 banner: /images/banner/posts/1550-three-consecutive-odds.webp
 alt: "💯✅ LeetCode 1550. Three Consecutive Odds | Go"
 mathjax: true
+hidden: true
 ---
 
 Link 👉🏻 [1550. Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds)

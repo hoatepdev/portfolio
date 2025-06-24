@@ -9,6 +9,7 @@ summary: "In a star graph, the center node will appear in each of the edges whic
 banner: /images/banner/posts/1791-find-center-of-star-graph.webp
 alt: "[O(1) Time and Space] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go"
 mathjax: true
+hidden: true
 ---
 
 Link 👉🏻 [1791. Find Center of Star Graph](https://leetcode.com/problems/find-center-of-star-graph/)

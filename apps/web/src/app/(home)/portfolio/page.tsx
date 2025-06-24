@@ -10,7 +10,7 @@ import { ProgressBarLink } from "@/components/progress-bar";
 import config from "@/config";
 import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
 
-const { title } = config;
+const { title, about } = config;
 
 const POSTS_PER_PAGE = 9;
 
@@ -57,7 +57,8 @@ export default async function Portfolio({
 
   return (
     <article>
-      <PageHeader header="Hugo's Portfolio" />
+      <PageHeader header={`${about.preferredName}'s Portfolio`} />
+
       <section className="projects">
         <FilterList
           path="portfolio"

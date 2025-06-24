@@ -12,6 +12,7 @@ tags:
   - Website Development
 banner: /images/banner/posts/move-shared-components-to-global-layout.webp
 alt: "Improve Next.js Performance: Move Shared Components to Global Layout"
+hidden: true
 ---
 
 > Through Next.js's Global Layout, reduce the redundant loading of components to improve web performance.

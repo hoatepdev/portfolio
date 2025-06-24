@@ -9,6 +9,7 @@ summary: "A quick guide on how to enable word wrap for MDX files in VSCode with 
 banner: /images/banner/posts/how-to-enable-word-wrap-mdx-files-in-vscode.webp
 alt: "How to Enable Word Wrap for MDX Files in VSCode"
 mathjax: false
+hidden: true
 ---
 
 Hey there 👋 This is Hugo. Recently, I've been putting significant effort into developing my personal website, [1chooo.com](https://1chooo.com). As a software engineer, I aim not only **_to write code_** but also **_to leave thorough documentation_**. That's why I've been focusing not just on development but also on content creation, including blogs, user guides, and code walkthroughs. I started using [MDX](https://mdxjs.com/) files for writing my content, as they allow me to embed JSX components directly into markdown files—an excellent way to combine code snippets and interactive elements.

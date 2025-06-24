@@ -11,6 +11,7 @@ tags:
 summary: "Today, I will show you how to give your GitHub repos a step-by-step makeover with VS Code's Material Icons. Let's dive in."
 banner: /images/banner/posts/give-your-github-repos-a-makeover-with-vscodes-material-icons.webp
 alt: "Give Your GitHub Repos a Makeover with VS Code's Material Icons"
+hidden: true
 ---
 
 Hey there! 👋 This is Hugo. I am a very addicted and heavy user of GitHub and VSCode. I have spent more than **10 hours** on them. Moreover, I have made more than **5,000 contributions** on GitHub in the past year. Therefore, I often find some cool plugins to enhance my workflow. I found a really cool Chrome plugin—[Material Icons for GitHub]. That can make the file icon on GitHub look like VSCode.

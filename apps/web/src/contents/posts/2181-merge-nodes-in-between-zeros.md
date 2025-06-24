@@ -10,6 +10,7 @@ summary: "You are given the head of a linked list, which contains a series of in
 banner: /images/banner/posts/2181-merge-nodes-in-between-zeros.webp
 alt: "💯✅ LeetCode 2181. Merge Nodes in Between Zeros | Go"
 mathjax: true
+hidden: true
 ---
 
 Link 👉🏻 [2181. Merge Nodes in Between Zeros](https://leetcode.com/problems/merge-nodes-in-between-zeros)

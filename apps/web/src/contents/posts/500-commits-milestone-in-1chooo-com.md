@@ -8,6 +8,7 @@ tags:
   - Typescript
 banner: /images/banner/posts/500-commits-milestone-in-1chooo-com.webp
 alt: "Built a 500 commits GitHub Repository: 10 essential steps you can't miss"
+hidden: true
 ---
 
 > A 500 commits Side Project is born, let's dive into how Hugo did it!

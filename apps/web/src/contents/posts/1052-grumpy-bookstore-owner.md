@@ -2,7 +2,7 @@
 title: "[✅ Beats 💯] LeetCode 1052. Grumpy Bookstore Owner - Easy Solution | Go"
 publishedAt: '2024-06-20'
 category: LeetCode
-tags: 
+tags:
 	- Go
 	- Leetcode
 	- Array
@@ -11,6 +11,7 @@ summary: 'There is a bookstore owner that has a store open for `n` minutes. Ever
 banner: /images/banner/posts/1052-grumpy-bookstore-owner.webp
 alt: "[✅ Beats 💯] LeetCode 1052. Grumpy Bookstore Owner - Easy Solution | Go"
 mathjax: true
+hidden: true
 ---
 
 Link 👉🏻 [1052. Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/)

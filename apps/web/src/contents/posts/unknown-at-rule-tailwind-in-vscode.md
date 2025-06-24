@@ -10,6 +10,7 @@ summary: "Although this message doesn't disrupt the functionality, it can be dis
 banner: /images/banner/posts/unknown-at-rule-tailwind-in-vscode.png
 alt: 'Solving the "Unknown rule @tailwind" Issue in VSCode'
 mathjax: false
+hidden: true
 ---
 
 Hey there 👋, it's Hugo. Today, I'll walk you through a common issue I encountered while developing my portfolio website—one that you might also face when integrating [Tailwind CSS](https://tailwindcss.com) in a [VSCode](https://code.visualstudio.com/) environment. When I added Tailwind to my project, I was greeted by the following error message: `Unknown at rule @tailwind`

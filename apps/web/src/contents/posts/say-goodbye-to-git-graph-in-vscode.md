@@ -12,6 +12,7 @@ summary: "In the latest VSCode 1.93 version, VSCode has built Git Graph right in
 banner: /images/banner/posts/say-goodbye-to-git-graph-in-vscode.webp
 alt: "Say Goodbye to Git Graph in VSCode: A New Era of Source Control Visualization"
 mathjax: true
+hidden: true
 ---
 
 Hi everyone! I'm Hugo. I use [VSCode](https://code.visualstudio.com/) a lot for coding and writing. If you're interested in how I write better Markdown in VSCode, check out 👉🏻 [Your Life Needs to Be MARKDOWNED: Essential Tips for Exceptional GitHub Writing](https://medium.com/@1chooo/vyour-life-need-to-be-markdowned-essential-tips-for-exceptional-github-writing-08c23ddc3464).

@@ -8,6 +8,7 @@ tags:
   - Typescript
 banner: /images/banner/posts/goodbye-react-create-app.webp
 alt: Updating an Outdated Create React App (CRA) to Support TypeScript 5.x
+hidden: true
 ---
 
 > Create React App (CRA) was officially deprecated by Facebook, and it's time to move on to other alternatives. However, we can still use CRA with TypeScript `5.x` by adding `overrides` to the `package.json`. Let's see how to do it!

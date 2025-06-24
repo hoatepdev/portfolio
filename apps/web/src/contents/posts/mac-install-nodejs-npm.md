@@ -9,6 +9,7 @@ tags:
   - Mac
   - Install
 banner: /images/banner/posts/mac-install-nodejs-npm.webp
+hidden: true
 ---
 
 新年剛好把 MacOS 重灌，讓這台老 macbook pro 2020 重獲新生，也藉此機會重新建置開發環境。

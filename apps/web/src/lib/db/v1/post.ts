@@ -9,6 +9,7 @@ type Metadata = {
   banner: string;
   alt?: string;
   image?: string;
+  hidden?: boolean;
 };
 
 export const getBlogPosts = async () => {
@@ -41,11 +42,13 @@ export const getBlogPosts = async () => {
   );
 
   // Sort posts by date once, not on every request
-  return posts.sort(
-    (a, b) =>
-      new Date(b.metadata.publishedAt).getTime() -
-      new Date(a.metadata.publishedAt).getTime()
-  );
+  return posts
+    .filter((post) => !post.metadata.hidden)
+    .sort(
+      (a, b) =>
+        new Date(b.metadata.publishedAt).getTime() -
+        new Date(a.metadata.publishedAt).getTime()
+    );
 };
 
 // Helper functions remain the same but use RegExp.exec() for better performance
@@ -71,8 +74,7 @@ function parseFrontmatter(fileContent: string) {
       const match = kvRegex.exec(line.trim());
       if (match) {
         const [, key, doubleQuoted, singleQuoted, unquoted] = match;
-        metadata[key as keyof Metadata] =
-          doubleQuoted || singleQuoted || unquoted;
+        metadata[key] = doubleQuoted || singleQuoted || unquoted;
       }
     });
 
