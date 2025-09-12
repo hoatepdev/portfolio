@@ -13,6 +13,7 @@ function Pagination({
   selectedTag,
   basePath,
 }: PaginationProps) {
+  if (totalPages <= 1) return null;
   return (
     <div className="mt-5 flex justify-center">
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
