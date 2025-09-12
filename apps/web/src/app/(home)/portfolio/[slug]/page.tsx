@@ -5,10 +5,13 @@ import React, { Suspense } from "react";
 
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import PageHeader from "@/components/page-header";
+import config from "@/config";
 import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
 import "@/styles/blog/blog-text.css";
 
 type tParams = Promise<{ slug: string }>;
+
+const { about } = config;
 
 export async function generateMetadata({
   params,
@@ -29,19 +32,19 @@ export async function generateMetadata({
     banner,
   } = post.metadata;
   const ogImage = banner
-    ? `https://www.1chooo.com${banner}`
-    : `https://www.1chooo.com/og?title=${title}`;
+    ? `https://p.hoatepdev.site${banner}`
+    : `https://p.hoatepdev.site/og?title=${title}`;
 
   return {
     title,
     description,
     openGraph: {
       title,
-      siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+      siteName: "Hòa T. (Thomas) Nguyen - 1chooo | Open Source Enthusiast",
       description,
       type: "article",
       publishedTime,
-      url: `https://www.1chooo.com/portfolio/${post.slug}`,
+      url: `https://p.hoatepdev.site/portfolio/${post.slug}`,
       locale: "en_US",
       images: [
         {
@@ -116,7 +119,7 @@ export default async function Portfolio(props: { params: tParams }) {
     <div>
       <article>
         <section className="blog-text">
-          <PageHeader header="Hugo's Portfolio" />
+          <PageHeader header={`${about.preferredName}'s Portfolio`} />
           <h1 className="title font-text-2xl max-w-[650px] text-2xl font-semibold tracking-tighter">
             <MarkdownRenderer content={post.metadata.title} />
           </h1>

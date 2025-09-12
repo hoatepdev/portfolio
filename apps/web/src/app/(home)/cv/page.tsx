@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "CV",
-  description: "Download Chun-Ho (Hugo) Lin's CV in PDF format.",
+  description: "Download Hòa T. (Thomas) Nguyen's CV in PDF format.",
 };
 
 export default function CVPage() {

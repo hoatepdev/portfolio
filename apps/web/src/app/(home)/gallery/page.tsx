@@ -8,7 +8,7 @@ import PageHeader from "@/components/page-header";
 import config from "@/config";
 import { cn } from "@/lib/utils";
 
-const { title } = config;
+const { title, about } = config;
 
 export const metadata: Metadata = {
   title: `Gallery | ${title}`,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 function Gallery() {
   return (
     <article>
-      <PageHeader header="Hugo's Gallery" />
+      <PageHeader header={`${about.preferredName}'s Gallery`} />
       <BlurFadeDemo />
       <div className="z-10 mb-5 mt-5 flex items-center justify-center">
         <Link

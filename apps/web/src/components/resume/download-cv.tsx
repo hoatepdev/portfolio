@@ -15,7 +15,7 @@ function DownloadCV() {
               `animate-gradient bg-linear-to-r bg-size-[var(--bg-size)_100%] inline from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-clip-text text-transparent`
             )}
           >
-            Download Hugo's full CV
+            Download Hòa T. (Thomas) Nguyen's full CV
           </span>
           <ChevronRight className="text-white-1 ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
         </AnimatedGradientText>

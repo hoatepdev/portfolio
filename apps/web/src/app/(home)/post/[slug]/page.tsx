@@ -12,7 +12,7 @@ import config from "@/config";
 import { getBlogPosts } from "@/lib/db/v1/post";
 import "@/styles/blog/blog-text.css";
 
-const { giscusConfig } = config;
+const { giscusConfig, about } = config;
 
 type tParams = Promise<{ slug: string }>;
 
@@ -35,19 +35,19 @@ export async function generateMetadata({
     banner,
   } = post.metadata;
   const ogImage = banner
-    ? `https://www.1chooo.com${banner}`
-    : `https://www.1chooo.com/og?title=${title}`;
+    ? `https://p.hoatepdev.site${banner}`
+    : `https://p.hoatepdev.site/og?title=${title}`;
 
   return {
     title,
     description,
     openGraph: {
       title,
-      siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+      siteName: "Hòa T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
       description,
       type: "article",
       publishedTime,
-      url: `https://www.1chooo.com/post/${post.slug}`,
+      url: `https://p.hoatepdev.site/post/${post.slug}`,
       locale: "en_US",
       images: [
         {
@@ -118,7 +118,7 @@ export default async function Post(props: { params: tParams }) {
     notFound();
   }
 
-  const shareUrl = `https://www.1chooo.com/post/${post.slug}`;
+  const shareUrl = `https://p.hoatepdev.site/post/${post.slug}`;
   const shareText = `Check out this post:`;
 
   return (
@@ -127,7 +127,7 @@ export default async function Post(props: { params: tParams }) {
         <section className="blog-text">
           <header>
             <h1 className="text-light-gray after:bg-text-gradient-yellow after:rounded-xs relative mb-[30px] pb-[7px] text-3xl font-semibold after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-[30px] after:content-[''] sm:pb-[15px] sm:after:h-[5px] sm:after:w-[40px] md:pb-[20px]">
-              {"Hugo's Blog"}
+              {`${about.preferredName}'s Blog`}
             </h1>
           </header>
           <h1 className="text-white-2 max-w-[650px] text-4xl font-semibold">

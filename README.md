@@ -71,13 +71,6 @@ $ cd apps/web
 $ pnpm run dev   # Open http://localhost:3100 with your browser to see the result.
 ```
 
-### Run the Docs
-
-```shell
-$ cd apps/docs
-$ pnpm run dev   # Open http://localhost:3001 with your browser to see the result.
-```
-
 ## 📲 Contact
 
 > **Hoà T.(Thomas) Nguyễn**
