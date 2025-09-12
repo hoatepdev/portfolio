@@ -40,7 +40,7 @@ export async function generateMetadata({
     description,
     openGraph: {
       title,
-      siteName: "Hòa T. (Thomas) Nguyen - 1chooo | Open Source Enthusiast",
+      siteName: "Hòa T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
       description,
       type: "article",
       publishedTime,
