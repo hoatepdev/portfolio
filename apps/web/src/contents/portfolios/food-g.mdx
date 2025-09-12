@@ -1,0 +1,246 @@
+---
+title: "Food G — Modern Food Delivery & E-Commerce App"
+category: Web Development
+startDate: 2024-09-01
+endDate: 2024-09-12
+publishedAt: 2024-09-13
+summary: "Food G is a modern React-based food delivery and e-commerce application with Firebase integration, featuring a full shopping experience, responsive design, and advanced UI interactions."
+tags:
+  - React
+  - Redux Toolkit
+  - Firebase
+  - E-Commerce
+  - Material-UI
+  - GSAP
+banner: /images/banner/projects/food-g.png
+alt: "Food G React Food Delivery App"
+---
+
+# 🍕 Food G — Modern Food Delivery & E-Commerce Application
+
+**Food G** is a modern food delivery and e-commerce platform built with **React 18** and integrated with **Firebase** for backend services. It provides a complete shopping experience with a mobile-first responsive design, smooth animations, and advanced features for both users and developers.
+
+<div align="center">
+  <strong>
+    <a href="https://github.com/hoatepdev/food-g">💻 Source Code</a>
+    &nbsp;&nbsp;&bull;&nbsp;
+    <a href="https://food-g-demo.vercel.app">🎥 Demo</a>
+  </strong>
+</div>
+
+![Food G App](/images/banner/projects/food-g.png)
+
+## 🎯 Key Features
+
+### 🛒 E-Commerce Features
+
+- **Home Page**: Interactive banners, product categories, delivery info, and customer reviews
+- **Shop**: Browse products with advanced filters and search functionality
+- **Product Details**: High-quality image zoom, detailed information, and customer reviews
+- **Shopping Cart**: Add/remove items with real-time updates and quantity management
+- **Wishlist**: Save favorite products for later purchase
+- **Checkout**: Complete order process with form validation and payment integration
+
+### 🔐 User Management
+
+- **Authentication**: Email/password login with secure password handling
+- **Social Login**: Google & Facebook social authentication integration
+- **User Profiles**: Personal account management and order history
+- **Session Management**: Persistent login sessions and protected routes
+
+### 📱 User Experience
+
+- **Responsive Design**: Mobile-first approach with perfect cross-device compatibility
+- **Smooth Animations**: GSAP-powered animations for enhanced user interaction
+- **Toast Notifications**: Real-time feedback for user actions
+- **Loading States**: Skeleton loading and progress indicators
+
+## 🛠️ Technology Stack
+
+### 🎨 Frontend Technologies
+
+- **React 18** — Modern UI library with hooks and concurrent features
+- **React Router DOM** — Client-side routing and navigation
+- **Redux Toolkit** — Predictable state management with RTK Query
+- **Material-UI (MUI)** — Comprehensive component library with theming
+- **Sass/SCSS** — Advanced CSS preprocessing and styling
+- **GSAP** — High-performance animations and transitions
+- **React Hook Form + Yup** — Efficient form handling and validation
+- **Axios** — HTTP client for API requests
+
+### 🔥 Backend & Services
+
+- **Firebase Authentication** — Secure user authentication and authorization
+- **Firestore Database** — NoSQL database for real-time data synchronization
+- **Firebase Analytics** — User behavior tracking and analytics
+- **Firebase Hosting** — Static site hosting and deployment
+- **JSON Server** — Mock API for development and testing
+
+### 🛠️ Development Tools
+
+- **Create React App** — Zero-configuration build tooling
+- **ESLint + Prettier** — Code linting and formatting
+- **Yarn** — Fast, reliable package manager
+- **Git** — Version control and collaboration
+
+## 📁 Project Architecture
+
+```
+src/
+├── api/                    # API endpoints and services
+├── app/                    # Redux store configuration
+├── assets/                 # Images, SVGs, and static files
+├── components/             # Reusable UI components
+│   ├── Cart/              # Shopping cart components
+│   ├── Header/            # Navigation and header
+│   ├── Footer/            # Footer and links
+│   ├── Product/           # Product-related components
+│   └── UI/                # Generic UI components
+├── configs/               # Configuration files
+├── constants/             # Application constants
+├── contexts/              # React context providers
+├── features/              # Feature-based modules
+│   ├── Home/              # Home page features
+│   ├── Shop/              # Shopping functionality
+│   ├── Detail/            # Product details
+│   ├── Auth/              # Authentication
+│   └── Checkout/          # Checkout process
+├── hooks/                 # Custom React hooks
+├── routes/                # Route configuration
+└── utils/                 # Utility functions and helpers
+```
+
+## 🚀 Quick Start Guide
+
+### Prerequisites
+
+- **Node.js** v16.0 or higher
+- **Yarn** package manager
+- **Firebase** project setup
+- **Git** for version control
+
+### Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/hoatepdev/food-g.git
+cd food-g
+
+# Install dependencies
+yarn install
+
+# Create environment file
+cp .env.example .env
+```
+
+### Environment Configuration
+
+Create a `.env` file with your Firebase credentials:
+
+```env
+REACT_APP_FIREBASE_API_KEY=your_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
+REACT_APP_FIREBASE_MEASUREMENT_ID=your_measurement_id
+```
+
+### Development
+
+```bash
+# Start development server
+yarn start
+
+# Open http://localhost:3000 in your browser
+```
+
+### Build & Testing
+
+```bash
+# Build for production
+yarn build
+
+# Run tests
+yarn test
+
+# Run linting
+yarn lint
+```
+
+## 🔧 Implementation Highlights
+
+### 🔐 Authentication System
+
+- **Firebase Authentication** with email/password and social login
+- **Persistent sessions** with automatic token refresh
+- **Protected routes** with authentication guards
+- **User profile management** and account settings
+
+### 📊 State Management
+
+- **Redux Toolkit** with feature-based slices (cart, wishlist, shop)
+- **Context API** for component-level state management
+- **RTK Query** for efficient data fetching and caching
+- **Optimistic updates** for better user experience
+
+### 🎨 UI/UX Implementation
+
+- **Material-UI** with custom theming and responsive design
+- **GSAP animations** for smooth transitions and interactions
+- **Toast notifications** for user feedback
+- **Loading states** and skeleton screens
+- **Mobile-first** responsive design approach
+
+### ⚡ Performance Optimizations
+
+- **Lazy loading** for route components
+- **Image optimization** with lazy loading
+- **Code splitting** for smaller bundle sizes
+- **Memoization** for expensive calculations
+- **Virtual scrolling** for large product lists
+
+## 🌐 Application Routes
+
+| Route             | Description                           |
+| ----------------- | ------------------------------------- |
+| `/`               | Redirect to home page                 |
+| `/food-g`         | Main home page with featured products |
+| `/shop/:name`     | Product categories and filtering      |
+| `/shop/:name/:id` | Individual product details            |
+| `/checkout`       | Order checkout and payment            |
+| `/login`          | User authentication                   |
+| `/profile`        | User account management               |
+
+## 🎯 Key Achievements
+
+- **Performance**: Optimized for fast loading and smooth interactions
+- **User Experience**: Intuitive interface with modern design patterns
+- **Scalability**: Modular architecture for easy maintenance and updates
+- **Security**: Secure authentication and data handling
+- **Responsiveness**: Perfect display across all device sizes
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+## 📝 License & Usage
+
+This project is licensed under the **MIT License** and is intended for:
+
+- **Learning purposes** and portfolio demonstration
+- **Educational use** in React and Firebase development
+- **Inspiration** for similar e-commerce applications
+
+**Note**: Configure your Firebase project and API keys before production use.
+
+---
+
+**Made with 💻 by [@hoatepdev](https://github.com/hoatepdev)**
