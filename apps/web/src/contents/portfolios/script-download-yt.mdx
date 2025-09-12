@@ -1,0 +1,105 @@
+---
+title: "YouTube Member Video Downloader Script"
+category: Utilities / Tools
+startDate: 2025-09-01
+endDate: 2025-09-05
+publishedAt: 2025-09-12
+summary: "A shell script using yt-dlp to download YouTube videos (including members-only / age-restricted) from a list, using cookies for authentication and best video/audio merging."
+tags:
+  - Script
+  - yt-dlp
+  - Shell
+  - YouTube
+  - Downloader
+banner: /images/banner/projects/script-download-yt.jpeg
+alt: "YouTube Download Script by hoatepdev"
+---
+
+# 🎬 YouTube Member Video Downloader Script
+
+This project is a simple but powerful shell script to download YouTube videos—especially those restricted by membership or age restrictions—using **yt-dlp**. The script supports reading a list of video URLs, using browser-exported cookies for authentication, and merges best video + audio into MP4 format.
+
+<div align="center">
+  <strong>
+    <a href="https://github.com/hoatepdev/script-dowload-video-youtube">
+      💻 Source Code
+    </a>
+  </strong>
+</div>
+
+---
+
+## 🔍 Project Overview
+
+Many YouTube videos are restricted—either age-restricted or limited to YouTube members/subscribers only. This script leverages the open-source tool _yt-dlp_ to:
+
+- Process a list of video URLs from a text file.
+- Use a cookies file exported from your browser to authenticate and bypass restrictions.
+- Download the best video + audio streams available, then merge them into a single MP4 file.
+
+It’s lightweight, easy to configure, and runs on any Unix-like environment with shell support.
+
+---
+
+## 🛠️ How It Works & Setup
+
+### 🔧 Files in the Repo
+
+- `script.sh` — the main shell script. It calls `yt-dlp` with the right options.
+- `danhsach.txt` — a simple list (one URL per line) of YouTube video links to download.
+- `cookies.txt` — exported cookies from your browser session; needed for membership / age-restricted video access.
+
+### ⚙️ Usage Steps
+
+1. **Install yt-dlp**
+   You can install via `pip install -U yt-dlp`, or download the binary.
+
+2. **Prepare your files**
+
+   - Add video URLs to `danhsach.txt`.
+   - Export your YouTube cookies to `cookies.txt` (using a browser plugin or other means).
+
+3. **Configure script (optional)**
+   You might need to change paths in `script.sh`. Key options used:
+
+   ```bash
+   --cookies /path/to/cookies.txt \
+   -a /path/to/danhsach.txt \
+   -P /path/to/output/directory \
+   -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" \
+   --merge-output-format mp4
+   ```
+
+   These flags specify where to get cookies, which list of URLs to process, output folder, video+audio format, and final merging into MP4.
+
+### ▶️ Run the script
+
+Make it executable and run:
+
+```bash
+chmod +x script.sh
+./script.sh
+```
+
+### ⚠️ Important Notes & Limitations
+
+- The `cookies.txt` file must be kept up-to-date. If your session expires, or your login changes, downloads might fail.
+- Some videos may have DRM or other protection that yt-dlp cannot bypass.
+- Use this responsibly and in compliance with YouTube’s Terms of Service. This script is intended for personal use / videos you have right to download.
+
+## 🔮 Possible Improvements
+
+Here are some ideas to make it even better:
+
+- Add a progress bar or logging to monitor downloads and outcomes.
+- Wrap this in a simple UI (web UI or desktop GUI) for non-technical users.
+- Add scheduling (cron job) to check for new URLs to download automatically.
+- Support output formats beyond MP4, or allow choosing quality/resolution more flexibly.
+- Provide checksums or integrity verification after download + merge.
+
+🪪 License & Contribution
+This tool is open-source. You’re welcome to fork, modify, or improve it.
+Check the LICENSE (if present in the repo) for usage rights. And if you make enhancements, feel free to open a PR on GitHub so others can benefit.
+
+Made with 💻 by hoatepdev
+If you find this project useful, please consider ⭐ the repo, share with others, and contribute if you can!

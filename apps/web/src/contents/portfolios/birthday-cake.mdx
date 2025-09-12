@@ -1,40 +1,40 @@
-2024-07-05
+---
+title: "Birthday Cake - Interactive Greeting App"
+category: Web Development
+startDate: 2024-07-05
+endDate: 2024-07-05
 publishedAt: 2024-07-06
 summary: "A fun, interactive birthday cake web app built with HTML, CSS, and JavaScript. Features animated candles, background music, and optional microphone integration to blow out candles in real life."
 tags:
-
-- HTML
-- CSS
-- JavaScript
-- Web Audio API
-- Fun Project
-- Interactive UI
-  banner: /images/banner/projects/birthday-cake.webp
-  alt: "Birthday Cake Web App - Interactive Birthday Greeting"
-
+  - HTML
+  - CSS
+  - JavaScript
+  - Web Audio API
+  - Fun Project
+  - Interactive UI
+banner: /images/banner/projects/birthday-cake.jpg
+alt: "Birthday Cake Web App - Interactive Birthday Greeting"
 ---
 
 # 🎂 Birthday Cake - Interactive Greeting App
 
-An interactive birthday cake web app built with **HTML**, **CSS**, and **JavaScript**.
-Perfect for sending virtual birthday greetings with candles, animations, and music — now with support for **microphone-based candle blowing**!
+An interactive birthday cake web app built with **HTML**, **CSS**, and **JavaScript**. Perfect for sending virtual birthday greetings with candles, animations, and music — now with support for **microphone-based candle blowing**.
 
 <div align="center">
   <strong>
-    <a href="https://github.com/hoatepdev/birthday-cake">💻 Source Code</a>{" "}
-    &nbsp;&nbsp;•&nbsp;&nbsp;
-    <a href="https://hoatepdev.github.io/birthday-cake/">🎥 Live Demo</a>
+    <a href="https://github.com/hoatepdev/birthday-cake">💻 Source Code</a>&nbsp;&nbsp;•&nbsp;&nbsp;
+    <a href="https://hoatepdev.github.io/birthday-cake/?name=hoatep&timesblow=1&audioprocessor=50&durationconfetti=5">🎥 Live Demo</a>
   </strong>
+
 </div>
 
-![Birthday Cake Demo](/images/banner/projects/birthday-cake.webp)
+![Birthday Cake Demo](/images/banner/projects/birthday-cake.jpg)
 
 ---
 
 ## 🎯 Project Overview
 
-This project is a playful way to celebrate birthdays online.
-It renders a cake with animated candles, plays a birthday song, and allows the recipient to experience a mini celebration right in their browser.
+This project is a playful way to celebrate birthdays online. It renders a cake with animated candles, plays a birthday song, and allows the recipient to experience a mini celebration right in their browser.
 
 ### ✨ Key Highlights
 
@@ -58,13 +58,15 @@ It renders a cake with animated candles, plays a birthday song, and allows the r
 
 ### 🧩 Core Stack
 
-```plaintext
+```text
 HTML5 + CSS3 + Vanilla JavaScript
 Web Audio API (for microphone input)
 requestAnimationFrame (for real-time audio volume checking)
-🎤 Blow Detection Code Snippet
-js
-Copy code
+```
+
+### 🎤 Blow Detection Code Snippet
+
+```js
 async function startMic() {
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
   const ctx = new AudioContext();
@@ -78,61 +80,56 @@ async function startMic() {
   function detectBlow() {
     analyser.getByteTimeDomainData(data);
     let sum = 0;
-    data.forEach(v => {
+    for (const v of data) {
       const val = (v - 128) / 128;
       sum += val * val;
-    });
+    }
     const rms = Math.sqrt(sum / data.length);
-    if (rms * 100 > 5) { // threshold
+    if (rms * 100 > 5) {
       blowOutCandles();
     }
     requestAnimationFrame(detectBlow);
   }
   detectBlow();
 }
-🎨 Customization
-You can easily modify:
+```
 
-Number of candles – Duplicate/remove <div class="candle"> elements.
+### 🎨 Customization
 
-Cake colors – Adjust style.css gradients.
+- Number of candles – duplicate or remove `<div class="candle">` elements.
+- Cake colors – adjust `style.css` gradients.
+- Music – replace `audio.mp3` with your preferred birthday song.
+- Blow threshold – tune the `if (rms * 100 > 5)` value for sensitivity.
 
-Music – Replace audio.mp3 with your preferred birthday song.
+### 🚀 Setup & Usage
 
-Blow Threshold – Tune the if (rms * 100 > 5) value for sensitivity.
-
-🚀 Setup & Usage
-bash
-Copy code
+```bash
 # Clone the repository
 git clone https://github.com/hoatepdev/birthday-cake.git
 cd birthday-cake
 
 # Open in browser
 open index.html
-For microphone support, you must open via HTTP/HTTPS (not file://).
-Deploy via GitHub Pages or any static host for best results.
-
-🎯 Impact & Use Cases
-Virtual Greetings: Send a link instead of a physical card.
-
-Fun Team Activity: Surprise teammates in standups or meetings.
-
-Learning Project: Great example for beginners to practice CSS animation and Web Audio API.
-
-🌟 Future Improvements
-🎨 Theme Selector – Choose between cake designs (chocolate, vanilla, rainbow).
-
-🖼️ Personalized Messages – Input name and message dynamically.
-
-📱 Responsive Optimization – Better mobile scaling & touch gestures.
-
-🕹️ Mini Game Mode – Light candles again after blowing them out.
-
-🪪 License
-This project is open source under the MIT License.
-Feel free to fork, modify, and share — just keep the credits intact.
-
-Made with 🎂 + ❤️ by @hoatepdev
-If you enjoyed it, please ⭐ the repo and share it with friends!
+# For microphone support, open via HTTP/HTTPS (not file://)
 ```
+
+You can deploy via GitHub Pages or any static host.
+
+### 🎯 Impact & Use Cases
+
+- Virtual greetings: send a link instead of a physical card.
+- Fun team activity: surprise teammates in standups or meetings.
+- Learning project: good example for CSS animation and Web Audio API.
+
+### 🌟 Future Improvements
+
+- Theme selector – chocolate, vanilla, rainbow, etc.
+- Personalized messages – input name and message dynamically.
+- Responsive optimization – better mobile scaling and touch gestures.
+- Mini game mode – relight candles after blowing them out.
+
+### 🪪 License
+
+This project is open source under the MIT License. Feel free to fork, modify, and share — just keep the credits intact.
+
+Made with 🎂 + ❤️ by @hoatepdev. If you enjoyed it, please ⭐ the repo and share it with friends!
