@@ -6,8 +6,9 @@ DOMAIN="p.hoatepdev.site"
 # Đường dẫn chứng chỉ gốc từ Let's Encrypt
 LE_PATH="/etc/letsencrypt/live/$DOMAIN"
 
-# Đường dẫn trong dự án Docker
-DOCKER_SSL_PATH="/services/portfolio/nginx/ssl"
+# Đường dẫn trong dự án Docker (relative to script location)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOCKER_SSL_PATH="$SCRIPT_DIR/../nginx/ssl"
 
 # Tên container (đổi theo docker-compose.yml)
 NGINX_CONTAINER="portfolio-nginx"
@@ -17,6 +18,9 @@ if [ ! -f "$LE_PATH/fullchain.pem" ]; then
   echo "❌ Không tìm thấy chứng chỉ Let's Encrypt cho $DOMAIN"
   exit 1
 fi
+
+# Tạo thư mục ssl nếu chưa tồn tại
+mkdir -p "$DOCKER_SSL_PATH"
 
 # Copy chứng chỉ
 echo "📥 Đang copy chứng chỉ..."

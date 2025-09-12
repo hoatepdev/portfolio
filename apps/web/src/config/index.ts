@@ -92,7 +92,7 @@ const config: Config = {
   navigationLinks: [
     { path: "/", label: "About" },
     { path: "/resume", label: "Resume" },
-    // { path: "/portfolio", label: "Portfolio" },
+    { path: "/portfolio", label: "Portfolio" },
     { path: "/post", label: "Post" },
     { path: "/contact", label: "Contact" },
   ],
@@ -282,7 +282,7 @@ In my spare time, I love developing personal projects, exploring new tech stacks
           details: [
             // "Led a team of 5 to enhance issue pools with AWS Bedrock, boosting cloud support efficiency by 80% through multi-language support and 95% accurate image recognition. Honored as the top-achieving internship team.",
             // "Utilized a serverless architecture on AWS Lambda, performing troubleshooting with CloudWatch, deployed via AWS CDK, and integrated with DynamoDB and Bedrock services.",
-            // "Documented issues in 10+ mock cases, such as VPC entry failures, EC2 Apache server restarts, and S3 photo access problems, and provided detailed solutions for interns. Refer [here](https://github.com/1chooo/ecv-training-materials/tree/main/msp/aws_challenge) for a comprehensive list.",
+            // "Documented issues in 10+ mock cases, such as VPC entry failures, EC2 Apache server restarts, and S3 photo access problems, and provided detailed solutions for interns. Refer [here](https://github.com/hoatepdev/ecv-training-materials/tree/main/msp/aws_challenge) for a comprehensive list.",
           ],
         },
         {

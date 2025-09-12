@@ -6,10 +6,12 @@ import Header from "@/app/(exp)/remark/_components/header";
 import { PostBody } from "@/app/(exp)/remark/_components/post-body";
 import { PostHeader } from "@/app/(exp)/remark/_components/post-header";
 import PageHeader from "@/components/page-header";
+import config from "@/config";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { CMS_NAME } from "@/lib/constants";
 import markdownToHtml from "@/lib/markdownToHtml";
 
+const { about } = config;
 export default async function Post(props: Params) {
   const params = await props.params;
   const post = getPostBySlug(params.slug);
@@ -22,7 +24,7 @@ export default async function Post(props: Params) {
 
   return (
     <article>
-      <PageHeader header="Hugo's Blog" />
+      <PageHeader header={`${about.preferredName}'s Blog`} />
       <Container>
         <Header />
         <PostHeader

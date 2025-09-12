@@ -31,14 +31,14 @@ function Footer() {
         {/* <Link className="footer-link" href="/terms">
           Terms
         </Link> */}
-        <Link
+        {/* <Link
           className="footer-link"
           href="https://docs.hoatepdev.com"
           target="_blank"
           rel="noopener noreferrer"
         >
           Docs
-        </Link>
+        </Link> */}
       </div>
     </footer>
   );

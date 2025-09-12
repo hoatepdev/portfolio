@@ -54,7 +54,6 @@ export default async function Portfolio({
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE
   );
-
   return (
     <article>
       <PageHeader header={`${about.preferredName}'s Portfolio`} />

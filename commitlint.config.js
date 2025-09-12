@@ -11,7 +11,6 @@ module.exports = {
         "patch",
         "feat",
         "fix",
-        "docs",
         "style",
         "refactor",
         "perf",

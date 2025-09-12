@@ -1,0 +1,309 @@
+---
+title: "hoatepdev - Modern Portfolio & Blog Platform"
+category: Web Development
+startDate: 2024-01-06
+endDate: 2024-12-31
+publishedAt: 2024-12-31
+summary: "A comprehensive, high-performance portfolio and blog platform built with Next.js 15, React 18, and Turborepo. Features modern architecture, optimized performance, and developer-friendly configuration system."
+tags:
+  - Next.js
+  - React
+  - TypeScript
+  - Turborepo
+  - Portfolio
+  - Blog
+  - Performance
+  - SEO
+banner: /images/banner/projects/1chooo-com.webp
+alt: "Hoà T. (Thomas) Nguyen - p.hoatepdev.site Portfolio Platform"
+---
+
+# 🚀 p.hoatepdev.site - Modern Portfolio & Blog Platform
+
+A comprehensive, high-performance portfolio and blog platform built with **Next.js 15**, **React 18**, and **Turborepo**. Features modern architecture, optimized performance, and developer-friendly configuration system.
+
+<div align="center">
+  <strong>
+    <a href="https://github.com/hoatepdev/portfolio">💻 Source Code</a>
+    &nbsp;&nbsp;&bull;&nbsp;
+    <a href="https://p.hoatepdev.site">🎥 Demo</a>
+  </strong>
+</div>
+
+![p.hoatepdev.site](/images/banner/projects/1chooo-com.webp)
+
+## 🎯 Project Overview
+
+This project represents a modern, scalable solution for developers seeking to create professional portfolio websites and blogs. Built on a robust foundation of **Next.js 15** with **App Router**, **React 18**, and **TypeScript**, it delivers exceptional performance, SEO optimization, and developer experience.
+
+### 🏗️ Architecture Highlights
+
+- **Monorepo Structure**: Leveraging Turborepo for efficient build processes and code sharing
+- **Modern React Patterns**: Utilizing React 18's concurrent features and server components
+- **Type Safety**: Full TypeScript implementation with strict type checking
+- **Performance First**: Optimized for Core Web Vitals and Lighthouse scores
+- **SEO Optimized**: Built-in meta tags, structured data, and sitemap generation
+
+### 🎨 Design Philosophy
+
+The platform follows a **configuration-driven approach**, allowing users to customize their portfolio through simple configuration changes rather than code modifications. This design ensures:
+
+- **Zero Code Changes**: Personalize your portfolio by updating configuration files
+- **Content Management**: Easy blog post creation using Markdown/MDX
+- **Theme Customization**: Flexible styling system with CSS variables
+- **Component Reusability**: Modular architecture for easy maintenance
+
+## ✨ Core Features
+
+### 🚀 Performance & Optimization
+
+- **⚡️ Next.js 15 with App Router**: Latest Next.js features with improved performance and developer experience
+- **💀 Skeleton Loading**: Enhanced user experience with smooth loading states
+- **📱 Responsive Design**: Mobile-first approach with perfect cross-device compatibility
+- **🎯 Core Web Vitals**: Optimized for Google's performance metrics (LCP, FID, CLS)
+
+### 📝 Content Management
+
+- **✍🏻 Advanced Markdown Rendering**: Support for MDX with custom components and syntax highlighting
+- **📊 GitHub Integration**: Calendar heatmap, contribution graphs, and repository statistics
+- **💬 Interactive Comments**: Giscus-powered commenting system for blog posts
+- **🔔 GitHub Alerts**: Rich content blocks for code examples and warnings
+
+### 🛠️ Developer Experience
+
+- **🧪 Comprehensive Testing**: Jest unit tests with React Testing Library
+- **📦 Monorepo Architecture**: Turborepo for efficient builds and code sharing
+- **🔧 TypeScript**: Full type safety with strict configuration
+- **📚 Documentation**: Complete setup guides and API documentation
+
+### 🎨 UI/UX Features
+
+- **🌙 Dark/Light Mode**: Automatic theme switching with system preference detection
+- **🎭 Smooth Animations**: Framer Motion for engaging micro-interactions
+- **📈 Analytics**: Built-in web analytics and performance monitoring
+- **🔍 SEO Optimization**: Meta tags, structured data, and sitemap generation
+
+[Skeleton Loading]: https://github.com/dvtng/react-loading-skeleton
+[Next.js 15 with App Router]: https://nextjs.org/
+[Markdown Rendering]: https://github.com/hashicorp/next-mdx-remote
+[Jest - Components Unit Testing]: https://jestjs.io/
+[GitHub Calendar Heatmap]: https://github.com/grubersjoe/react-github-calendar
+[giscus]: https://giscus.app/
+[GitHub Alerts]: https://github.com/chrisweb/rehype-github-alerts
+
+## 🏗️ Technical Implementation
+
+### 📊 Performance Metrics
+
+- **Lighthouse Score**: 95+ across all categories
+- **Core Web Vitals**: Excellent LCP, FID, and CLS scores
+- **Bundle Size**: Optimized with tree-shaking and code splitting
+- **Build Time**: Fast builds with Turborepo caching
+
+### 🔧 Technology Stack
+
+```typescript
+// Core Technologies
+- Next.js 15 (App Router)
+- React 18 (Server Components)
+- TypeScript 5.0+
+- Tailwind CSS 3.0+
+
+// Development Tools
+- Turborepo (Monorepo)
+- ESLint + Prettier
+- Jest + Testing Library
+- Husky (Git Hooks)
+
+// Content & SEO
+- MDX (Markdown + JSX)
+- next-mdx-remote
+- next-sitemap
+- next-seo
+```
+
+### 🎨 Customization System
+
+The platform uses a configuration-driven approach where users can customize:
+
+```typescript
+// config/index.ts
+export const config = {
+  personal: {
+    name: "Your Name",
+    title: "Your Title",
+    bio: "Your bio...",
+  },
+  social: {
+    github: "your-github",
+    linkedin: "your-linkedin",
+    email: "your-email@domain.com",
+  },
+  // ... more configuration options
+};
+```
+
+## 🌏 Contributing
+
+[PRs](https://github.com/hoatepdev/portfolio/pulls) and [Issues](https://github.com/hoatepdev/portfolio/issues) are welcome! 🫵🏻
+
+Please read the [Contributing Guideline] for details on our code of conduct, and the process for submitting pull requests to us.
+
+[Contributing Guideline]: https://docs.hoatepdev.com/contributing
+
+## 🚀 Quick Start Guide
+
+### Prerequisites
+
+- Node.js 18.0+
+- pnpm (recommended) or npm
+- Git
+
+### Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/hoatepdev/portfolio.git
+cd portfolio
+
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Open http://localhost:3000 in your browser
+```
+
+### Customization Steps
+
+1. **Update Configuration**
+
+   ```bash
+   # Edit your personal information
+   vim apps/web/src/config/index.ts
+   ```
+
+2. **Add Your Content**
+
+   ```bash
+   # Add your blog posts
+   vim apps/web/src/contents/posts/your-post.md
+
+   # Add your portfolio projects
+   vim apps/web/src/contents/portfolios/your-project.mdx
+   ```
+
+3. **Customize Styling**
+
+   ```bash
+   # Update theme colors and styles
+   vim apps/web/tailwind.config.ts
+   ```
+
+4. **Deploy**
+
+   ```bash
+   # Build for production
+   pnpm build
+
+   # Deploy to your preferred platform
+   # Vercel, Netlify, or any static hosting
+   ```
+
+### Available Scripts
+
+```bash
+pnpm dev          # Start development server
+pnpm build        # Build for production
+pnpm start        # Start production server
+pnpm lint         # Run ESLint
+pnpm test         # Run tests
+pnpm type-check   # Run TypeScript checks
+```
+
+## 🎯 Project Impact & Results
+
+### 📈 Key Achievements
+
+- **Performance**: Achieved 95+ Lighthouse scores across all metrics
+- **SEO**: Optimized for search engines with structured data and meta tags
+- **Accessibility**: WCAG 2.1 AA compliant with keyboard navigation support
+- **Mobile**: Perfect responsive design across all device sizes
+- **Developer Experience**: Streamlined setup process with comprehensive documentation
+
+### 🌟 User Benefits
+
+- **Zero Learning Curve**: Get started with simple configuration changes
+- **Professional Appearance**: Modern, clean design that stands out
+- **Fast Performance**: Optimized loading times and smooth interactions
+- **SEO Ready**: Built-in optimization for better search engine visibility
+- **Maintainable**: Clean code structure for easy updates and modifications
+
+## 📲 Contact & Support
+
+> **Hoà T. (Thomas) Nguyen**
+>
+> 📩 **E-mail**: <a href="mailto:hoanguyentrandev@gmail.com">hoanguyentrandev@gmail.com</a>
+>
+> 🧳 **LinkedIn**: <a href="https://www.linkedin.com/in/hoatepdev/">Hoà T. (Thomas) Nguyen</a>
+>
+> 👨🏻‍💻 **GitHub**: <a href="https://github.com/hoatepdev">hoatepdev</a>
+>
+> 🌐 **Website**: <a href="https://p.hoatepdev.site">p.hoatepdev.site</a>
+
+## 🛠️ Advanced Features
+
+### 🔧 Development Tools
+
+- **Hot Reload**: Instant updates during development
+- **TypeScript**: Full type safety and IntelliSense support
+- **ESLint + Prettier**: Automated code formatting and linting
+- **Husky**: Git hooks for pre-commit checks
+- **Jest**: Comprehensive testing suite
+
+### 📱 Responsive Design
+
+- **Mobile First**: Optimized for mobile devices
+- **Breakpoints**: Tailwind CSS responsive utilities
+- **Touch Friendly**: Optimized for touch interactions
+- **Cross Browser**: Compatible with all modern browsers
+
+### 🚀 Performance Optimizations
+
+- **Image Optimization**: Next.js Image component with lazy loading
+- **Code Splitting**: Automatic route-based code splitting
+- **Bundle Analysis**: Built-in bundle analyzer
+- **Caching**: Aggressive caching strategies
+- **CDN Ready**: Optimized for CDN deployment
+
+## 🪪 License & Usage
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+### ✅ What You Can Do
+
+- Use this code as inspiration for your own projects
+- Modify and customize for your personal portfolio
+- Share your improvements with the community
+- Use in commercial projects (with attribution)
+
+### ❌ What You Shouldn't Do
+
+- Copy the entire codebase without significant modifications
+- Remove attribution or license information
+- Claim this work as your own original creation
+
+### 🧹 Cleanup Script
+
+After forking, run the cleanup script to remove personal information:
+
+```bash
+npm run delete  # Removes personal data and replaces with placeholders
+```
+
+---
+
+**Made with 🖤 by [@hoatepdev](https://github.com/hoatepdev)**
+
+_Thank you for using this project! If you found it helpful, please consider giving it a ⭐ on GitHub._
