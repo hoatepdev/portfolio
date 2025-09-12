@@ -1,0 +1,148 @@
+---
+title: "nestjs-super — Advanced Starter Template for NestJS Applications"
+category: Web Development / Backend
+startDate: 2025-08-01
+endDate: 2025-08-31
+publishedAt: 2025-09-12
+summary: "A powerful, well-architected starter template for NestJS projects, including Prisma integration, testing setup, structured folder organization, and best practices out of the box."
+tags:
+  - NestJS
+  - TypeScript
+  - Prisma
+  - Testing
+  - API
+  - Starter Template
+banner: /images/banner/projects/nestjs-super.webp
+alt: "NestJS Super Starter Template by hoatepdev"
+---
+
+# 🚀 nestjs-super — Advanced Starter Template for NestJS Applications
+
+A robust starter template designed to help developers begin new NestJS projects quickly, following best practices with a clean architecture, solid testing setup, and integrated database tools.
+
+<div align="center">
+  <strong>
+    <a href="https://github.com/hoatepdev/nestjs-super">💻 Source Code</a>
+  </strong>
+</div>
+
+---
+
+## 🔍 Project Overview
+
+The **nestjs-super** repository is meant to serve as a starter boilerplate for backend applications using NestJS. It aims to include everything you typically need to build production-ready APIs, avoiding repetitive setup so you can focus on building features.
+
+Here are the motivations behind this template:
+
+- Standardized folder structure (controllers, services, modules) so that maintainability is easier.
+- Integration with **Prisma** for type-safe database ORM.
+- Testing configuration (unit tests, possibly end-to-end) to ensure code quality.
+- Configuration files (TypeScript config, linting, prettier) ready to go.
+- Postman collection included for API documentation / manual testing.
+
+---
+
+## 🛠️ Tech Stack & Key Components
+
+From inspecting the directory structure and files, these are the main technologies and tools used:
+
+- **NestJS** — As the web framework, for building structured server-side applications.
+- **TypeScript** — Full TS codebase to catch type errors early and maintain code clarity.
+- **Prisma** — Used for database schema, migrations, and ORM. There's a `prisma/` folder and `generated/prisma`.
+- **Testing** — There is a `test/` folder. The template likely includes unit tests / integration tests to verify correctness of modules.
+- **Configurations**:
+
+  - `tsconfig.json` & `tsconfig.build.json` for TS setup.
+  - `eslint.config.mjs` for linting rules.
+  - `nest-cli.json` for NestJS CLI configuration.
+  - Formatting / code style via `.prettierrc`.
+
+- **API Documentation / Testing Tools**: A Postman collection file (`nestjs-super.postman_collection.json`) is included, which helps manual API testing or sharing endpoints.
+
+---
+
+## ⚙️ Getting Started & Usage
+
+Here are steps to start using `nestjs-super` as your base for new backend projects:
+
+```bash
+# Clone the template
+git clone https://github.com/hoatepdev/nestjs-super.git
+cd nestjs-super
+
+# Install dependencies
+npm install
+
+# Run in development mode
+npm run start:dev
+
+# For production build
+npm run build
+npm run start:prod
+
+# To run tests
+npm run test
+npm run test:e2e   # if E2E tests are configured
+```
+
+You will want to configure your environment variables (e.g. database connection strings) before running Prisma migrations, if applicable.
+
+## 🧩 Architecture & Project Structure
+
+A suggested structure based on what’s present in the repo:
+
+```text
+nestjs-super/
+├── src/
+│   ├── modules/         # Feature modules (controllers, services, etc.)
+│   ├── common/          # Shared utilities, pipes, filters, guards
+│   ├── main.ts          # Application bootstrap
+│   └── (other folders as needed)
+├── prisma/
+│   ├── schema.prisma    # DB schema definitions
+│   └── migrations/
+├── generated/prisma/    # Auto-generated Prisma client
+├── test/                # Tests (unit / integration / e2e)
+├── tsconfig.json
+├── eslint.config.mjs
+├── nest-cli.json
+├── package.json
+├── postman collection etc.
+└── .prettierrc etc.
+```
+
+This helps with separation of concerns, maintainability, and scaling the codebase over time.
+
+## 🌟 When & Why to Use This Template
+
+Use nestjs-super if you are:
+
+- Starting a new backend project and want a solid foundation without reinventing boilerplate.
+- Needing features like database integration, testing, linting all set up out-of-the-box.
+- Working in a team where consistency and code quality matter.
+
+It saves time on setup and enforces good practices early.
+
+## 🔮 Potential Enhancements & Roadmap
+
+To make nestjs-super even more powerful, here are some ideas:
+
+- Add Role-based Access Control (RBAC) or authorization modules out of the box.
+- Integrate JWT / OAuth authentication strategies (local login, social login, etc.).
+- Setup GraphQL alternative alongside REST endpoints.
+- Add Dockerfiles / Docker Compose for easier local dev & deployment.
+- Include Swagger / OpenAPI integration for automated API documentation.
+- Add Caching / Rate Limiting middlewares to improve security/performance.
+- Include example CI/CD workflows (GitHub Actions) to test + build + deploy.
+
+## 🪪 Licensing & Contribution Guidelines
+
+The project is open source; check the license in the repository (likely MIT or similar).
+
+Contributions are welcome: fixing bugs, adding features, refining setup.
+
+Before contributing, follow the existing style (lint / formatting), write tests, and document new modules.
+
+Made with 💡 by hoatepdev
+
+If you use this template, ⭐ the repo, share with others, and contribute back any improvements you make!

@@ -1,0 +1,135 @@
+---
+title: "Birthday Cake - Interactive Greeting App"
+category: Web Development
+startDate: 2024-07-05
+endDate: 2024-07-05
+publishedAt: 2024-07-06
+summary: "A fun, interactive birthday cake web app built with HTML, CSS, and JavaScript. Features animated candles, background music, and optional microphone integration to blow out candles in real life."
+tags:
+  - HTML
+  - CSS
+  - JavaScript
+  - Web Audio API
+  - Fun Project
+  - Interactive UI
+banner: /images/banner/projects/birthday-cake.jpg
+alt: "Birthday Cake Web App - Interactive Birthday Greeting"
+---
+
+# 🎂 Birthday Cake - Interactive Greeting App
+
+An interactive birthday cake web app built with **HTML**, **CSS**, and **JavaScript**. Perfect for sending virtual birthday greetings with candles, animations, and music — now with support for **microphone-based candle blowing**.
+
+<div align="center">
+  <strong>
+    <a href="https://github.com/hoatepdev/birthday-cake">💻 Source Code</a>&nbsp;&nbsp;•&nbsp;&nbsp;
+    <a href="https://hoatepdev.github.io/birthday-cake/?name=hoatep&timesblow=1&audioprocessor=50&durationconfetti=5">🎥 Live Demo</a>
+  </strong>
+
+</div>
+
+![Birthday Cake Demo](/images/banner/projects/birthday-cake.jpg)
+
+---
+
+## 🎯 Project Overview
+
+This project is a playful way to celebrate birthdays online. It renders a cake with animated candles, plays a birthday song, and allows the recipient to experience a mini celebration right in their browser.
+
+### ✨ Key Highlights
+
+- **Lightweight**: Pure HTML/CSS/JS, no external frameworks needed.
+- **Interactive**: Candles can be “blown out” manually (click) or via **real microphone input**.
+- **Shareable**: Easy to host on GitHub Pages or any static hosting service.
+- **Customizable**: Swap the music, change the number of candles, or modify the message.
+
+---
+
+## 🎨 Design & Features
+
+- **🍰 Realistic Cake Layout** – Styled using modern CSS with shadows and gradients.
+- **🔥 Animated Candles** – CSS keyframes create flickering flames.
+- **🎶 Birthday Song** – Plays automatically with a toggle to mute/unmute.
+- **💨 Blow Detection (Optional)** – Uses Web Audio API + microphone input to measure sound levels. When sound exceeds a threshold (e.g. blowing), candles are extinguished dynamically.
+
+---
+
+## 🛠️ Technical Implementation
+
+### 🧩 Core Stack
+
+```text
+HTML5 + CSS3 + Vanilla JavaScript
+Web Audio API (for microphone input)
+requestAnimationFrame (for real-time audio volume checking)
+```
+
+### 🎤 Blow Detection Code Snippet
+
+```js
+async function startMic() {
+  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  const ctx = new AudioContext();
+  const src = ctx.createMediaStreamSource(stream);
+  const analyser = ctx.createAnalyser();
+  analyser.fftSize = 256;
+  src.connect(analyser);
+
+  const data = new Uint8Array(analyser.frequencyBinCount);
+
+  function detectBlow() {
+    analyser.getByteTimeDomainData(data);
+    let sum = 0;
+    for (const v of data) {
+      const val = (v - 128) / 128;
+      sum += val * val;
+    }
+    const rms = Math.sqrt(sum / data.length);
+    if (rms * 100 > 5) {
+      blowOutCandles();
+    }
+    requestAnimationFrame(detectBlow);
+  }
+  detectBlow();
+}
+```
+
+### 🎨 Customization
+
+- Number of candles – duplicate or remove `<div class="candle">` elements.
+- Cake colors – adjust `style.css` gradients.
+- Music – replace `audio.mp3` with your preferred birthday song.
+- Blow threshold – tune the `if (rms * 100 > 5)` value for sensitivity.
+
+### 🚀 Setup & Usage
+
+```bash
+# Clone the repository
+git clone https://github.com/hoatepdev/birthday-cake.git
+cd birthday-cake
+
+# Open in browser
+open index.html
+# For microphone support, open via HTTP/HTTPS (not file://)
+```
+
+You can deploy via GitHub Pages or any static host.
+
+### 🎯 Impact & Use Cases
+
+- Virtual greetings: send a link instead of a physical card.
+- Fun team activity: surprise teammates in standups or meetings.
+- Learning project: good example for CSS animation and Web Audio API.
+
+### 🌟 Future Improvements
+
+- Theme selector – chocolate, vanilla, rainbow, etc.
+- Personalized messages – input name and message dynamically.
+- Responsive optimization – better mobile scaling and touch gestures.
+- Mini game mode – relight candles after blowing them out.
+
+### 🪪 License
+
+This project is open source under the MIT License. Feel free to fork, modify, and share — just keep the credits intact.
+
+Made with 🎂 + ❤️ by @hoatepdev. If you enjoyed it, please ⭐ the repo and share it with friends!
