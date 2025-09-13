@@ -12,7 +12,7 @@ import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
 
 const { title, about } = config;
 
-const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 6;
 
 export const metadata = {
   title: `Portfolio | ${title}`,
