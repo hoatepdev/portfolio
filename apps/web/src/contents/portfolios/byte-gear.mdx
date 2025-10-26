@@ -1,0 +1,492 @@
+---
+title: "Byte Gear - GEARVN E-Commerce Platform"
+category: Web Development
+startDate: 2025-10-27
+endDate: 2025-10-27
+publishedAt: 2025-10-27
+summary: "Modern full-stack e-commerce platform built with Next.js 15 and NestJS 11 for selling high-end PCs, laptops, and gaming equipment. Features real-time chat, payment integration, blog system, and comprehensive admin dashboard."
+tags:
+  - Next.js
+  - NestJS
+  - MongoDB
+  - TypeScript
+  - E-Commerce
+  - Socket.io
+  - Full-stack
+  - Cloudinary
+  - VNPay
+banner: /images/banner/projects/byte-gear.jpg
+alt: "Byte Gear E-Commerce Platform for Gaming Equipment"
+---
+
+# 🎮 Byte Gear - GEARVN E-Commerce Platform
+
+Modern full-stack e-commerce platform for high-end PCs, laptops, and gaming gear, built with **Next.js 15** and **NestJS 11**. Designed for selling computers, laptops, and gaming equipment in Vietnam with comprehensive features including real-time chat, payment integration, and advanced product management.
+
+<div align="center">
+  <strong>💻 Source Code (Private Repository)</strong>
+</div>
+
+---
+
+## 🎯 Project Overview
+
+Byte Gear is a comprehensive e-commerce solution featuring a **Next.js frontend** and **NestJS backend**, designed specifically for selling computers, laptops, and gaming equipment. This platform demonstrates modern full-stack development practices with real-time features, robust authentication, and scalable architecture.
+
+### 🏗️ Architecture Highlights
+
+- **Full-Stack Separation**: Clear separation between client and server with monorepo architecture
+- **Real-time Capabilities**: Socket.io for live chat and notifications
+- **Scalable Database**: MongoDB with Mongoose for flexible data modeling
+- **Type Safety**: End-to-end TypeScript across both frontend and backend
+- **Modern Development**: Turbopack, React 19, and NestJS 11 for optimal developer experience
+
+## ✨ Core Features
+
+### 🛒 E-Commerce Essentials
+
+- **Product Catalog**: Rich product listings with categories, images, and detailed specifications
+- **Shopping Cart**: Persistent cart with real-time inventory checking
+- **Order Management**: Complete order lifecycle from cart to delivery
+- **Payment Integration**: VNPay gateway and cash-on-delivery (COD) support
+- **Reviews & Ratings**: User-generated content with moderation tools
+- **Inventory Tracking**: Real-time stock management with alerts
+
+### 🔐 User Management
+
+- **Multi-Auth**: JWT, Google OAuth, and local email/password authentication
+- **Role-Based Access**: Admin and User roles with granular permissions
+- **User Profiles**: Comprehensive profile management and preferences
+- **Email Verification**: Account verification system via Resend
+
+### 💬 Real-Time Features
+
+- **Live Chat**: Customer support with Socket.io-powered real-time messaging
+- **Notifications**: Instant updates for orders, messages, and promotions
+- **Activity Tracking**: Real-time user activity and system events
+
+### 📝 Content Management
+
+- **Blog System**: Rich text editor (TipTap) for content creation
+- **Events & Promotions**: Time-based campaigns and special offers
+- **Product Descriptions**: Rich formatting with images and media
+
+### 📊 Admin Dashboard
+
+- **Analytics**: Sales data, user metrics, and performance insights
+- **Product Management**: CRUD operations with bulk actions
+- **Order Processing**: Order tracking, status updates, and shipping management
+- **User Administration**: User management and role assignment
+- **Excel Export**: Data export functionality for reporting
+
+### 🌏 Vietnam-Specific Features
+
+- **Address System**: Complete Vietnam provinces/cities database
+- **VNPay Integration**: Local payment gateway optimized for Vietnamese market
+- **COD Support**: Cash on delivery payment method
+- **Localization**: Vietnamese language support throughout the platform
+
+## 🏗️ Technical Implementation
+
+### 🔧 Technology Stack
+
+```typescript
+// Frontend Stack
+- Next.js 15 (App Router, Server Components)
+- React 19 (Concurrent features)
+- TypeScript (Strict mode)
+- Tailwind CSS 4 (Utility-first styling)
+- Radix UI (Accessible components)
+- Zustand (State management)
+- TanStack Query (Data fetching)
+- React Hook Form + Zod (Forms & validation)
+- Socket.io Client (Real-time)
+- TipTap (Rich text editor)
+- Turbopack (Build tool)
+
+// Backend Stack
+- NestJS 11 (Enterprise framework)
+- MongoDB + Mongoose (Database)
+- Passport.js (JWT, Google OAuth, Local)
+- Socket.io (Real-time gateway)
+- Cloudinary (File upload & storage)
+- Resend (Email service)
+- class-validator + class-transformer
+- Swagger/OpenAPI (API documentation)
+
+// DevOps & Tooling
+- pnpm (Package management)
+- ESLint + Prettier (Code quality)
+- Git (Version control)
+```
+
+### 📁 Project Structure
+
+```
+byte-gear/
+├── client/                    # Next.js Frontend
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── (client)/     # Public routes
+│   │   │   │   ├── products/ # Product pages
+│   │   │   │   ├── cart/     # Shopping cart
+│   │   │   │   ├── checkout/ # Checkout flow
+│   │   │   │   ├── auth/     # Authentication
+│   │   │   │   └── blog/     # Blog posts
+│   │   │   └── admin/        # Admin dashboard
+│   │   ├── components/       # React components
+│   │   │   ├── product/      # Product components
+│   │   │   ├── cart/         # Cart components
+│   │   │   ├── checkout/     # Checkout components
+│   │   │   ├── chat/         # Chat UI
+│   │   │   └── admin/        # Admin components
+│   │   ├── hooks/            # Custom hooks
+│   │   ├── stores/           # Zustand stores
+│   │   ├── types/            # TypeScript types
+│   │   └── utils/            # Utilities
+│   └── public/               # Static assets
+│
+├── server/                    # NestJS Backend
+│   ├── src/
+│   │   ├── auth/             # Auth module
+│   │   │   ├── guards/       # Auth guards
+│   │   │   ├── strategies/   # Passport strategies
+│   │   │   └── decorators/  # Custom decorators
+│   │   ├── user/             # User management
+│   │   ├── product/          # Product module
+│   │   ├── category/         # Category module
+│   │   ├── order/            # Order module
+│   │   ├── payment/         # Payment module
+│   │   │   ├── vnpay/       # VNPay integration
+│   │   │   └── cod/         # COD handler
+│   │   ├── blog/            # Blog module
+│   │   ├── chat/            # Chat module (Socket.io)
+│   │   ├── event/           # Events & promotions
+│   │   ├── dashboard/       # Dashboard & analytics
+│   │   └── common/          # Shared utilities
+│   └── dist/                # Compiled output
+│
+└── package.json              # Root scripts
+```
+
+### 🎨 Frontend Architecture
+
+The frontend uses **Next.js 15** with the App Router, leveraging React 19's concurrent features for optimal performance:
+
+#### **Client Components & Server Components**
+
+```typescript
+// Server Components for initial page load
+export default async function ProductPage({ params }) {
+  const product = await fetchProduct(params.slug);
+
+  return (
+    <ProductDetails
+      product={product}
+      fallback={<ProductSkeleton />}
+    />
+  );
+}
+
+// Client Components for interactivity
+'use client';
+
+export function AddToCart({ product }: { product: Product }) {
+  const { addItem } = useCartStore();
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: addToCart,
+    onSuccess: () => {
+      queryClient.invalidateQueries(['cart']);
+    }
+  });
+
+  // ... implementation
+}
+```
+
+#### **State Management with Zustand**
+
+Simple and effective state management for cart, auth, and UI state:
+
+```typescript
+interface CartStore {
+  items: CartItem[];
+  addItem: (product: Product) => void;
+  removeItem: (id: string) => void;
+  clearCart: () => void;
+}
+
+export const useCartStore = create<CartStore>((set) => ({
+  items: [],
+  addItem: (product) =>
+    set((state) => ({
+      items: [...state.items, { ...product, quantity: 1 }],
+    })),
+  removeItem: (id) =>
+    set((state) => ({
+      items: state.items.filter((item) => item.id !== id),
+    })),
+  clearCart: () => set({ items: [] }),
+}));
+```
+
+#### **Data Fetching with TanStack Query**
+
+Efficient data fetching with caching, refetching, and optimistic updates:
+
+```typescript
+export function useProducts(filters: ProductFilters) {
+  return useQuery({
+    queryKey: ["products", filters],
+    queryFn: () => fetchProducts(filters),
+    staleTime: 5 * 60 * 1000,
+    gcTime: 10 * 60 * 1000,
+  });
+}
+```
+
+### ⚙️ Backend Architecture
+
+The **NestJS** backend follows modular architecture with clear separation of concerns:
+
+#### **Module Structure**
+
+Each feature is organized as a module with its own controller, service, DTOs, and schemas:
+
+```typescript
+@Module({
+  imports: [MongooseModule.forFeature([{ name: Product.name, schema: ProductSchema }])],
+  controllers: [ProductController],
+  providers: [ProductService],
+  exports: [ProductService]
+})
+export class ProductModule {}
+```
+
+#### **Real-time with Socket.io**
+
+Live chat and notifications powered by Socket.io:
+
+```typescript
+@WebSocketGateway({ cors: true })
+export class ChatGateway {
+  @WebSocketServer()
+  server: Server;
+
+  @SubscribeMessage('sendMessage')
+  handleMessage(@MessageBody() data: ChatMessage) {
+    this.server.emit('newMessage', data);
+  }
+}
+```
+
+#### **File Upload with Cloudinary**
+
+Seamless image upload and optimization:
+
+```typescript
+@Post('upload')
+@UseInterceptors(FileInterceptor('file'))
+async uploadFile(@UploadedFile() file: Express.Multer.File) {
+  return this.cloudinaryService.uploadFile(file);
+}
+```
+
+#### **Payment Integration (VNPay)**
+
+Secure payment processing for Vietnamese market:
+
+```typescript
+@Post('create-payment')
+async createPayment(@Body() dto: CreatePaymentDto) {
+  const vnpayUrl = this.vnpayService.createPaymentUrl(dto);
+  return { paymentUrl: vnpayUrl };
+}
+```
+
+## 🚀 Development Workflow
+
+### Getting Started
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd byte-gear
+
+# Install all dependencies
+npm run install:all
+
+# Setup environment variables
+cp server/.env.example server/.env
+cp client/.env.local.example client/.env.local
+
+# Start development servers
+npm run dev
+```
+
+### Environment Setup
+
+**Server Configuration** (`server/.env`)\*\*:
+
+```env
+PORT=8000
+MONGO_URI=mongodb://localhost:27017/byte-gear
+JWT_SECRET=your-secret-key
+JWT_EXPIRATION=7d
+
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GOOGLE_CALLBACK_URL=http://localhost:8000/api/auth/google/callback
+
+CLOUDINARY_CLOUD_NAME=your-cloud-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_API_SECRET=your-api-secret
+
+RESEND_API_KEY=your-resend-api-key
+
+VNPAY_TMN_CODE=your-tmn-code
+VNPAY_HASH_SECRET=your-hash-secret
+VNPAY_URL=https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+VNPAY_RETURN_URL=http://localhost:3000/payment/success
+```
+
+**Client Configuration** (`client/.env.local`)\*\*:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000/api
+NEXT_PUBLIC_SOCKET_URL=http://localhost:8000
+```
+
+### Available Scripts
+
+#### Root Level
+
+- `npm run dev` - Start both client and server
+- `npm run build` - Build both applications
+- `npm run start` - Start production servers
+- `npm run install:all` - Install all dependencies
+- `npm run lint` - Lint both projects
+
+#### Client
+
+- `npm run dev` - Development with Turbopack
+- `npm run build` - Production build
+- `npm run start` - Production server
+
+#### Server
+
+- `npm run start:dev` - Development with hot reload
+- `npm run build` - Compile TypeScript
+- `npm run start:prod` - Production mode
+
+## 🔐 Security Features
+
+### Authentication & Authorization
+
+- **JWT Authentication**: Secure token-based auth with refresh tokens
+- **Google OAuth**: Social login integration
+- **Role-Based Access Control**: Admin and User roles
+- **Route Guards**: Protected routes on both frontend and backend
+- **Password Hashing**: bcrypt for secure password storage
+
+### Data Protection
+
+- **Input Validation**: class-validator for server-side validation
+- **Zod Schema Validation**: Client-side form validation
+- **CORS Configuration**: Proper cross-origin setup
+- **SQL Injection Prevention**: Mongoose with parameterized queries
+- **XSS Protection**: React's built-in escaping
+
+## 📊 Key Challenges & Solutions
+
+### Challenge 1: Real-Time Inventory Management
+
+**Problem**: Prevent overselling when multiple users add the same product simultaneously.
+
+**Solution**: Implemented optimistic updates with server-side validation and Socket.io notifications for real-time stock updates.
+
+### Challenge 2: Payment Integration
+
+**Problem**: Integrating VNPay payment gateway with proper hash verification and security.
+
+**Solution**: Created dedicated Payment Service with proper signature verification, IPN (Instant Payment Notification) handling, and secure callback processing.
+
+### Challenge 3: Rich Content Management
+
+**Problem**: Allowing admin to create rich blog posts and product descriptions without HTML vulnerabilities.
+
+**Solution**: Implemented TipTap editor with content sanitization and schema validation, ensuring only safe HTML elements are rendered.
+
+### Challenge 4: File Upload & Optimization
+
+**Problem**: Handling large product images while maintaining performance.
+
+**Solution**: Integrated Cloudinary for automatic image optimization, resizing, and CDN delivery with different formats (WebP, AVIF) based on browser support.
+
+## 🎯 Performance Optimizations
+
+- **Code Splitting**: Automatic route-based code splitting with Next.js
+- **Image Optimization**: Next.js Image component with Cloudinary
+- **Server Components**: Reduced JavaScript bundle size
+- **Caching Strategy**: TanStack Query with aggressive caching
+- **Lazy Loading**: Dynamic imports for admin modules
+- **Bundle Analysis**: Regular bundle size monitoring
+
+## 🔮 Future Enhancements
+
+- [ ] Recommendation system using ML
+- [ ] Advanced analytics dashboard with charts
+- [ ] Mobile app using React Native
+- [ ] Multi-vendor support for marketplace
+- [ ] Advanced search with Elasticsearch
+- [ ] GraphQL API endpoint
+- [ ] International shipping support
+- [ ] A/B testing capabilities
+
+## 💡 Key Learnings
+
+Building Byte Gear provided valuable insights into:
+
+- **Monorepo Architecture**: Managing full-stack projects in a single repository
+- **Real-time Systems**: Implementing Socket.io for chat and notifications
+- **E-Commerce Complexity**: Handling cart, orders, payments, and inventory
+- **Vietnamese Market**: Understanding local payment methods and user preferences
+- **TypeScript Excellence**: End-to-end type safety from database to UI
+- **Modern React**: Server Components, concurrent rendering, and React 19 features
+- **API Design**: RESTful APIs with proper versioning and documentation
+
+## 🎓 Technologies Learned
+
+Through this project, I mastered:
+
+- Next.js 15 App Router with Server and Client Components
+- NestJS modular architecture and dependency injection
+- Real-time communication with Socket.io
+- Payment gateway integration (VNPay)
+- File upload and optimization (Cloudinary)
+- Email services with Resend
+- MongoDB with Mongoose ODM
+- TanStack Query for efficient data fetching
+- Form handling with React Hook Form and Zod
+- Rich text editing with TipTap
+
+## 📝 License
+
+Private/Unlicensed
+
+## 🙏 Conclusion
+
+Byte Gear represents a comprehensive e-commerce solution built with modern web technologies. The platform showcases advanced full-stack development with real-time features, secure authentication, and a scalable architecture suitable for production use.
+
+The project demonstrates proficiency in:
+
+- Modern JavaScript/TypeScript ecosystems
+- Full-stack development patterns
+- Real-time application development
+- E-commerce best practices
+- Payment gateway integration
+- Security and authentication
+
+Built with 💻 by hoatepdev
