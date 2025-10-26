@@ -1,0 +1,543 @@
+---
+title: "Dev.to Clone - Full-Stack Developer Community Platform"
+category: Web Development
+startDate: 2024-06-01
+endDate: 2024-07-31
+publishedAt: 2024-07-31
+summary: "A full-stack developer community platform inspired by dev.to, built with modern web technologies. Features real-time interactions, article management, user authentication, and a clean, responsive UI designed for developers."
+tags:
+  - Reactjs
+  - MongoDB
+  - Node.js
+  - Express.js
+  - Authentication
+  - Real-time
+  - Full-stack
+  - Community Platform
+banner: /images/banner/projects/todam-tw.webp
+alt: "Dev.to Clone - Developer Community Platform"
+---
+
+# 🔷 Dev.to Clone - Full-Stack Developer Community Platform
+
+A comprehensive full-stack developer community platform inspired by **dev.to**, built with the **MERN stack** (MongoDB, Express.js, React, Node.js). This project demonstrates advanced web development concepts including real-time interactions, robust authentication, article management, and a clean, responsive user interface designed specifically for developers.
+
+<div align="center">
+  <strong>
+    <a href="https://github.com/hoatepdev/dev-to-clone">💻 Source Code</a>
+  </strong>
+</div>
+
+---
+
+## 🎯 Project Overview
+
+The Dev.to Clone project is a learning-focused implementation of a developer community platform that encompasses:
+
+- **User Authentication & Profiles**: Secure login/signup with OAuth support
+- **Article Management**: Create, edit, delete articles with Markdown support
+- **Real-time Interactions**: Likes, comments, and reactions
+- **Feed System**: Personalized article feed based on preferences and tags
+- **Search**: Advanced search across articles and users
+- **Tag System**: Categorize content with tags for better discoverability
+
+### 🏗️ Architecture Highlights
+
+- **RESTful API Backend**: Express.js with Node.js for scalable server architecture
+- **NoSQL Database**: MongoDB for flexible data modeling and document storage
+- **Component-Based Frontend**: React with modern hooks and state management
+- **Real-time Features**: Socket.io for live notifications and updates
+- **Authentication**: JWT-based authentication with secure token management
+- **Responsive Design**: Mobile-first approach with modern CSS framework
+
+### 🎨 Design Philosophy
+
+The platform follows a **clean, developer-friendly aesthetic**:
+
+- **Minimalist UI**: Focus on content with subtle animations
+- **Dark/Light Mode**: User preference-driven theming
+- **Reading Experience**: Optimized typography and spacing for long-form content
+- **Performance First**: Fast page loads and smooth interactions
+
+---
+
+## ✨ Core Features
+
+### 👤 User Features
+
+- **Authentication System**
+
+  - Email/password authentication
+  - OAuth integration (GitHub, Google)
+  - Email verification
+  - Password recovery
+  - Session management
+
+- **User Profiles**
+  - Customizable profile pages
+  - User statistics and activity
+  - Follow/unfollow functionality
+  - Profile settings and preferences
+
+### 📝 Content Features
+
+- **Article Management**
+
+  - Rich Markdown editor
+  - Image upload and optimization
+  - Draft system for unpublished articles
+  - Article scheduling
+  - SEO-friendly URLs and meta tags
+
+- **Engagement Features**
+  - Like and bookmark articles
+  - Comment threads with nesting
+  - Share functionality
+  - Reading time estimation
+  - Article reactions (heart, unicorn, etc.)
+
+### 🔍 Discovery Features
+
+- **Feed System**
+
+  - Personal feed based on followed users and tags
+  - Latest articles feed
+  - Recommended articles
+  - Saved articles collection
+
+- **Search & Filter**
+  - Full-text search across articles
+  - Tag-based filtering
+  - Sort by date, popularity, trending
+  - Advanced search filters
+
+---
+
+## 🏗️ Technical Implementation
+
+### 🔧 Technology Stack
+
+```javascript
+// Frontend Technologies
+- React 18 (with Hooks and Context API)
+- React Router (Client-side routing)
+- Axios (HTTP client for API calls)
+- Styled Components / CSS Modules (Styling)
+- Redux / Context API (State management)
+- Socket.io-client (Real-time communication)
+
+// Backend Technologies
+- Node.js (Runtime environment)
+- Express.js (Web framework)
+- MongoDB (NoSQL database)
+- Mongoose (ODM for MongoDB)
+- Socket.io (Real-time WebSocket communication)
+- JWT (JSON Web Tokens for authentication)
+- Bcrypt (Password hashing)
+
+// Development Tools
+- ESLint + Prettier (Code quality)
+- Jest (Unit testing)
+- Supertest (API testing)
+- Postman (API testing and documentation)
+- Nodemon (Development server auto-reload)
+```
+
+### 🧩 Project Structure
+
+```
+dev-to-clone/
+├── client/                    # React frontend
+│   ├── src/
+│   │   ├── components/        # React components
+│   │   │   ├── ui/            # Reusable UI components
+│   │   │   ├── article/       # Article-related components
+│   │   │   └── auth/          # Auth components
+│   │   ├── pages/             # React pages/routes
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── context/           # React Context providers
+│   │   ├── utils/             # Utility functions
+│   │   ├── services/          # API service functions
+│   │   └── App.js             # Main App component
+│   ├── public/                # Static assets
+│   └── package.json
+│
+├── server/                    # Node.js backend
+│   ├── routes/                # Express routes
+│   ├── models/                # Mongoose schemas
+│   ├── controllers/           # Route controllers
+│   ├── middleware/            # Custom middleware
+│   ├── config/                # Configuration files
+│   ├── utils/                 # Utility functions
+│   ├── socket/                # Socket.io event handlers
+│   └── server.js              # Entry point
+│
+└── tests/                     # Test files
+```
+
+### 📊 Database Schema (MongoDB with Mongoose)
+
+```javascript
+// User Schema
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  image: { type: String },
+  bio: { type: String },
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  bookmarks: [{ type: mongoose.Schema.Types.ObjectId, ref: "Article" }],
+  createdAt: { type: Date, default: Date.now },
+});
+
+// Article Schema
+const articleSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  content: { type: String, required: true },
+  slug: { type: String, unique: true, required: true },
+  authorId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  tags: [{ type: String }],
+  published: { type: Boolean, default: false },
+  views: { type: Number, default: 0 },
+  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
+
+// Comment Schema
+const commentSchema = new mongoose.Schema({
+  content: { type: String, required: true },
+  authorId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  articleId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Article",
+    required: true,
+  },
+  parentCommentId: { type: mongoose.Schema.Types.ObjectId, ref: "Comment" },
+  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  createdAt: { type: Date, default: Date.now },
+});
+```
+
+### 🔐 Authentication Implementation
+
+```javascript
+// JWT Authentication Middleware
+const jwt = require("jsonwebtoken");
+
+const authMiddleware = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization?.split(" ")[1];
+    if (!token) return res.status(401).json({ message: "Unauthorized" });
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.userId);
+    if (!user) return res.status(401).json({ message: "User not found" });
+
+    req.user = user;
+    next();
+  } catch (error) {
+    res.status(401).json({ message: "Invalid token" });
+  }
+};
+
+// Login Controller
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
+
+    res.json({
+      token,
+      user: { id: user._id, name: user.name, email: user.email },
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+```
+
+### 📝 Article API Controller
+
+```javascript
+const createArticle = async (req, res) => {
+  try {
+    const { title, content, tags } = req.body;
+    const slug = title.toLowerCase().replace(/\s+/g, "-");
+
+    const article = new Article({
+      title,
+      content,
+      slug,
+      authorId: req.user._id,
+      tags,
+    });
+
+    await article.save();
+    res.status(201).json(article);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to create article" });
+  }
+};
+
+const getArticles = async (req, res) => {
+  try {
+    const { page = 1, limit = 10, tag } = req.query;
+    const query = tag ? { tags: tag, published: true } : { published: true };
+
+    const articles = await Article.find(query)
+      .populate("authorId", "name image")
+      .sort({ createdAt: -1 })
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
+
+    res.json(articles);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch articles" });
+  }
+};
+```
+
+### 🔄 Real-time Features with Socket.io
+
+```javascript
+// Server-side Socket.io setup
+const io = require("socket.io")(server, {
+  cors: { origin: "http://localhost:3000" },
+});
+
+io.on("connection", (socket) => {
+  socket.on("join-room", (articleId) => {
+    socket.join(articleId);
+  });
+
+  socket.on("new-comment", ({ articleId, comment }) => {
+    io.to(articleId).emit("comment-added", comment);
+  });
+
+  socket.on("like-article", ({ articleId, userId }) => {
+    io.emit("article-liked", { articleId, userId });
+  });
+});
+```
+
+---
+
+## ⚙️ Getting Started
+
+### 📋 Prerequisites
+
+- Node.js 18+ installed
+- MongoDB database running (local or Atlas)
+- Git for version control
+
+### 🚀 Setup Instructions
+
+```bash
+# Clone the repository
+git clone https://github.com/hoatepdev/dev-to-clone.git
+cd dev-to-clone
+
+# Install backend dependencies
+cd server
+npm install
+
+# Install frontend dependencies
+cd ../client
+npm install
+
+# Set up environment variables
+# Create .env files in both server/ and client/ directories
+cp server/.env.example server/.env
+cp client/.env.example client/.env
+
+# Edit .env files with your configuration
+
+# Start MongoDB (if running locally)
+mongod
+
+# Start backend server
+cd server
+npm run dev
+
+# In a new terminal, start frontend
+cd client
+npm start
+```
+
+### 🔧 Environment Variables
+
+**server/.env:**
+
+```env
+# Server
+PORT=5000
+NODE_ENV=development
+
+# MongoDB
+MONGODB_URI="mongodb://localhost:27017/devtoclone"
+# Or use MongoDB Atlas
+# MONGODB_URI="mongodb+srv://username:password@cluster.mongodb.net/devtoclone"
+
+# JWT
+JWT_SECRET="your-super-secret-jwt-key"
+
+# OAuth Providers
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
+GITHUB_CLIENT_ID="your-github-client-id"
+GITHUB_CLIENT_SECRET="your-github-client-secret"
+```
+
+**client/.env:**
+
+```env
+# API Endpoint
+REACT_APP_API_URL="http://localhost:5000"
+```
+
+---
+
+## 📊 Key Features Deep Dive
+
+### 🔄 Real-time Updates
+
+Real-time functionality is implemented using WebSockets for live notifications and updates:
+
+- New comments appear instantly
+- Like counters update in real-time
+- User notifications are delivered immediately
+- Typing indicators for live collaboration
+
+### 🔍 Advanced Search
+
+Full-text search powered by MongoDB's text indexing capabilities:
+
+- Search across article titles and content using MongoDB text indexes
+- Filter by tags, authors, and dates
+- Sort by relevance, popularity, or date
+- Autocomplete suggestions with fuzzy matching
+
+### 📈 Analytics & Insights
+
+Built-in analytics for authors to track their content:
+
+- View counts and engagement metrics
+- Audience demographics
+- Popular tags and topics
+- Reading time and completion rates
+
+---
+
+## 🎯 Project Impact & Results
+
+### 📈 Technical Achievements
+
+- **Performance**: Optimized API response times and efficient MongoDB queries
+- **Scalability**: Built to handle concurrent users with Socket.io real-time features
+- **Security**: Secure JWT authentication with password hashing using bcrypt
+- **Code Quality**: ESLint and Prettier for consistent code formatting
+- **Test Coverage**: Unit and integration tests for critical API endpoints
+
+### 🌟 Learning Outcomes
+
+This project demonstrates proficiency in:
+
+- Full-stack development with MERN stack
+- RESTful API design and implementation
+- Database design with MongoDB and Mongoose ODM
+- JWT-based authentication and authorization
+- Real-time web applications with Socket.io
+- State management in React
+- API integration and error handling
+- UI/UX design for developer tools
+
+---
+
+## 🛠️ Developer Experience
+
+### 📝 Code Quality
+
+- **ESLint**: Extended JavaScript rules for both client and server
+- **Prettier**: Consistent code formatting
+- **Husky**: Git hooks for pre-commit checks
+- **Conventional Commits**: Standardized commit messages
+- **ES6+ Features**: Modern JavaScript with async/await, destructuring
+
+### 🧪 Testing
+
+```bash
+# Run unit tests
+npm run test
+
+# Run E2E tests
+npm run test:e2e
+
+# Check code coverage
+npm run test:coverage
+```
+
+### 🚀 Deployment
+
+The project is production-ready with:
+
+- Frontend: Deployed on Vercel, Netlify, or GitHub Pages
+- Backend: Deployed on Heroku, Railway, or DigitalOcean
+- Database: MongoDB Atlas for cloud-hosted database
+- Environment-based configuration for different environments
+- CI/CD with GitHub Actions for automated testing
+
+---
+
+## 🔮 Future Enhancements
+
+Potential improvements and features to add:
+
+- **Live Collaboration**: Real-time collaborative article editing
+- **AI Features**: Article recommendations, AI-powered search
+- **Mobile App**: Native iOS/Android applications
+- **Video Integration**: Support for embedded videos and tutorials
+- **Advanced Analytics**: Detailed insights dashboard for authors
+- **Moderation Tools**: Community moderation and reporting system
+
+---
+
+## 🪪 License & Contribution
+
+This project is open source under the **MIT License**. Contributions are welcome!
+
+### 🤝 How to Contribute
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### 📝 Code of Conduct
+
+Please read the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct. All contributors must follow this code to ensure a welcoming community.
+
+---
+
+**Made with 💻 by [@hoatepdev](https://github.com/hoatepdev)**
+
+If you find this project helpful for learning full-stack development, please consider giving it a ⭐ on GitHub and sharing it with others in the developer community!
