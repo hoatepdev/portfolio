@@ -45,7 +45,7 @@ COPY --from=build /app/apps/web/node_modules ./apps/web/node_modules
 COPY --from=build /app/apps/web/src/contents ./apps/web/src/contents
 
 # Set environment variables (override at runtime as needed)
-ENV PORT=3100
-EXPOSE 3100
+ENV PORT=4000
+EXPOSE 4000
 
 CMD ["pnpm", "--filter", "apps-web", "start"]

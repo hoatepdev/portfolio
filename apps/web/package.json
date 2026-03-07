@@ -23,7 +23,7 @@
     "markdown"
   ],
   "scripts": {
-    "dev": "next dev --turbopack --port 3100",
+    "dev": "next dev --turbopack --port 4000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
