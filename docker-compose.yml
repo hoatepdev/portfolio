@@ -1,21 +1,18 @@
-services:
-  nginx:
-    container_name: portfolio-nginx
-    image: nginx:latest
-    ports:
-      - "8080:80"
-      - "443:443"
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/ssl:/etc/nginx/ssl
-    depends_on:
-      - web
+version: "3.8"
 
-  web:
+services:
+  app:
     build:
       context: .
-      dockerfile: apps/web/Dockerfile
+      dockerfile: ./apps/web/Dockerfile
+    container_name: portfolio
+    command: sh -c "pnpm --filter web start -- -H 0.0.0.0 -p 4000"
     ports:
       - "4001:4000"
-    env_file:
-      - apps/web/.env
+    restart: always
+    networks:
+      - web-network
+
+networks:
+  web-network:
+    external: true
