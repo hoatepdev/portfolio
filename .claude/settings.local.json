@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/hoatepdev/Developer/personal/portfolio/apps/web/src/app/\\\\\\(home\\\\\\))",
+      "Bash(xargs ls -la)",
+      "Bash(cat /Users/hoatepdev/Developer/personal/portfolio/apps/web/src/app/\\\\\\(home\\\\\\)/layout.tsx)",
+      "Bash(pnpm --filter apps-web add next-intl @libsql/client drizzle-orm fuse.js)"
+    ]
+  }
+}

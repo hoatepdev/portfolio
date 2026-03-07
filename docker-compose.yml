@@ -16,6 +16,6 @@ services:
       context: .
       dockerfile: apps/web/Dockerfile
     ports:
-      - "3500:3100"
+      - "4001:4000"
     env_file:
       - apps/web/.env
