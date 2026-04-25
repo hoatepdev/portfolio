@@ -1,7 +1,7 @@
 # =========================
 # Base stage - installs pnpm
 # =========================
-FROM node:20-alpine AS base
+FROM node:22-alpine AS base
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@10.11.0 --activate
 
@@ -38,7 +38,7 @@ RUN --mount=type=cache,id=turbo,target=/app/.turbo \
 # =========================
 # Runner stage - minimal production image
 # =========================
-FROM node:20-alpine AS runner
+FROM node:22-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
