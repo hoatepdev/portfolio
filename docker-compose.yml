@@ -1,4 +1,4 @@
-services:
+sservices:
   web:
     build:
       context: .
@@ -6,5 +6,10 @@ services:
     restart: unless-stopped
     ports:
       - "4001:4000"
-    env_file:
-      - apps/web/.env
+    restart: always
+    networks:
+      - web-network
+
+networks:
+  web-network:
+    external: true
