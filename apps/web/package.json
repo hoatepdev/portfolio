@@ -24,6 +24,7 @@
   ],
   "scripts": {
     "dev": "next dev --turbopack --port 4000",
+    "prebuild": "node ../../scripts/generate-rss.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
