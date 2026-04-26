@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer</title>
+    <link>https://portfolio.hoatepdev.site</link>
+    <description>I&apos;m Hoà T. (Thomas) Nguyen, a graduate with a Bachelor&apos;s degree from Post and Telecommunication Institute of Technology (PTIT), driven by a sincere passion for Software Engineering.</description>
+    <language>en-US</language>
+    <atom:link href="https://portfolio.hoatepdev.site/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Sun, 26 Apr 2026 08:47:09 GMT</lastBuildDate>
+    <item>
+      <title>Byte Gear - GEARVN E-Commerce Platform</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/byte-gear/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/byte-gear/</guid>
+      <pubDate>Mon, 27 Oct 2025 00:00:00 GMT</pubDate>
+      <description>Modern full-stack e-commerce platform built with Next.js 15 and NestJS 11 for selling high-end PCs, laptops, and gaming equipment. Features real-time chat, payment integration, blog system, and comprehensive admin dashboard.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>js-ultimate — A Lightweight, TypeScript-Powered Utility Library</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/js-ultimate/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/js-ultimate/</guid>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 GMT</pubDate>
+      <description>js-ultimate is a lightweight utility library offering powerful functions with zero dependencies and strong TypeScript support, aiming to replace lodash in modern web development.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>nestjs-super — Advanced Starter Template for NestJS Applications</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/nestjs-super/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/nestjs-super/</guid>
+      <pubDate>Fri, 12 Sep 2025 00:00:00 GMT</pubDate>
+      <description>A powerful, well-architected starter template for NestJS projects, including Prisma integration, testing setup, structured folder organization, and best practices out of the box.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>YouTube Member Video Downloader Script</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/script-download-yt/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/script-download-yt/</guid>
+      <pubDate>Fri, 12 Sep 2025 00:00:00 GMT</pubDate>
+      <description>A shell script using yt-dlp to download YouTube videos (including members-only / age-restricted) from a list, using cookies for authentication and best video/audio merging.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>Technova - Professional Outsourcing IT Platform</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/technova/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/technova/</guid>
+      <pubDate>Fri, 12 Sep 2025 00:00:00 GMT</pubDate>
+      <description>A professional outsourcing IT platform built with Next.js &amp; TypeScript, designed to showcase IT services, portfolio projects, and connect clients with developers. Featuring clean UI, great performance, and a developer-friendly tech stack.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>Werewolf Game - Multiplayer Party Game Platform</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/were-wolf/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/were-wolf/</guid>
+      <pubDate>Fri, 12 Sep 2025 00:00:00 GMT</pubDate>
+      <description>An innovative, fully automated Werewolf (Ma Sói) game platform that removes the need for a human moderator. Players sit in a circle, connect to the game on one device, and experience a seamless, AI-powered game flow.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>hoatepdev - Modern Portfolio &amp; Blog Platform</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/hoatepdev/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/hoatepdev/</guid>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 GMT</pubDate>
+      <description>A comprehensive, high-performance portfolio and blog platform built with Next.js 15, React 18, and Turborepo. Features modern architecture, optimized performance, and developer-friendly configuration system.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>Celebrate Birthdays Virtually with an Interactive Cake Blowing</title>
+      <link>https://portfolio.hoatepdev.site/post/cake-birthday-virtually-blowing/</link>
+      <guid>https://portfolio.hoatepdev.site/post/cake-birthday-virtually-blowing/</guid>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 GMT</pubDate>
+      <description>Celebrate Birthdays Virtually with an Interactive Cake Blowing</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>Turbocharging Next.js: 10 Essential Techniques for Optimal Web Performance</title>
+      <link>https://portfolio.hoatepdev.site/post/turbocharging-nextjs/</link>
+      <guid>https://portfolio.hoatepdev.site/post/turbocharging-nextjs/</guid>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 GMT</pubDate>
+      <description>Turbocharging Next.js: 10 Essential Techniques for Optimal Web Performance</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>Food G — Modern Food Delivery &amp; E-Commerce App</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/food-g/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/food-g/</guid>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 GMT</pubDate>
+      <description>Food G is a modern React-based food delivery and e-commerce application with Firebase integration, featuring a full shopping experience, responsive design, and advanced UI interactions.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>Dev.to Clone - Full-Stack Developer Community Platform</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/dev-to/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/dev-to/</guid>
+      <pubDate>Wed, 31 Jul 2024 00:00:00 GMT</pubDate>
+      <description>A full-stack developer community platform inspired by dev.to, built with modern web technologies. Features real-time interactions, article management, user authentication, and a clean, responsive UI designed for developers.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>Birthday Cake - Interactive Greeting App</title>
+      <link>https://portfolio.hoatepdev.site/portfolio/birthday-cake/</link>
+      <guid>https://portfolio.hoatepdev.site/portfolio/birthday-cake/</guid>
+      <pubDate>Sat, 06 Jul 2024 00:00:00 GMT</pubDate>
+      <description>A fun, interactive birthday cake web app built with HTML, CSS, and JavaScript. Features animated candles, background music, and optional microphone integration to blow out candles in real life.</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>Work multiple accounts git</title>
+      <link>https://portfolio.hoatepdev.site/post/work-multiple-accounts-git/</link>
+      <guid>https://portfolio.hoatepdev.site/post/work-multiple-accounts-git/</guid>
+      <pubDate>Sat, 02 Dec 2023 00:00:00 GMT</pubDate>
+      <description>Work multiple accounts git - super simple and effective</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+    <item>
+      <title>The overall flow of Gitflow</title>
+      <link>https://portfolio.hoatepdev.site/post/the-overal-flow-of-gitflow/</link>
+      <guid>https://portfolio.hoatepdev.site/post/the-overal-flow-of-gitflow/</guid>
+      <pubDate>Wed, 12 Oct 2022 00:00:00 GMT</pubDate>
+      <description>The strategy for managing Git branches</description>
+      <author>Hoà T. (Thomas) Nguyen</author>
+    </item>
+  </channel>
+</rss>
