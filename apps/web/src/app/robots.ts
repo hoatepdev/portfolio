@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 
 import config from "@/config";
 
+export const dynamic = "force-static";
+
 const { siteURL } = config;
 
 export default function robots(): MetadataRoute.Robots {

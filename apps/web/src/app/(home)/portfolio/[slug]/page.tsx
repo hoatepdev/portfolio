@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { unstable_noStore as noStore } from "next/cache";
 import { notFound } from "next/navigation";
 import React, { Suspense } from "react";
 
@@ -11,7 +10,7 @@ import "@/styles/blog/blog-text.css";
 
 type tParams = Promise<{ slug: string }>;
 
-const { about } = config;
+const { about, siteURL } = config;
 
 export async function generateMetadata({
   params,
@@ -32,8 +31,8 @@ export async function generateMetadata({
     banner,
   } = post.metadata;
   const ogImage = banner
-    ? `https://p.hoatepdev.site${banner}`
-    : `https://p.hoatepdev.site/og?title=${title}`;
+    ? `${siteURL}${banner}`
+    : `${siteURL}/images/avatar.avif`;
 
   return {
     title,
@@ -44,7 +43,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://p.hoatepdev.site/portfolio/${post.slug}`,
+      url: `${siteURL}/portfolio/${post.slug}`,
       locale: "en_US",
       images: [
         {
@@ -62,7 +61,6 @@ export async function generateMetadata({
 }
 
 function formatDate(date: string) {
-  noStore();
   const currentDate = new Date().getTime();
   if (!date.includes("T")) {
     date = `${date}T00:00:00`;
@@ -104,6 +102,11 @@ function formatDate(date: string) {
     const yearsAgo = Math.floor(daysAgo / 365);
     return `${fullDate} (${yearsAgo}y ago)`;
   }
+}
+
+export async function generateStaticParams() {
+  const posts = await getPortfolioPosts();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function Portfolio(props: { params: tParams }) {

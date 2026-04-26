@@ -4,6 +4,8 @@ import config from "@/config";
 import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
 import { getBlogPosts } from "@/lib/db/v1/post";
 
+export const dynamic = "force-static";
+
 const { siteURL } = config;
 
 function mapPostsToSitemap(

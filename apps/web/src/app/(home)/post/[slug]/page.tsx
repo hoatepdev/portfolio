@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -12,7 +11,7 @@ import config from "@/config";
 import { getBlogPosts } from "@/lib/db/v1/post";
 import "@/styles/blog/blog-text.css";
 
-const { giscusConfig, about } = config;
+const { giscusConfig, about, siteURL } = config;
 
 type tParams = Promise<{ slug: string }>;
 
@@ -35,8 +34,8 @@ export async function generateMetadata({
     banner,
   } = post.metadata;
   const ogImage = banner
-    ? `https://p.hoatepdev.site${banner}`
-    : `https://p.hoatepdev.site/og?title=${title}`;
+    ? `${siteURL}${banner}`
+    : `${siteURL}/images/avatar.avif`;
 
   return {
     title,
@@ -47,7 +46,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://p.hoatepdev.site/post/${post.slug}`,
+      url: `${siteURL}/post/${post.slug}`,
       locale: "en_US",
       images: [
         {
@@ -65,7 +64,6 @@ export async function generateMetadata({
 }
 
 function formatDate(date: string) {
-  noStore();
   const currentDate = new Date().getTime();
   if (!date.includes("T")) {
     date = `${date}T00:00:00`;
@@ -109,6 +107,11 @@ function formatDate(date: string) {
   }
 }
 
+export async function generateStaticParams() {
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
 export default async function Post(props: { params: tParams }) {
   const { slug } = await props.params;
   const posts = await getBlogPosts();
@@ -118,7 +121,7 @@ export default async function Post(props: { params: tParams }) {
     notFound();
   }
 
-  const shareUrl = `https://p.hoatepdev.site/post/${post.slug}`;
+  const shareUrl = `${siteURL}/post/${post.slug}`;
   const shareText = `Check out this post:`;
 
   return (
