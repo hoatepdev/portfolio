@@ -1,50 +1,22 @@
-"use client";
-
-import emailjs from "@emailjs/browser";
-import React, { useEffect, useRef } from "react";
-import { FaRegPaperPlane } from "react-icons/fa";
+import type { Metadata } from "next";
 
 import PageHeader from "@/components/page-header";
 import MapBox from "@/components/section/contact/map-box";
 import config from "@/config";
 
-const { title, about } = config;
+import ContactForm from "./contact-form";
 
-/**
- * TODO: #341 still need to update with another method to avoid client side not available metadata
- * export const metadata: Metadata = {
- *   title: `Contact | ${title}`,
- * };
- */
+const { title, about } = config;
+const fallbackEmail =
+  config.contacts.find((contact) => contact.link?.startsWith("mailto:"))
+    ?.content ?? "hoanguyentrandev@gmail.com";
+
+export const metadata: Metadata = {
+  title: `Contact | ${title}`,
+  description: `Get in touch with ${about.preferredName}.`,
+};
 
 function Contact() {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    document.title = `Contact | ${title}`;
-  }, [title]);
-
-  useEffect(() => {
-    audioRef.current = new Audio("/audio/send-email.mp3");
-  }, []);
-
-  const handleSubmit = (formData: FormData) => {
-    emailjs.send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
-      {
-        fullname: formData.get("fullname"),
-        email: formData.get("email"),
-        message: formData.get("message"),
-      },
-      {
-        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
-      }
-    );
-    alert("Message sent successfully!");
-    audioRef.current?.play();
-  };
-
   return (
     <article>
       <PageHeader header={`${about.preferredName}'s Contact`} />
@@ -53,37 +25,7 @@ function Contact() {
         <h3 className="text-white-2 mb-[20px] text-2xl font-bold">
           Contact Form
         </h3>
-        <form action={handleSubmit} className="form" data-form>
-          <div className="input-wrapper">
-            <input
-              type="text"
-              name="fullname"
-              className="form-input"
-              placeholder="Full name"
-              required
-              data-form-input
-            />
-            <input
-              type="email"
-              name="email"
-              className="form-input"
-              placeholder="Email address"
-              required
-              data-form-input
-            />
-          </div>
-          <textarea
-            name="message"
-            className="form-input"
-            placeholder="Your Message"
-            required
-            data-form-input
-          ></textarea>
-          <button className="form-btn" data-form-btn type="submit">
-            <FaRegPaperPlane />
-            <span>Send Message</span>
-          </button>
-        </form>
+        <ContactForm fallbackEmail={fallbackEmail} />
       </section>
     </article>
   );
