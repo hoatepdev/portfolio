@@ -9,8 +9,7 @@ import FilterSelectBox from "@/components/filter/filter-select-box";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import Pagination from "@/components/pagination";
 import { ProgressBarLink } from "@/components/progress-bar";
-
-const POSTS_PER_PAGE = 6;
+import { POSTS_PER_PAGE } from "@/lib/constants";
 
 type PostMetadata = {
   title: string;
@@ -25,24 +24,44 @@ interface PortfolioListClientProps {
   posts: { slug: string; metadata: PostMetadata }[];
 }
 
+const ALL_TAG = "All";
+
+function getBlogTags(posts: PortfolioListClientProps["posts"]) {
+  const categories = posts
+    .map((post) => post.metadata.category)
+    .filter((category): category is string => Boolean(category));
+
+  return [ALL_TAG, ...Array.from(new Set(categories))];
+}
+
+function getSelectedTag(tag: string | null, blogTags: string[]) {
+  return tag && blogTags.includes(tag) ? tag : ALL_TAG;
+}
+
+function getCurrentPage(page: string | null, totalPages: number) {
+  const parsedPage = Number.parseInt(page ?? "1", 10);
+
+  if (!Number.isFinite(parsedPage) || parsedPage < 1) {
+    return 1;
+  }
+
+  return Math.min(parsedPage, Math.max(totalPages, 1));
+}
+
 export default function PortfolioListClient({
   posts,
 }: PortfolioListClientProps) {
   const searchParams = useSearchParams();
-  const selectedTag = searchParams.get("tag") || "All";
-  const currentPage = parseInt(searchParams.get("page") || "1", 10);
-
-  const blogTags = [
-    "All",
-    ...Array.from(new Set(posts.map((post) => post.metadata.category ?? ""))),
-  ];
+  const blogTags = getBlogTags(posts);
+  const selectedTag = getSelectedTag(searchParams.get("tag"), blogTags);
 
   const filteredPortfolioPosts =
-    selectedTag === "All"
+    selectedTag === ALL_TAG
       ? posts
       : posts.filter((post) => post.metadata.category === selectedTag);
 
   const totalPages = Math.ceil(filteredPortfolioPosts.length / POSTS_PER_PAGE);
+  const currentPage = getCurrentPage(searchParams.get("page"), totalPages);
 
   const paginatedPortfolioPosts = filteredPortfolioPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
@@ -81,11 +100,9 @@ export default function PortfolioListClient({
                   alt={post.metadata.alt || "Portfolio post image"}
                   width={960}
                   height={540}
-                  priority
-                  placeholder="blur"
-                  loading="eager"
+                  placeholder="empty"
                   quality={50}
-                  blurDataURL="https://docs.1chooo.com/images/cover-with-1chooo-com.png"
+                  sizes="(max-width: 580px) 100vw, (max-width: 1250px) 50vw, 33vw"
                 />
               </figure>
               <h3 className="project-title">

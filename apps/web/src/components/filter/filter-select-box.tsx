@@ -39,7 +39,7 @@ function FilterSelectBox({
                 }}
               >
                 <ProgressBarLink
-                  href={`${path}?tag=${encodeURIComponent(tag)}`}
+                  href={`/${path}?tag=${encodeURIComponent(tag)}`}
                 >
                   {tag}
                 </ProgressBarLink>

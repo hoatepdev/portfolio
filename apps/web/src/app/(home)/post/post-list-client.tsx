@@ -24,22 +24,42 @@ interface PostListClientProps {
   posts: { slug: string; metadata: PostMetadata }[];
 }
 
+const ALL_TAG = "All";
+
+function getBlogTags(posts: PostListClientProps["posts"]) {
+  const categories = posts
+    .map((post) => post.metadata.category)
+    .filter((category): category is string => Boolean(category));
+
+  return [ALL_TAG, ...Array.from(new Set(categories))];
+}
+
+function getSelectedTag(tag: string | null, blogTags: string[]) {
+  return tag && blogTags.includes(tag) ? tag : ALL_TAG;
+}
+
+function getCurrentPage(page: string | null, totalPages: number) {
+  const parsedPage = Number.parseInt(page ?? "1", 10);
+
+  if (!Number.isFinite(parsedPage) || parsedPage < 1) {
+    return 1;
+  }
+
+  return Math.min(parsedPage, Math.max(totalPages, 1));
+}
+
 export default function PostListClient({ posts }: PostListClientProps) {
   const searchParams = useSearchParams();
-  const selectedTag = searchParams.get("tag") || "All";
-  const currentPage = parseInt(searchParams.get("page") || "1", 10);
-
-  const blogTags = [
-    "All",
-    ...Array.from(new Set(posts.map((post) => post.metadata.category ?? ""))),
-  ];
+  const blogTags = getBlogTags(posts);
+  const selectedTag = getSelectedTag(searchParams.get("tag"), blogTags);
 
   const filteredBlogs =
-    selectedTag === "All"
+    selectedTag === ALL_TAG
       ? posts
       : posts.filter((post) => post.metadata.category === selectedTag);
 
   const totalPages = Math.ceil(filteredBlogs.length / POSTS_PER_PAGE);
+  const currentPage = getCurrentPage(searchParams.get("page"), totalPages);
 
   const paginatedBlogs = filteredBlogs.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
@@ -71,10 +91,8 @@ export default function PostListClient({ posts }: PostListClientProps) {
                   alt={post.metadata.alt || "Blog post image"}
                   width={1600}
                   height={900}
-                  priority={false}
-                  placeholder="blur"
-                  loading="eager"
-                  blurDataURL="https://docs.1chooo.com/images/cover-with-1chooo-com.png"
+                  placeholder="empty"
+                  sizes="(max-width: 580px) 100vw, (max-width: 1250px) 50vw, 33vw"
                 />
               </figure>
               <div className="blog-content">

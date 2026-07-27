@@ -63,10 +63,9 @@ export function LatestArticles({ posts }: Props) {
                     alt={post.excerpt || "Blog post image"}
                     width={1600}
                     height={900}
-                    priority
                     quality={50}
                     placeholder="empty"
-                    loading="eager"
+                    sizes="(max-width: 580px) 100vw, 33vw"
                   />
                 </figure>
                 <h3 className="text-white-2 group-hover:text-orange-yellow-crayola ml-[10px] text-base font-normal capitalize leading-[1.3] group-hover:font-bold">
