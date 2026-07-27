@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint --fix . --ext .ts,.tsx,.js"
+    "lint:fix": "eslint --fix . --ext .ts,.tsx,.js",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.9",
@@ -28,6 +29,7 @@
     "@types/react": "19.1.6",
     "@types/react-dom": "19.1.0",
     "@workspace/eslint-config": "workspace:*",
+    "next": "15.3.2",
     "@workspace/typescript-config": "workspace:*",
     "eslint": "^9.27.0",
     "tailwindcss": "^4.1.7",
