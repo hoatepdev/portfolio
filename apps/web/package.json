@@ -26,9 +26,11 @@
     "dev": "next dev --turbopack --port 4000",
     "prebuild": "node ../../scripts/generate-rss.mjs",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "check-types": "tsc --noEmit"
+    "start": "pnpm dlx serve@14.2.4 out -l 4000",
+    "preview": "pnpm build && pnpm start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check-types": "pnpm typecheck"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

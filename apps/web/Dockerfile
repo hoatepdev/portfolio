@@ -21,42 +21,25 @@ COPY packages/ui/package.json ./packages/ui/
 COPY packages/eslint-config/package.json ./packages/eslint-config/
 COPY packages/typescript-config/package.json ./packages/typescript-config/
 
-# Install ALL dependencies (dev deps needed for build)
-# Do NOT set NODE_ENV=production here - it would skip devDependencies needed for the build
+# Install all dependencies; devDependencies are required for the build.
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
 
 # Copy source code (only what passes .dockerignore)
 COPY . .
 
-# Build the application
-# Set NODE_ENV=production only for the build step
+# Build the static export into apps/web/out.
 ENV NODE_ENV=production
 RUN --mount=type=cache,id=turbo,target=/app/.turbo \
     pnpm exec turbo run build --filter=apps-web...
 
 # =========================
-# Runner stage - minimal production image
+# Runner stage - static server
 # =========================
-FROM node:22-alpine AS runner
-WORKDIR /app
+FROM nginx:1.27-alpine AS runner
 
-ENV NODE_ENV=production
-ENV NODE_OPTIONS=--max-old-space-size=1024
-ENV PORT=4000
+COPY --from=build /app/apps/web/out /usr/share/nginx/html
 
-# Security: run as non-root user
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
+EXPOSE 80
 
-# Copy standalone output (contains minimal node_modules + server.js)
-COPY --from=build --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
-COPY --from=build --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
-COPY --from=build --chown=nextjs:nodejs /app/apps/web/public ./apps/web/public
-COPY --from=build --chown=nextjs:nodejs /app/apps/web/src/contents ./apps/web/src/contents
-
-USER nextjs
-EXPOSE 4000
-
-# Run with node.js directly (no pnpm needed)
-CMD ["node", "apps/web/server.js"]
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,15 +1,8 @@
-sservices:
+services:
   web:
     build:
       context: .
       dockerfile: apps/web/Dockerfile
     restart: unless-stopped
     ports:
-      - "4001:4000"
-    restart: always
-    networks:
-      - web-network
-
-networks:
-  web-network:
-    external: true
+      - "4001:80"

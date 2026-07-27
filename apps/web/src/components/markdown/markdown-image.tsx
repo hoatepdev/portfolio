@@ -25,7 +25,7 @@ function MarkdownImage({ src, alt }: MarkdownImageProps) {
           src={src}
           alt={alt ?? "Image"}
           fill
-          priority={true}
+          sizes="(max-width: 640px) 100vw, 720px"
           onLoadingComplete={(target) => {
             setAspectRatio(target.naturalWidth / target.naturalHeight);
           }}
