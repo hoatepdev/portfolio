@@ -72,9 +72,9 @@ const config: Config = {
     "Explore. 🔍",
     "Build. 🔨",
   ],
-  siteURL: "https://portfolio.hoatepdev.site",
+  siteURL: "https://www.hoatepdev.com",
   openGraph: {
-    url: "https://portfolio.hoatepdev.site/",
+    url: "https://www.hoatepdev.com/",
     type: "website",
     siteName: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
     title: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
@@ -154,7 +154,7 @@ const config: Config = {
     },
   ],
   homeMetaData: {
-    metadataBase: new URL("https://portfolio.hoatepdev.site"),
+    metadataBase: new URL("https://www.hoatepdev.com"),
     title: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
     description:
       "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT) 🐿️, driven by a sincere passion for Software Engineering 💻.",
@@ -168,7 +168,7 @@ const config: Config = {
       "React",
     ],
     openGraph: {
-      url: "https://portfolio.hoatepdev.site/",
+      url: "https://www.hoatepdev.com/",
       type: "website",
       siteName: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
       title: "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer",
@@ -349,7 +349,7 @@ In my spare time, I love developing personal projects, exploring new tech stacks
   jsonLdPerson: {
     "@context": "http://schema.org",
     "@type": "Person",
-    "@id": "https://portfolio.hoatepdev.site/#person",
+    "@id": "https://www.hoatepdev.com/#person",
     givenName: "Hoà T.",
     familyName: "Nguyen",
     additionalName: "Thomas",
@@ -365,8 +365,8 @@ In my spare time, I love developing personal projects, exploring new tech stacks
     ],
     jobTitle: "Software Engineer",
     skills: "Software Engineering, Web Development, Open Source",
-    image: "https://portfolio.hoatepdev.site/images/profile.webp",
-    url: "https://portfolio.hoatepdev.site",
+    image: "https://www.hoatepdev.com/images/profile.webp",
+    url: "https://www.hoatepdev.com",
     sameAs: [
       "https://www.linkedin.com/in/hoatepdev/",
       "http://github.com/hoatepdev",

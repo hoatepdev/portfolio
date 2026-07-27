@@ -1,4 +1,4 @@
-/**
+/*
  * Build-time RSS feed generator.
  * Run with: node scripts/generate-rss.mjs
  * Reads markdown posts and portfolios, writes public/rss.xml inside apps/web.
@@ -9,11 +9,26 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WEB_ROOT = path.resolve(__dirname, "../apps/web");
-const SITE_URL = "https://portfolio.hoatepdev.site";
+const PACKAGE_JSON_PATH = path.join(WEB_ROOT, "package.json");
 const AUTHOR = "Hoà T. (Thomas) Nguyen";
 const TITLE = "Hoà T. (Thomas) Nguyen - hoatepdev | Full-stack Developer";
 const DESCRIPTION =
   "I'm Hoà T. (Thomas) Nguyen, a graduate with a Bachelor's degree from Post and Telecommunication Institute of Technology (PTIT), driven by a sincere passion for Software Engineering.";
+
+function normalizeSiteUrl(url) {
+  return String(url).replace(/\/+$/, "");
+}
+
+async function getSiteUrl() {
+  const packageJson = JSON.parse(await fs.readFile(PACKAGE_JSON_PATH, "utf-8"));
+
+  return normalizeSiteUrl(
+    process.env.SITE_URL ||
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      packageJson.homepage ||
+      "https://www.hoatepdev.com"
+  );
+}
 
 function parseFrontmatter(content) {
   const match = /^---\s*([\s\S]*?)\s*---/.exec(content);
@@ -30,18 +45,22 @@ function parseFrontmatter(content) {
   return meta;
 }
 
+function isHidden(meta) {
+  return String(meta.hidden ?? "").trim().toLowerCase() === "true";
+}
+
 async function readPosts(dir) {
   const postsDir = path.join(WEB_ROOT, "src/contents", dir);
   try {
     const files = await fs.readdir(postsDir);
     const mdFiles = files.filter(
-      (f) => f.endsWith(".md") || f.endsWith(".mdx")
+      (file) => file.endsWith(".md") || file.endsWith(".mdx")
     );
     const posts = [];
     for (const file of mdFiles) {
       const content = await fs.readFile(path.join(postsDir, file), "utf-8");
       const meta = parseFrontmatter(content);
-      if (meta && !meta.hidden) {
+      if (meta && !isHidden(meta)) {
         posts.push({
           slug: path.basename(file, path.extname(file)),
           ...meta,
@@ -49,7 +68,8 @@ async function readPosts(dir) {
       }
     }
     return posts.sort(
-      (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
     );
   } catch {
     return [];
@@ -57,7 +77,7 @@ async function readPosts(dir) {
 }
 
 function escapeXml(str) {
-  return str
+  return String(str)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -65,22 +85,33 @@ function escapeXml(str) {
     .replace(/'/g, "&apos;");
 }
 
+function getLatestPubDate(items) {
+  const latestTimestamp = items.reduce((latest, item) => {
+    const timestamp = new Date(item.date).getTime();
+
+    return Number.isFinite(timestamp) && timestamp > latest ? timestamp : latest;
+  }, 0);
+
+  return new Date(latestTimestamp).toUTCString();
+}
+
 async function main() {
+  const siteUrl = await getSiteUrl();
   const blogPosts = await readPosts("posts");
   const portfolioPosts = await readPosts("portfolios");
 
   const items = [
-    ...blogPosts.map((p) => ({
-      title: p.title,
-      url: `${SITE_URL}/post/${p.slug}/`,
-      date: p.publishedAt,
-      summary: p.summary,
+    ...blogPosts.map((post) => ({
+      title: post.title,
+      url: `${siteUrl}/post/${post.slug}/`,
+      date: post.publishedAt,
+      summary: post.summary,
     })),
-    ...portfolioPosts.map((p) => ({
-      title: p.title,
-      url: `${SITE_URL}/portfolio/${p.slug}/`,
-      date: p.publishedAt,
-      summary: p.summary,
+    ...portfolioPosts.map((post) => ({
+      title: post.title,
+      url: `${siteUrl}/portfolio/${post.slug}/`,
+      date: post.publishedAt,
+      summary: post.summary,
     })),
   ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -88,11 +119,11 @@ async function main() {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${escapeXml(TITLE)}</title>
-    <link>${SITE_URL}</link>
+    <link>${siteUrl}</link>
     <description>${escapeXml(DESCRIPTION)}</description>
     <language>en-US</language>
-    <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>${getLatestPubDate(items)}</lastBuildDate>
 ${items
   .map(
     (item) => `    <item>
