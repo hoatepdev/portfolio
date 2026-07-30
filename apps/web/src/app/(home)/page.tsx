@@ -5,12 +5,13 @@ import { LatestArticles } from "@/components/about/latest-articles";
 import LifeStyles from "@/components/about/life-styles";
 import AnimatedSection from "@/components/animated-section";
 import PageHeader from "@/components/page-header";
+import Testimonials from "@/components/testimonials";
 import config from "@/config";
 import { getAllPosts } from "@/lib/api";
 import markdownToHtml from "@/lib/markdownToHtml";
 import "@/styles/markdown-styles.css";
 
-const { about } = config;
+const { about, testimonials } = config;
 const {
   firstName,
   lastName,
@@ -41,6 +42,17 @@ async function About() {
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </AnimatedSection>
+      {testimonials.items.length > 0 && (
+        <Testimonials
+          items={testimonials.items.filter(
+            (testimonial) => testimonial.featured
+          )}
+          title={testimonials.title}
+          description={testimonials.description}
+          maxItems={3}
+          variant="home"
+        />
+      )}
       {allPosts.length > 0 && <LatestArticles posts={allPosts} />}
       <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
       <LifeStyles lifestyles={lifestyles} />
