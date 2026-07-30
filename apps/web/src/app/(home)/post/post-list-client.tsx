@@ -10,6 +10,11 @@ import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import Pagination from "@/components/pagination";
 import { ProgressBarLink } from "@/components/progress-bar";
 import { POSTS_PER_PAGE } from "@/lib/constants";
+import {
+  ALL_LISTING_TAG,
+  getCurrentListingPage,
+  getSelectedListingTag,
+} from "@/lib/listing-query";
 
 type PostMetadata = {
   title: string;
@@ -24,42 +29,29 @@ interface PostListClientProps {
   posts: { slug: string; metadata: PostMetadata }[];
 }
 
-const ALL_TAG = "All";
-
 function getBlogTags(posts: PostListClientProps["posts"]) {
   const categories = posts
     .map((post) => post.metadata.category)
     .filter((category): category is string => Boolean(category));
 
-  return [ALL_TAG, ...Array.from(new Set(categories))];
-}
-
-function getSelectedTag(tag: string | null, blogTags: string[]) {
-  return tag && blogTags.includes(tag) ? tag : ALL_TAG;
-}
-
-function getCurrentPage(page: string | null, totalPages: number) {
-  const parsedPage = Number.parseInt(page ?? "1", 10);
-
-  if (!Number.isFinite(parsedPage) || parsedPage < 1) {
-    return 1;
-  }
-
-  return Math.min(parsedPage, Math.max(totalPages, 1));
+  return [ALL_LISTING_TAG, ...Array.from(new Set(categories))];
 }
 
 export default function PostListClient({ posts }: PostListClientProps) {
   const searchParams = useSearchParams();
   const blogTags = getBlogTags(posts);
-  const selectedTag = getSelectedTag(searchParams.get("tag"), blogTags);
+  const selectedTag = getSelectedListingTag(searchParams.get("tag"), blogTags);
 
   const filteredBlogs =
-    selectedTag === ALL_TAG
+    selectedTag === ALL_LISTING_TAG
       ? posts
       : posts.filter((post) => post.metadata.category === selectedTag);
 
   const totalPages = Math.ceil(filteredBlogs.length / POSTS_PER_PAGE);
-  const currentPage = getCurrentPage(searchParams.get("page"), totalPages);
+  const currentPage = getCurrentListingPage(
+    searchParams.get("page"),
+    totalPages
+  );
 
   const paginatedBlogs = filteredBlogs.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
