@@ -1,7 +1,11 @@
 import fs from "fs/promises";
 import path from "path";
 
-type Metadata = {
+import matter from "gray-matter";
+
+export type PortfolioStatus = "completed" | "in-progress" | "archived";
+
+export type PortfolioMetadata = {
   title: string;
   publishedAt: string;
   summary: string;
@@ -9,7 +13,21 @@ type Metadata = {
   banner: string;
   alt?: string;
   image?: string;
+  startDate?: string;
+  endDate?: string;
+  tags: string[];
+  status?: PortfolioStatus;
+  repoUrl?: string;
+  liveUrl?: string;
 };
+
+type RawPortfolioMetadata = Record<string, unknown>;
+
+const PORTFOLIO_STATUSES: PortfolioStatus[] = [
+  "completed",
+  "in-progress",
+  "archived",
+];
 
 export const getPortfolioPosts = async () => {
   const postsDirectory = path.join(process.cwd(), "src/contents/portfolios");
@@ -25,12 +43,11 @@ export const getPortfolioPosts = async () => {
       const filePath = path.join(postsDirectory, fileName);
       const fileContent = await fs.readFile(filePath, "utf-8");
 
-      // Parse frontmatter
       const { metadata, content } = parseFrontmatter(fileContent);
       const slug = path.basename(fileName, path.extname(fileName));
 
       return {
-        metadata: metadata as Metadata,
+        metadata,
         slug,
         tweetIds: extractTweetIds(content),
         content,
@@ -46,35 +63,81 @@ export const getPortfolioPosts = async () => {
   );
 };
 
-// Helper functions remain the same but use RegExp.exec() for better performance
 function parseFrontmatter(fileContent: string) {
-  const frontmatterRegex = /^---\s*([\s\S]*?)\s*---/;
-  const match = frontmatterRegex.exec(fileContent);
+  const { data, content } = matter(fileContent);
 
-  if (!match) {
+  if (!Object.keys(data).length) {
     throw new Error("Invalid frontmatter");
   }
 
-  const frontMatterBlock = match[1];
-  const content = fileContent.slice(match[0].length).trim();
-  const metadata: Partial<Metadata> = {};
+  return {
+    metadata: normalizePortfolioMetadata(data),
+    content: content.trim(),
+  };
+}
 
-  // Use a single regex to parse key-value pairs
-  const kvRegex = /^(\w+):\s*(?:"([^"]*)"|'([^']*)'|(.*))$/;
+function normalizePortfolioMetadata(
+  metadata: RawPortfolioMetadata
+): PortfolioMetadata {
+  return {
+    title: normalizeString(metadata.title) ?? "Untitled portfolio project",
+    publishedAt: normalizeString(metadata.publishedAt) ?? "",
+    summary: normalizeString(metadata.summary) ?? "",
+    category: normalizeString(metadata.category),
+    banner: normalizeString(metadata.banner) ?? "",
+    alt: normalizeString(metadata.alt),
+    image: normalizeString(metadata.image),
+    startDate: normalizeString(metadata.startDate),
+    endDate: normalizeString(metadata.endDate),
+    tags: normalizeTags(metadata.tags),
+    status: normalizeStatus(metadata.status),
+    repoUrl: normalizeString(metadata.repoUrl),
+    liveUrl: normalizeString(metadata.liveUrl),
+  };
+}
 
-  frontMatterBlock
-    .trim()
-    .split("\n")
-    .forEach((line) => {
-      const match = kvRegex.exec(line.trim());
-      if (match) {
-        const [, key, doubleQuoted, singleQuoted, unquoted] = match;
-        metadata[key as keyof Metadata] =
-          doubleQuoted || singleQuoted || unquoted;
-      }
-    });
+function normalizeString(value: unknown) {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
 
-  return { metadata: metadata as Metadata, content };
+  if (value instanceof Date) {
+    return value.toISOString().split("T")[0];
+  }
+
+  const stringValue = String(value).trim();
+  return stringValue || undefined;
+}
+
+function normalizeTags(value: unknown) {
+  if (Array.isArray(value)) {
+    return value
+      .map((tag) => normalizeString(tag))
+      .filter((tag): tag is string => Boolean(tag));
+  }
+
+  const tag = normalizeString(value);
+
+  if (!tag) {
+    return [];
+  }
+
+  return tag
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function normalizeStatus(value: unknown) {
+  const status = normalizeString(value);
+
+  if (!status) {
+    return undefined;
+  }
+
+  return PORTFOLIO_STATUSES.includes(status as PortfolioStatus)
+    ? (status as PortfolioStatus)
+    : undefined;
 }
 
 function extractTweetIds(content: string) {
