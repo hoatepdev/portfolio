@@ -9,12 +9,39 @@ interface FilterSelectBoxProps {
   path: string;
   selectedTag: string;
   blogTags: string[];
+  query?: Record<string, string | undefined>;
+}
+
+const ALL_TAG = "All";
+
+function getFilterHref(
+  path: string,
+  tag: string,
+  query: FilterSelectBoxProps["query"]
+) {
+  const params: Record<string, string> = {};
+
+  Object.entries(query ?? {}).forEach(([key, value]) => {
+    if (value) {
+      params[key] = value;
+    }
+  });
+
+  if (tag !== ALL_TAG) {
+    params.tag = tag;
+  }
+
+  return {
+    pathname: `/${path}`,
+    query: params,
+  };
 }
 
 function FilterSelectBox({
   path,
   selectedTag,
   blogTags,
+  query,
 }: FilterSelectBoxProps) {
   const [isSelectActive, setIsSelectActive] = useState(false);
 
@@ -38,9 +65,7 @@ function FilterSelectBox({
                   setIsSelectActive(false);
                 }}
               >
-                <ProgressBarLink
-                  href={`/${path}?tag=${encodeURIComponent(tag)}`}
-                >
+                <ProgressBarLink href={getFilterHref(path, tag, query)}>
                   {tag}
                 </ProgressBarLink>
               </button>
