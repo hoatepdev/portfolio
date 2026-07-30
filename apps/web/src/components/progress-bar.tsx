@@ -6,12 +6,14 @@ import {
   useMotionTemplate,
   useSpring,
 } from "motion/react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Link, { type LinkProps } from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import {
-  ReactNode,
+  type AnchorHTMLAttributes,
+  type MouseEvent,
+  type ReactNode,
+  Suspense,
   createContext,
-  startTransition,
   useContext,
   useEffect,
   useRef,
@@ -49,6 +51,9 @@ export function ProgressBar({ className, children }: ProgressBarProps) {
 
   return (
     <ProgressBarContext.Provider value={progress}>
+      <Suspense fallback={null}>
+        <ProgressBarRouteComplete progress={progress} />
+      </Suspense>
       <AnimatePresence onExitComplete={progress.reset}>
         {progress.state !== "complete" && (
           <motion.div
@@ -63,46 +68,23 @@ export function ProgressBar({ className, children }: ProgressBarProps) {
   );
 }
 
-interface ProgressBarLinkProps {
-  href:
-    | string
-    | {
-        pathname: string;
-        query?: Record<string, string>;
-      };
-  children: React.ReactNode;
-  className?: string;
-  [key: string]: any;
-}
+type ProgressBarLinkProps = LinkProps &
+  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>;
 
 export function ProgressBarLink({
   href,
   children,
+  onClick,
   ...props
 }: ProgressBarLinkProps) {
   const progress = useProgressBar();
-  const router = useRouter();
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    progress.start();
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    onClick?.(event);
 
-    let url: string;
-    if (typeof href === "string") {
-      url = href;
-    } else if (typeof href === "object" && href !== null) {
-      const { pathname, query } = href;
-      const searchParams = new URLSearchParams(query || {}).toString();
-      url = `${pathname}${searchParams ? `?${searchParams}` : ""}`;
-    } else {
-      console.error("Invalid href prop");
-      return;
+    if (shouldStartProgress(event, href, props.target, props.download)) {
+      progress.start();
     }
-
-    startTransition(() => {
-      router.push(url);
-      progress.done();
-    });
   };
 
   return (
@@ -110,6 +92,71 @@ export function ProgressBarLink({
       {children}
     </Link>
   );
+}
+
+function ProgressBarRouteComplete({
+  progress,
+}: {
+  progress: ProgressContextType;
+}) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const routeKey = `${pathname}?${searchParams.toString()}`;
+  const previousRouteKey = useRef(routeKey);
+
+  useEffect(() => {
+    if (previousRouteKey.current === routeKey) {
+      return;
+    }
+
+    previousRouteKey.current = routeKey;
+    progress.done();
+  }, [progress, routeKey]);
+
+  return null;
+}
+
+function shouldStartProgress(
+  event: MouseEvent<HTMLAnchorElement>,
+  href: ProgressBarLinkProps["href"],
+  target?: string,
+  download?: unknown
+) {
+  if (
+    event.defaultPrevented ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey ||
+    event.button !== 0 ||
+    target === "_blank" ||
+    download
+  ) {
+    return false;
+  }
+
+  if (typeof href !== "string") {
+    return true;
+  }
+
+  if (href.startsWith("#")) {
+    return false;
+  }
+
+  try {
+    const url = new URL(href, window.location.href);
+
+    if (url.origin !== window.location.origin) {
+      return false;
+    }
+
+    return (
+      `${url.pathname}${url.search}` !==
+      `${window.location.pathname}${window.location.search}`
+    );
+  } catch {
+    return false;
+  }
 }
 
 function useProgress() {
