@@ -1,7 +1,8 @@
 import fs from "fs/promises";
+import matter from "gray-matter";
 import path from "path";
 
-import matter from "gray-matter";
+import { normalizeSearchText, stripMdxToSearchableText } from "@/lib/search";
 
 export type PortfolioStatus = "completed" | "in-progress" | "archived";
 
@@ -51,6 +52,7 @@ export const getPortfolioPosts = async () => {
         slug,
         tweetIds: extractTweetIds(content),
         content,
+        searchText: buildPortfolioSearchText(metadata, content),
       };
     })
   );
@@ -138,6 +140,24 @@ function normalizeStatus(value: unknown) {
   return PORTFOLIO_STATUSES.includes(status as PortfolioStatus)
     ? (status as PortfolioStatus)
     : undefined;
+}
+
+function buildPortfolioSearchText(
+  metadata: PortfolioMetadata,
+  content: string
+) {
+  return normalizeSearchText(
+    [
+      metadata.title,
+      metadata.summary,
+      metadata.category,
+      ...metadata.tags,
+      metadata.status,
+      stripMdxToSearchableText(content),
+    ]
+      .filter(Boolean)
+      .join(" ")
+  );
 }
 
 function extractTweetIds(content: string) {

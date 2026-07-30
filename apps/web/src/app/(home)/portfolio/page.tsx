@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import PortfolioListClient from "./portfolio-list-client";
-
 import Loading from "@/components/loading";
 import PageHeader from "@/components/page-header";
 import config from "@/config";
 import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
 
+import PortfolioListClient from "./portfolio-list-client";
 
 const { title, about, siteURL, openGraph } = config;
 
@@ -38,9 +37,10 @@ export const metadata: Metadata = {
 
 export default async function Portfolio() {
   const allPortfolioPosts = await getPortfolioPosts();
-  const posts = allPortfolioPosts.map(({ slug, metadata }) => ({
+  const posts = allPortfolioPosts.map(({ slug, metadata, searchText }) => ({
     slug,
     metadata,
+    searchText,
   }));
 
   return (
