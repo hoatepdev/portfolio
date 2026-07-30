@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import React, { Suspense } from "react";
+import React from "react";
+import { LuExternalLink, LuGithub } from "react-icons/lu";
 
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import PageHeader from "@/components/page-header";
 import config from "@/config";
-import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
+import {
+  type PortfolioMetadata,
+  getPortfolioPosts,
+} from "@/lib/db/v1/portfolio";
 import "@/styles/blog/blog-text.css";
 
 type tParams = Promise<{ slug: string }>;
 
 const { about, siteURL } = config;
+
+function getAbsoluteUrl(url: string) {
+  return new URL(url, siteURL).toString();
+}
 
 export async function generateMetadata({
   params,
@@ -29,21 +38,27 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     banner,
+    tags,
   } = post.metadata;
   const ogImage = banner
-    ? `${siteURL}${banner}`
-    : `${siteURL}/images/avatar.avif`;
+    ? getAbsoluteUrl(banner)
+    : getAbsoluteUrl("/images/avatar.avif");
+  const canonical = `/portfolio/${post.slug}`;
 
   return {
     title,
     description,
+    keywords: tags.length > 0 ? tags : undefined,
+    alternates: {
+      canonical,
+    },
     openGraph: {
       title,
       siteName: "Hòa T. (Thomas) Nguyen - hoatepdev | Open Source Enthusiast",
       description,
       type: "article",
       publishedTime,
-      url: `${siteURL}/portfolio/${post.slug}`,
+      url: getAbsoluteUrl(canonical),
       locale: "en_US",
       images: [
         {
@@ -60,48 +75,38 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(date: string) {
-  const currentDate = new Date().getTime();
-  if (!date.includes("T")) {
-    date = `${date}T00:00:00`;
-  }
-  const targetDate = new Date(date).getTime();
-  const timeDifference = Math.abs(currentDate - targetDate);
-  const daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-
-  const fullDate = new Date(date).toLocaleString("en-us", {
-    month: "long",
-    day: "numeric",
+function formatDate(date: string, dateStyle: "short" | "long" = "long") {
+  return new Date(date).toLocaleString("en-us", {
+    month: dateStyle === "short" ? "short" : "long",
+    day: dateStyle === "long" ? "numeric" : undefined,
     year: "numeric",
   });
+}
 
-  let daysLater: number = 0;
-  if (targetDate > currentDate) {
-    daysLater = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+function getProjectTimeline(metadata: PortfolioMetadata) {
+  if (metadata.startDate && metadata.endDate) {
+    return `${formatDate(metadata.startDate, "short")} - ${formatDate(
+      metadata.endDate,
+      "short"
+    )}`;
   }
 
-  if (daysLater > 365) {
-    return `${fullDate} (${daysLater}d later)`;
-  } else if (daysLater > 30) {
-    const weeksAgo = Math.floor(daysLater / 7);
-    return `${fullDate} (${weeksAgo}w later)`;
-  } else if (daysLater > 7) {
-    const monthsAgo = Math.floor(daysLater / 30);
-    return `${fullDate} (${monthsAgo}mo later)`;
-  } else if (daysAgo < 1) {
-    return "Today";
-  } else if (daysAgo < 7) {
-    return `${fullDate} (${daysAgo}d ago)`;
-  } else if (daysAgo < 30) {
-    const weeksAgo = Math.floor(daysAgo / 7);
-    return `${fullDate} (${weeksAgo}w ago)`;
-  } else if (daysAgo < 365) {
-    const monthsAgo = Math.floor(daysAgo / 30);
-    return `${fullDate} (${monthsAgo}mo ago)`;
-  } else {
-    const yearsAgo = Math.floor(daysAgo / 365);
-    return `${fullDate} (${yearsAgo}y ago)`;
+  if (metadata.startDate) {
+    return `${formatDate(metadata.startDate, "short")} - Present`;
   }
+
+  return formatDate(metadata.publishedAt);
+}
+
+function getStatusLabel(status: PortfolioMetadata["status"]) {
+  if (!status) {
+    return undefined;
+  }
+
+  return status
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 export async function generateStaticParams() {
@@ -118,21 +123,110 @@ export default async function Portfolio(props: { params: tParams }) {
     notFound();
   }
 
+  const statusLabel = getStatusLabel(post.metadata.status);
+
   return (
     <div>
       <article>
         <section className="blog-text">
           <PageHeader header={`${about.preferredName}'s Portfolio`} />
-          <h1 className="title font-text-2xl max-w-[650px] text-2xl font-semibold tracking-tighter">
-            <MarkdownRenderer content={post.metadata.title} />
-          </h1>
-          <div className="mb-8 mt-2 flex max-w-[650px] items-center justify-between text-sm">
-            <Suspense fallback={<p className="h-5" />}>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                {formatDate(post.metadata.publishedAt)}
-              </p>
-            </Suspense>
+
+          <div className="border-jet bg-eerie-black-1 mb-10 overflow-hidden rounded-2xl border shadow-lg">
+            {post.metadata.banner && (
+              <figure className="relative h-56 w-full overflow-hidden sm:h-72">
+                <Image
+                  src={post.metadata.banner}
+                  alt={post.metadata.alt || `${post.metadata.title} banner`}
+                  fill
+                  priority
+                  sizes="(max-width: 580px) 100vw, (max-width: 1250px) 75vw, 900px"
+                  className="object-cover"
+                />
+                <div className="from-smoky-black via-smoky-black/30 absolute inset-0 bg-gradient-to-t to-transparent" />
+              </figure>
+            )}
+
+            <div className="space-y-5 p-5 sm:p-7">
+              <div className="flex flex-wrap gap-2">
+                {post.metadata.category && (
+                  <span className="border-jet bg-smoky-black text-orange-yellow-crayola rounded-full border px-3 py-1 text-xs font-medium">
+                    {post.metadata.category}
+                  </span>
+                )}
+                {statusLabel && (
+                  <span className="border-jet bg-smoky-black text-light-gray rounded-full border px-3 py-1 text-xs font-medium">
+                    {statusLabel}
+                  </span>
+                )}
+              </div>
+
+              <h1 className="title text-white-2 max-w-[760px] text-3xl font-semibold tracking-tighter sm:text-4xl">
+                <MarkdownRenderer content={post.metadata.title} />
+              </h1>
+
+              <div className="text-light-gray max-w-[760px] text-base font-light leading-7">
+                <MarkdownRenderer content={post.metadata.summary} />
+              </div>
+
+              <div className="text-light-gray-70 grid gap-3 text-sm sm:grid-cols-2">
+                <div>
+                  <span className="text-light-gray-70 block text-xs uppercase tracking-[0.2em]">
+                    Published
+                  </span>
+                  <time dateTime={post.metadata.publishedAt}>
+                    {formatDate(post.metadata.publishedAt)}
+                  </time>
+                </div>
+                <div>
+                  <span className="text-light-gray-70 block text-xs uppercase tracking-[0.2em]">
+                    Timeline
+                  </span>
+                  <span>{getProjectTimeline(post.metadata)}</span>
+                </div>
+              </div>
+
+              {post.metadata.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {post.metadata.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="border-jet text-light-gray-70 rounded-full border px-3 py-1 text-xs"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {(post.metadata.liveUrl || post.metadata.repoUrl) && (
+                <div className="flex flex-wrap gap-3 pt-2">
+                  {post.metadata.liveUrl && (
+                    <a
+                      href={post.metadata.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-border-gradient-onyx text-orange-yellow-crayola inline-flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium shadow-lg transition-transform hover:scale-105 active:scale-95"
+                    >
+                      <LuExternalLink />
+                      View live
+                    </a>
+                  )}
+                  {post.metadata.repoUrl && (
+                    <a
+                      href={post.metadata.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="border-jet text-light-gray hover:text-orange-yellow-crayola inline-flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-medium transition-colors"
+                    >
+                      <LuGithub />
+                      Source code
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
+
           <MarkdownRenderer content={post.content} />
         </section>
       </article>
