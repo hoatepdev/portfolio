@@ -70,6 +70,7 @@ const config: Config = {
     { path: "/resume", label: "Resume" },
     // { path: "/portfolio", label: "Portfolio" },
     { path: "/post", label: "Post" },
+    { path: "/testimonials", label: "Testimonials" },
     { path: "/contact", label: "Contact" },
   ],
   contacts: [
@@ -245,6 +246,46 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
         { name: "Azure", icon: VscAzure },
       ],
     },
+  },
+  testimonials: {
+    title: "Testimonials",
+    description:
+      "A placeholder-ready space for real recommendations from teammates, clients, and collaborators.",
+    items: [
+      {
+        id: "placeholder-product-collaborator",
+        name: "Placeholder Collaborator",
+        role: "Product Partner",
+        company: "Example Company",
+        image: "/images/profile.webp",
+        quote:
+          "Replace this placeholder with a real testimonial from someone who has worked with Hoà. Keep the quote specific, outcome-focused, and approved for public use.",
+        featured: true,
+        isPlaceholder: true,
+      },
+      {
+        id: "placeholder-engineering-lead",
+        name: "Placeholder Engineering Lead",
+        role: "Engineering Lead",
+        company: "Example Team",
+        image: "/images/profile.webp",
+        quote:
+          "Replace this placeholder with feedback about delivery quality, collaboration, technical ownership, or measurable impact from a real project.",
+        featured: true,
+        isPlaceholder: true,
+      },
+      {
+        id: "placeholder-client-stakeholder",
+        name: "Placeholder Stakeholder",
+        role: "Client Stakeholder",
+        company: "Example Project",
+        image: "/images/profile.webp",
+        quote:
+          "Replace this placeholder with a verified client or stakeholder recommendation before presenting this section as production social proof.",
+        featured: true,
+        isPlaceholder: true,
+      },
+    ],
   },
   resumes: {
     educations: {

@@ -516,84 +516,6 @@ main {
   #PORTFOLIO
 \*-----------------------------------*/
 
-.filter-list {
-  display: none;
-}
-
-.filter-select-box {
-  position: relative;
-  margin-bottom: 25px;
-}
-
-.filter-select {
-  background: var(--eerie-black-2);
-  color: var(--light-gray);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid var(--jet);
-  border-radius: 14px;
-  font-size: var(--fs-6);
-  font-weight: var(--fw-300);
-}
-
-.filter-select.active .select-icon {
-  transform: rotate(0.5turn);
-}
-
-.select-list {
-  background: var(--eerie-black-2);
-  position: absolute;
-  top: calc(100% + 6px);
-  width: 100%;
-  padding: 6px;
-  border: 1px solid var(--jet);
-  border-radius: 14px;
-  z-index: 2;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: 0.15s ease-in-out;
-}
-
-.filter-select.active + .select-list {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: all;
-}
-
-.select-item button {
-  background: var(--eerie-black-2);
-  color: var(--light-gray);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-300);
-  text-transform: capitalize;
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 8px;
-}
-
-.select-item button a {
-  background: var(--eerie-black-2);
-  color: var(--light-gray);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-300);
-  text-transform: capitalize;
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 8px;
-}
-
-.select-item button:hover {
-  --eerie-black-2: hsl(240, 2%, 20%);
-}
-
-.select-item button a:hover {
-  --eerie-black-2: hsl(240, 2%, 20%);
-}
-
 .project-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -610,22 +532,21 @@ main {
   animation: scaleUp 0.25s ease forwards;
 }
 
-.project-item > a:hover .project-title {
+.project-card {
+  transition: var(--transition-1);
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-2px);
+}
+
+.project-card:hover .project-title-link,
+.project-card:focus-within .project-title-link {
   color: var(--orange-yellow-crayola);
-  font-weight: bold;
 }
 
-@keyframes scaleUp {
-  0% {
-    transform: scale(0.5);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-.project-item > a {
+.project-image-link {
   width: 100%;
 }
 
@@ -650,7 +571,8 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item > a:hover .project-img::before {
+.project-card:hover .project-img::before,
+.project-card:focus-within .project-img::before {
   background: hsla(0, 0%, 0%, 0.5);
 }
 
@@ -671,7 +593,8 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item > a:hover .project-item-icon-box {
+.project-card:hover .project-item-icon-box,
+.project-card:focus-within .project-item-icon-box {
   --scale: 1;
   opacity: 1;
 }
@@ -684,7 +607,8 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item > a:hover img {
+.project-card:hover .project-img img,
+.project-card:focus-within .project-img img {
   transform: scale(1.1);
 }
 
@@ -1118,47 +1042,6 @@ textarea.form-input::-webkit-resizer {
   * PORTFOLIO
   */
 
-  .filter-select-box {
-    display: none;
-  }
-
-  .filter-list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 25px;
-    padding-left: 5px;
-    margin-bottom: 30px;
-  }
-
-  .filter-item button {
-    color: var(--light-gray);
-    font-size: var(--fs-5);
-    transition: var(--transition-1);
-  }
-
-  .filter-item a {
-    color: var(--light-gray);
-    font-size: var(--fs-5);
-    transition: var(--transition-1);
-  }
-
-  .filter-item button:hover {
-    color: var(--light-gray-70);
-  }
-
-  .filter-item button.active {
-    color: var(--orange-yellow-crayola);
-  }
-
-  .filter-item a:hover {
-    color: var(--light-gray-70);
-  }
-
-  .filter-item a.active {
-    color: var(--orange-yellow-crayola);
-  }
-
   /* portfolio and blog grid */
 
   .project-list,
@@ -1313,6 +1196,28 @@ textarea.form-input::-webkit-resizer {
     min-width: 75%;
     width: 75%;
     margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .project-item.active,
+  .blog-post-item.active,
+  article {
+    animation: none;
+  }
+
+  .project-card:hover,
+  .project-card:focus-within,
+  .project-card:hover .project-img img,
+  .project-card:focus-within .project-img img,
+  .blog-post-item.active > a:hover .blog-banner-box img {
+    transform: none;
   }
 }
 

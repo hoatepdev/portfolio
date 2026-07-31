@@ -8,6 +8,7 @@ import type { Person } from "@/types/json-ld";
 import type { NavigationLink } from "@/types/nav-bar";
 import type { Resume } from "@/types/resume";
 import type { Resumes } from "@/types/resume";
+import type { TestimonialsConfig } from "@/types/testimonial";
 
 import { OpenGraph } from "./open-graph";
 
@@ -40,6 +41,7 @@ export type Config = {
   socialLinks: SocialLink[];
   homeMetaData: Metadata;
   about: About;
+  testimonials: TestimonialsConfig;
   resumes: Resumes;
   jsonLdPerson: Person;
   giscusConfig: GiscusProps;
