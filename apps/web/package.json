@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@next/third-parties": "15.3.3",
+    "@next/third-parties": "16.2.12",
     "@primer/octicons-react": "^19.15.1",
     "@radix-ui/react-slot": "^1.2.2",
     "@vercel/analytics": "^1.5.0",
